@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 15:54:54 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/08 16:19:22 by hanmpark         ###   ########.fr       */
+/*   Created: 2022/11/08 08:56:44 by hanmpark          #+#    #+#             */
+/*   Updated: 2022/11/08 16:57:26 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+int	ft_isalnum(int c)
 {
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+	if (((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+		|| (c >= '0' && c <= '9'))
 		return (1);
 	return (0);
 }
+/*#include <stdio.h>
+int	main(int ac, char **av)
+{
+	(void)ac;
+	while (*av[1])
+		printf("%d\n", ft_isalnum((int)*av[1]++));
+	return (0);
+}*/
