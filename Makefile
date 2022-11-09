@@ -6,18 +6,26 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 16:40:47 by hanmpark          #+#    #+#              #
-#    Updated: 2022/11/08 17:09:12 by hanmpark         ###   ########.fr        #
+#    Updated: 2022/11/09 22:29:48 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SOURCES =	ft_*.c
+SOURCES =	ft_bzero.c \
+			ft_isalnum.c \
+			ft_isalpha.c \
+			ft_isascii.c \
+			ft_isdigit.c \
+			ft_isprint.c \
+			ft_memcpy.c \
+			ft_memset.c \
+			ft_strlen.c
 
 OBJECTS = ${SOURCES:.c=.o}
 
 NAME = libft.a
 
 .c.o:
-		gcc -Wall -Wextra -Werror -c -I ./includes $< -o ${<:.c=.o}
+		gcc -Wall -Wextra -Werror -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJECTS}
 		ar -rcs ${NAME} ${OBJECTS}
