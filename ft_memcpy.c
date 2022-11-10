@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:23:14 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/09 22:45:25 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/10 15:37:49 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	char		*destination;
 	const char	*source;
-	size_t			i;
+	size_t		i;
 
-	if (!(dest)|| !(src))
-		return (NULL);
+	if (!(dest) || !(src))
+		return (0);
 	destination = dest;
 	source = src;
 	i = 0;
@@ -28,7 +28,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 		destination[i] = source[i];
 		i++;
 	}
-	return(dest);
+	return (dest);
 }
 /*#include <stdio.h>
 int	main()

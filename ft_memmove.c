@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 09:37:33 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/10 11:22:05 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/10 16:46:56 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,26 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char		*destination;
-	const char	*source;
+	char		*d;
+	const char	*s;
 	size_t		i;
 
 	if (!(dst) || !(src))
-		return (NULL);
-	destination = dst;
-	source = src;
+		return (0);
+	d = dst;
+	s = src;
 	i = 0;
-	if (destination > source)
+	if (d > s)
 		while (len-- > 0)
-			destination[len] = source[len];
+			d[len] = s[len];
 	else
+	{
 		while (i < len)
 		{
-			destination[i] = source[i];
+			d[i] = s[i];
 			i++;
 		}
+	}
 	return (dst);
 }
 /*#include <stdio.h>

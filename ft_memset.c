@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 09:47:19 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/08 15:20:51 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/10 15:37:08 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memset(void *b, int c, size_t len)
 {
 	char	*str;
-	
+
 	str = b;
 	while (len)
 	{

@@ -6,36 +6,37 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 11:25:40 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/10 12:47:42 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/10 16:16:51 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *restrict dst, const char *restrict src, size_t dstsize)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t	destlen;
-	size_t	sourcelen;
 	size_t	i;
 
-	destlen = strlen(dst);
-	sourcelen = strlen(src);
 	i = 0;
-	if (dstsize - 1 <= destlen)
-		return (sourcelen + dstsize);
-	while (destlen + i < dstsize - 1)
+	if (!dst || !src)
+		return (i);
+	if (dstsize > 0)
 	{
-		dst[destlen + i] = src[i];
-		i++;
+		while (i < dstsize - 1 && src[i])
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
 	}
-	dst[destlen + i] = '\0';
-	return (destlen + sourcelen);
+	while (src[i])
+		i++;
+	return (i);
 }
-#include <stdio.h>
+/*#include <stdio.h>
 int	main()
 {
 	char	str[] = "Hello there";
-	char	buffer[19];
+	char	buffer[19] = "I don't care dude";
 	int		r;
 
 	r = strlcpy(buffer, str, 10);
@@ -43,4 +44,4 @@ int	main()
 	r = ft_strlcpy(buffer, str, 10);
 	printf("Copied '%s' into '%s', length %d\n", str, buffer, r);
 	return (0);
-}
+}*/
