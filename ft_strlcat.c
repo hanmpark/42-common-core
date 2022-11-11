@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:01:57 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/11 11:04:23 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/11 17:00:51 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	ssize;
 	size_t	i;
 
-	if (!dst || !src)
+	if ((!dst || !src) && !size)
 		return (0);
 	if (ft_strlen(dst) >= size)
 		return (ft_strlen(src) + size);

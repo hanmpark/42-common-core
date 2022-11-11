@@ -1,41 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 15:23:14 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/11 16:50:13 by hanmpark         ###   ########.fr       */
+/*   Created: 2022/11/11 17:19:39 by hanmpark          #+#    #+#             */
+/*   Updated: 2022/11/11 17:41:52 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char		*d;
-	const char	*s;
-	size_t		i;
+	unsigned char	*str;
+	unsigned char	*str1;
+	int				i;
 
-	if (!dest && !src)
-		return (0);
-	d = dest;
-	s = src;
+	str = (unsigned char *)s1;
+	str1 = (unsigned char *)s2;
 	i = 0;
-	while (i < n)
+	while (n--)
 	{
-		d[i] = s[i];
+		if (str[i] != str1[i])
+			return ((str[i] - str1[i]));
 		i++;
 	}
-	return (dest);
-}
-/*#include <stdio.h>
-int	main()
-{
-	char	str[50] = "Hello World!";
-	char	str1[50] = "I don't really care";
-
-	printf("%s\n", ft_memcpy(str, str1, strlen(str1) + 1));
 	return (0);
-}*/
+}

@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 16:40:47 by hanmpark          #+#    #+#              #
-#    Updated: 2022/11/11 12:35:46 by hanmpark         ###   ########.fr        #
+#    Updated: 2022/11/11 18:02:22 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,12 @@ SOURCES =	ft_bzero.c \
 			ft_strlcat.c \
 			ft_toupper.c \
 			ft_tolower.c \
-			ft_strchr.c 
+			ft_strchr.c \
+			ft_strrchr.c \
+			ft_strncmp.c \
+			ft_memchr.c \
+			ft_memcmp.c \
+			ft_strnstr.c 
 
 OBJECTS = ${SOURCES:.c=.o}
 

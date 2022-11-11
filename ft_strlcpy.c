@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 11:25:40 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/10 16:16:51 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/11 17:01:46 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t	i;
 
 	i = 0;
-	if (!dst || !src)
+	if ((!dst || !src) && !dstsize)
 		return (i);
 	if (dstsize > 0)
 	{

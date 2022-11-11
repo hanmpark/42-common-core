@@ -1,41 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/08 15:23:14 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/11 16:50:13 by hanmpark         ###   ########.fr       */
+/*   Created: 2022/11/11 14:13:37 by hanmpark          #+#    #+#             */
+/*   Updated: 2022/11/11 15:18:05 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+char	*ft_strrchr(const char *s, int c)
 {
-	char		*d;
-	const char	*s;
-	size_t		i;
+	char	*ptr;
 
-	if (!dest && !src)
-		return (0);
-	d = dest;
-	s = src;
-	i = 0;
-	while (i < n)
+	if (!c)
+		return ((char *)&(s[ft_strlen(s)]));
+	ptr = NULL;
+	while (*s && (unsigned char)c)
 	{
-		d[i] = s[i];
-		i++;
+		if (*s == (unsigned char)c)
+			ptr = ((char *)&(*s));
+		s++;
 	}
-	return (dest);
+	return (ptr);
 }
 /*#include <stdio.h>
 int	main()
 {
-	char	str[50] = "Hello World!";
-	char	str1[50] = "I don't really care";
+	char	str[] = "abbbbbbbb";
+	char	str1[] = "abbbbbbbb";
+	char	*r;
+	char	*o;
+	char	ch = 'a';
 
-	printf("%s\n", ft_memcpy(str, str1, strlen(str1) + 1));
+	r = ft_strrchr(str, ch);
+	o = strrchr(str1, ch);
+	printf("String after |%c| is - |%s|\n", ch, r);
+	printf("String after |%c| is - |%s|\n", ch, o);
 	return (0);
 }*/

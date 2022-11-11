@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 09:37:33 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/10 16:46:56 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/11 16:48:59 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	const char	*s;
 	size_t		i;
 
-	if (!(dst) || !(src))
+	if (!dst && !src)
 		return (0);
 	d = dst;
 	s = src;
