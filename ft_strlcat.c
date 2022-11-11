@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:01:57 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/10 18:14:09 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/11 11:04:23 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,44 +14,47 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	dstsize;
-	size_t	srcsize;
+	size_t	dsize;
+	size_t	ssize;
 	size_t	i;
 
-	if (size == 0 || !dst || !src)
+	if (!dst || !src)
 		return (0);
-	dstsize = ft_strlen(dst);
-	srcsize = ft_strlen(src);
+	if (ft_strlen(dst) >= size)
+		return (ft_strlen(src) + size);
+	dsize = ft_strlen(dst);
+	ssize = ft_strlen(src);
 	i = 0;
-	if (dstsize >= size - 1)
-		return (srcsize + size);
-	else
+	while (src[i] && dsize + i < size - 1)
 	{
-		while (dstsize + i < size - 1)
-		{
-			dst[dstsize + i] = src[i];
-			i++;
-		}
-		dst[dstsize + i] = '\0';
+		dst[dsize + i] = src[i];
+		i++;
 	}
-	return (dstsize + srcsize);
+	dst[dsize + i] = '\0';
+	return (dsize + ssize);
 }
 /*#include <stdio.h>
+#include <unistd.h>
+void	ft_print_result(int n)
+{
+	char c;
+
+	if (n >= 10)
+		ft_print_result(n / 10);
+	c = n % 10 + '0';
+	write (1, &c, 1);
+}
 int	main()
 {
-	char	first[] = "This is ";
-	char	last[] = "a potentially long string";
-	int		r;
-	int		size = 8;
-	char	buffer[size];
+	char	*dest;
 
-	strcpy(buffer, first);
-	r = ft_strlcat(buffer, last, size);
-	printf("%s\n", buffer);
-	printf("Value returned: %d\n", r);
-	if (r > size)
-		printf("String truncated\n");
-	else
-		printf("String was fully copied\n");
+	if (!(dest = (char *)malloc(sizeof(*dest) * 15)))
+		return (0);
+	memset(dest, '\0', 15);
+	memset(dest, 'r', 6);
+	memset(dest, 'r', 14);
+	ft_print_result(ft_strlcat(dest, "lorem ipsum dolor sit amet", 15));
+	write(1, "\n", 1);
+	write(1, dest, 15);
 	return (0);
 }*/
