@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 12:04:09 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/12 13:03:17 by hanmpark         ###   ########.fr       */
+/*   Created: 2022/11/12 15:07:05 by hanmpark          #+#    #+#             */
+/*   Updated: 2022/11/12 15:12:15 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strdup(const char *source)
 {
-	unsigned char	ch;
+	int		i;
+	int		count;
+	char	*dest;
 
-	if (!c)
-		return ((char *)&(s[ft_strlen(s)]));
-	ch = (unsigned char)c;
-	while (*s && ch)
+	i = ft_strlen(source) + 1;
+	count = 0;
+	dest = malloc(i * sizeof(char));
+	if (!dest)
+		return (0);
+	while (source[count])
 	{
-		if (*s == ch)
-			return ((char *)s);
-		s++;
+		dest[count] = source[count];
+		count++;
 	}
-	return (NULL);
+	dest[count] = '\0';
+	return (dest);
 }
-/*#include <stdio.h>
-int	main()
-{
-	char	str[] = "Hello World!";
-	char	*r;
-	char	ch = 0;
-
-	r = strchr(str, ch);
-	printf("String after |%c| is - |%s|\n", ch, r);
-	return (0);
-}*/

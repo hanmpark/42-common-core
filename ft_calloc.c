@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 12:04:09 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/12 13:03:17 by hanmpark         ###   ########.fr       */
+/*   Created: 2022/11/12 13:22:47 by hanmpark          #+#    #+#             */
+/*   Updated: 2022/11/12 15:05:07 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	*ft_calloc(size_t count, size_t size)
 {
-	unsigned char	ch;
+	void	*tb;
 
-	if (!c)
-		return ((char *)&(s[ft_strlen(s)]));
-	ch = (unsigned char)c;
-	while (*s && ch)
-	{
-		if (*s == ch)
-			return ((char *)s);
-		s++;
-	}
-	return (NULL);
+	if (count == SIZE_MAX || size == SIZE_MAX)
+		return (NULL);
+	tb = malloc(count * size);
+	if (!tb)
+		return (NULL);
+	ft_bzero(tb, count * size);
+	return (tb);
 }
 /*#include <stdio.h>
 int	main()
 {
-	char	str[] = "Hello World!";
-	char	*r;
-	char	ch = 0;
+	int size = 8539;
 
-	r = strchr(str, ch);
-	printf("String after |%c| is - |%s|\n", ch, r);
+	void * d1 = ft_calloc(size, sizeof(int));
+	void * d2 = calloc(size, sizeof(int));
+	int lol = memcmp(d1, d2, size * sizeof(int));
+	if (lol)
+		printf("%d, dommage\n", lol);
+	else
+		printf("No problem");
+	free(d1);
+	free(d2);
 	return (0);
 }*/

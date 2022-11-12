@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 12:04:09 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/12 13:03:17 by hanmpark         ###   ########.fr       */
+/*   Created: 2022/11/12 13:00:07 by hanmpark          #+#    #+#             */
+/*   Updated: 2022/11/12 13:18:26 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_atoi(const char *str)
 {
-	unsigned char	ch;
+	int	posorneg;
+	int	digit;
+	int	i;
 
-	if (!c)
-		return ((char *)&(s[ft_strlen(s)]));
-	ch = (unsigned char)c;
-	while (*s && ch)
+	posorneg = 0;
+	digit = 0;
+	i = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '-')
 	{
-		if (*s == ch)
-			return ((char *)s);
-		s++;
+		i++;
+		posorneg = 1;
 	}
-	return (NULL);
+	else if (str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		digit = digit * 10 + (str[i] - 48);
+		i++;
+	}
+	if (posorneg)
+		digit *= -1;
+	return (digit);
 }
-/*#include <stdio.h>
-int	main()
-{
-	char	str[] = "Hello World!";
-	char	*r;
-	char	ch = 0;
-
-	r = strchr(str, ch);
-	printf("String after |%c| is - |%s|\n", ch, r);
-	return (0);
-}*/

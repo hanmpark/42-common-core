@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:40:07 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/08 15:23:01 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/12 14:51:10 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_bzero(void *s, size_t n)
 	str = s;
 	while (n)
 	{
-		*str++ = '\0';
+		*str++ = 0;
 		n--;
 	}
 }
