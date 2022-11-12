@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 17:45:47 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/11 19:54:22 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/12 11:59:26 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,41 +14,34 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int		i;
-	int		f;
+	size_t	i;
 
-	i = 0;
 	if (!(*needle))
 		return ((char *)haystack);
-	if (!len)
-		return (0);
-	if (ft_strlen(needle) > len)
-		return (0);
-	while ((char)haystack[i] && len)
+	i = 0;
+	while (i < len && (char)haystack[i])
 	{
-		f = 0;
-		while ((char)haystack[i] == (char)needle[f] && len--)
+		if (!(ft_strncmp((char *)haystack + i, (char *)needle,
+					ft_strlen(needle))))
 		{
-			i++;
-			f++;
-			if ((char)needle[f] == '\0')
-				return ((char *)haystack + i - f);
+			if (ft_strlen(needle) + i > len)
+				return (NULL);
+			return ((char *)haystack + i);
 		}
-		i -= f;
-		len += f;
-		len--;
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
 /*#include <stdio.h>
 int	main()
 {
-	char haystack[30] = "aaabcabcd";
-	char needle[10] = "aabc";
-	char	*r;
+	char *s1 = "";
+	char *s2 = "coucou";
+	size_t max = -1;
+	char *i1 = strnstr(s1, s2, max);
+	char *i2 = ft_strnstr(s1, s2, max);
 
-	r = ft_strnstr(haystack, "cd", 8);
-	printf("%s\n", r);
+	printf("%s\n", i1);
+	printf("%s\n", i2);
 	return (0);
 }*/
