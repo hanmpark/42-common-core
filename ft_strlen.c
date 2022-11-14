@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 09:44:33 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/10 17:38:24 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/14 15:29:47 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,3 +21,11 @@ size_t	ft_strlen(const char *str)
 		i++;
 	return (i);
 }
+/*#include <stdio.h>
+int	main()
+{
+	char	str[] = "Hello";
+
+	printf("%zu\n", ft_strlen(str));
+	return (0);
+}*/
