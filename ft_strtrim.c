@@ -6,78 +6,72 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 18:23:19 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/14 19:02:50 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/15 19:57:39 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+/*
+	The function allocates with malloc and return a copy of the 's1' string
+	without the characters specified in 'set' at the beginning et at the end
+	of the string.
+	1. Does 's1' exists ?
+	2. What if 'set' doesn't exist ?
+	3. What does the function :
+		- checks if characters of set exist at the beginning or the end of 's1'
+	--> strchr does it
+		- if it is the case, they will not appear in the new str
+		- if not, it will just ignore it
+		- malloc, cpy etc.
+*/
 
-int	ft_check(char s1, char const *set)
+int	found_in_set(char c, char const *set)
 {
 	while (*set)
 	{
-		if (s1 == *set)
+		if (c == *set)
 			return (1);
 		set++;
 	}
 	return (0);
 }
 
-size_t	ft_counttrim(char const *s1, char const *set)
-{
-	size_t	i;
-	size_t	countc;
-
-	i = 0;
-	countc = 0;
-	while (s1[i])
-	{
-		if (i == 0 && ft_check(s1[i], set))
-			countc++;
-		else if (i == ft_strlen(s1) - 1 && ft_check(s1[i], set))
-			countc++;
-		i++;
-	}
-	countc = i - countc;
-	return (countc);
-}
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*dest;
+	char	*dststart;
+	char	*dstend;
 	size_t	dstsize;
 	size_t	i;
 
-	if (!s1)
+	if (!s1 || !set)
 		return (NULL);
-	dstsize = ft_counttrim(s1, set);
-	dest = ft_calloc((dstsize + 1), sizeof(char));
+	if (s1[0] == 0)
+		return (ft_strdup(""));
 	i = 0;
-	if (i == 0 && ft_check(s1[i], set))
+	while (s1[i] && found_in_set(s1[i], set))
 		i++;
-	while (s1[i])
-	{
-		if (i == ft_strlen(s1) - 1 && ft_check(s1[i], set))
-		{
-			dest++;
-			*dest = 0;
-			return (dest);
-		}
-		*dest = s1[i];
+	dststart = (char *)&s1[i];
+	i = 0;
+	while (s1[ft_strlen(s1) - 1 - i]
+		&& found_in_set(s1[ft_strlen(s1) - 1 - i], set))
 		i++;
-		dest++;
-	}
-	return (NULL);
+	dstend = (char *)&s1[ft_strlen(s1) - 1 - i];
+	dstsize = ft_strlen(dststart) - ft_strlen(dstend) + 1;
+	dest = malloc((dstsize + 1) * sizeof(char));
+	if (!dest)
+		return (NULL);
+	ft_strlcpy(dest, dststart, dstsize + 1);
+	return (dest);
 }
-
-#include <stdio.h>
+/*#include <stdio.h>
 int	main()
 {
-	char	s1[] = " Hello World !";
-	char	set[] = " !";
+	char	s1[] = "";
+	char	set[] = "";
 	char	*str;
 
 	str = ft_strtrim(s1, set);
 	printf("%s\n", str);
 	return (0);
-}
+}*/
