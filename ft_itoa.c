@@ -6,65 +6,65 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 10:03:35 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/16 12:14:42 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/16 17:51:35 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*count_malloc(int n, int nbr, int  count)
+int	count_len(int n)
 {
-	char	*a;
+	int		len;
+	long	nbr;
 
-	count = 0;
+	len = 0;
 	nbr = 1;
 	if (n < 0)
 	{
 		n *= -1;
-		count++;
+		len++;
 	}
-	while (n / nbr * 10)
+	if (n == 0)
+		len++;
+	while (n / nbr && n != 0)
 	{
 		nbr *= 10;
-		count++;
+		len++;
 	}
-	a = malloc((count + 1) * sizeof(char));
-	if (!a)
-		return (0);
-	return (a);
+	return (len);
 }
 
 char	*ft_itoa(int n)
 {
 	char	*a;
-	int		nbr;
-	int		count;
 	int		i;
-	
-	if (!(n >= -2147483647 && n <= 2147483647))
+	long	nbr;
+
+	i = count_len(n);
+	nbr = n;
+	a = malloc((i + 1) * sizeof(char));
+	if (!a)
 		return (0);
-	i = 0;
-	a = count_malloc(n, nbr, count);
-	if (n < 0)
+	if (nbr < 0)
 	{
-		a[i] = '-';
-		i++;
-	}
-	while (count-- && nbr)
-	{
-		a[i] = n / nbr + '0';
-		n %= nbr;
-		nbr /= 10;
-		i++;
+		a[0] = '-';
+		nbr *= -1;
 	}
 	a[i] = 0;
+	while (i-- > 0)
+	{
+		if (i == 0 && nbr % 10 == 0 && n < 0)
+			break ;
+		a[i] = nbr % 10 + '0';
+		nbr /= 10;
+	}
 	return (a);
 }
-#include <stdio.h>
+/*#include <stdio.h>
 int	main()
 {
-	int	n = -19999992;
+	int	n = -2147483648;
 
 	printf("%s\n", ft_itoa(n));
 	return (0);
-}
+}*/
