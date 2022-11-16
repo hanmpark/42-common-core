@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 15:31:11 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/14 17:03:59 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/16 12:03:31 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if ((size_t)start > ft_strlen(s) + 1)
 	{
 		dest = ft_calloc(1, sizeof(char));
-		if (!dest)
-			return (NULL);
 		return (dest);
 	}
 	if (len > ft_strlen(s))
