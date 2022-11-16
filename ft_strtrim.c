@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 18:23:19 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/15 19:57:39 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/16 07:34:30 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	i;
 
 	if (!s1 || !set)
-		return (NULL);
+		return (0);
 	if (s1[0] == 0)
 		return (ft_strdup(""));
 	i = 0;
@@ -60,7 +60,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	dstsize = ft_strlen(dststart) - ft_strlen(dstend) + 1;
 	dest = malloc((dstsize + 1) * sizeof(char));
 	if (!dest)
-		return (NULL);
+		return (0);
 	ft_strlcpy(dest, dststart, dstsize + 1);
 	return (dest);
 }

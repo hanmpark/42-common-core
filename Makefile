@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 16:40:47 by hanmpark          #+#    #+#              #
-#    Updated: 2022/11/15 17:33:08 by hanmpark         ###   ########.fr        #
+#    Updated: 2022/11/16 09:09:22 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,8 @@ SOURCES =	ft_bzero.c \
 			ft_strdup.c \
 			ft_substr.c \
 			ft_strjoin.c \
-			ft_strtrim.c 
+			ft_strtrim.c \
+			ft_split.c 
 
 OBJECTS = ${SOURCES:.c=.o}
 
