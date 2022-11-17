@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 13:22:47 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/12 15:05:07 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/17 15:53:42 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*tb;
 
-	if (count == SIZE_MAX || size == SIZE_MAX)
+	if (count == 4294967295 || size == 4294967295)
 		return (NULL);
 	tb = malloc(count * size);
 	if (!tb)

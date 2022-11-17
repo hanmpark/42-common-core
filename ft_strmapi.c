@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 07:41:09 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/17 08:47:38 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/17 14:34:02 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 /*#include <stdio.h>
 int	main()
 {
-	printf("%s\n", ft_strmapi("abcdef", &check_char));
+	printf("%s\n", ft_strmapi("abcdef", check_char));
 	return (0);
 }*/
