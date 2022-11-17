@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 07:37:17 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/17 10:30:25 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/17 14:22:27 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,19 @@ size_t	count_words(char const *str, char c)
 	return (count);
 }
 
-char	*cpy_to_tab(char const *str, int start, int end)
+char	*cpy_to_tab(char const *str, size_t size)
 {
 	char	*tab;
-	int		i;
+	size_t	i;
 
 	i = 0;
-	tab = malloc((end - start + 1) * sizeof(char));
+	tab = malloc((size + 1) * sizeof(char));
 	if (!tab)
 		return (0);
-	while (start < end)
+	while (i < size)
 	{
-		tab[i] = str[start];
+		tab[i] = str[i];
 		i++;
-		start++;
 	}
 	tab[i] = '\0';
 	return (tab);
@@ -53,37 +52,36 @@ char	*cpy_to_tab(char const *str, int start, int end)
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	j;
 	char	**tab;
+	size_t	j;
+	size_t	count;
 
+	if (!s)
+		return (0);
+	count = count_words(s, c);
 	tab = malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!tab)
 		return (0);
-	i = 0;
 	while (*s)
 	{
-		while (*s == c)
-			s++;
 		if (*s && *s != c)
 		{
 			j = 0;
-			while (*s && *s != c)
-			{
+			while (s[j] && s[j] != c)
 				j++;
-				s++;
-			}
-			*tab = cpy_to_tab(s, i, j);
-			tab++;
-			s - j;
+			*(tab++) = cpy_to_tab(s, j);
+			s += j;
 		}
+		else
+			s++;
 	}
-	*tab++ = 0;
-	return (tab - (count_words(s, c) + 1));
+	*tab = 0;
+	return (tab - count);
 }
 /*#include <stdio.h>
 int	main()
 {
-	char	str[] = "What a wonderful day !";
+	char	str[] = "Whatawonderfulday!";
 	char	sep = ' ';
 	char	**nstrs;
 	int		i;
