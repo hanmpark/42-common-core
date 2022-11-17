@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:13:37 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/11 15:18:05 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/18 00:34:08 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ char	*ft_strrchr(const char *s, int c)
 {
 	char	*ptr;
 
-	if (!c)
-		return ((char *)&(s[ft_strlen(s)]));
+	if (!c || c == 1024)
+		return ((char *)s + ft_strlen(s));
 	ptr = NULL;
-	while (*s && (unsigned char)c)
+	while (*s && (char)c)
 	{
-		if (*s == (unsigned char)c)
-			ptr = ((char *)&(*s));
+		if (*s == (char)c)
+			ptr = ((char *)s);
 		s++;
 	}
 	return (ptr);

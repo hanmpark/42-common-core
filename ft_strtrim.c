@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 18:23:19 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/16 07:34:30 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/17 23:43:40 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,54 +24,37 @@
 		- if not, it will just ignore it
 		- malloc, cpy etc.
 */
-
-int	found_in_set(char c, char const *set)
-{
-	while (*set)
-	{
-		if (c == *set)
-			return (1);
-		set++;
-	}
-	return (0);
-}
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*dest;
-	char	*dststart;
-	char	*dstend;
 	size_t	dstsize;
 	size_t	i;
+	size_t	len;
 
 	if (!s1 || !set)
 		return (0);
-	if (s1[0] == 0)
+	while (*s1 && ft_strchr(set, *s1))
+		s1++;
+	if (*s1 == 0)
 		return (ft_strdup(""));
 	i = 0;
-	while (s1[i] && found_in_set(s1[i], set))
+	len = ft_strlen(s1);
+	while (s1[len - 1 - i] && ft_strrchr(set, s1[len - 1 - i]))
 		i++;
-	dststart = (char *)&s1[i];
-	i = 0;
-	while (s1[ft_strlen(s1) - 1 - i]
-		&& found_in_set(s1[ft_strlen(s1) - 1 - i], set))
-		i++;
-	dstend = (char *)&s1[ft_strlen(s1) - 1 - i];
-	dstsize = ft_strlen(dststart) - ft_strlen(dstend) + 1;
+	dstsize = len - i;
 	dest = malloc((dstsize + 1) * sizeof(char));
 	if (!dest)
-		return (0);
-	ft_strlcpy(dest, dststart, dstsize + 1);
+		return (NULL);
+	ft_strlcpy(dest, s1, dstsize + 1);
 	return (dest);
 }
+
 /*#include <stdio.h>
 int	main()
 {
-	char	s1[] = "";
-	char	set[] = "";
-	char	*str;
+	char	s1[] = "\t   \n\n\n  \n\n\t    Hello \t  Please\n Trim me !\t\t\t\n";
+	char	set[] = " \n\t";
 
-	str = ft_strtrim(s1, set);
-	printf("%s\n", str);
+	printf("%s\n", ft_strtrim(s1, set));
 	return (0);
 }*/
