@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 12:04:09 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/16 08:20:10 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/17 10:30:12 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ char	*ft_strchr(const char *s, int c)
 /*#include <stdio.h>
 int	main()
 {
-	char	str[] = "Hello World!";
+	char	str[] = "Hello WWorld!";
 	char	*r;
-	char	ch = 0;
-
-	r = strchr(str, ch);
+	char	ch = 'W';
+	
+	r = ft_strchr(str, ch);
 	printf("String after |%c| is - |%s|\n", ch, r);
 	return (0);
 }*/

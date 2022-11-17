@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 07:37:17 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/16 13:00:17 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/17 10:30:25 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,31 +53,32 @@ char	*cpy_to_tab(char const *str, int start, int end)
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	i;
 	size_t	j;
-	size_t	k;
 	char	**tab;
 
 	tab = malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!tab)
 		return (0);
 	i = 0;
-	k = -1;
-	while (s[i])
+	while (*s)
 	{
-		while (s[i] == c)
-			i++;
-		if (s[i] && s[i] != c)
+		while (*s == c)
+			s++;
+		if (*s && *s != c)
 		{
-			j = i;
-			while (s[j] && s[j] != c)
+			j = 0;
+			while (*s && *s != c)
+			{
 				j++;
-			tab[++k] = cpy_to_tab(s, i, j);
-			i = j;
+				s++;
+			}
+			*tab = cpy_to_tab(s, i, j);
+			tab++;
+			s - j;
 		}
 	}
-	tab[++k] = 0;
-	return (tab);
+	*tab++ = 0;
+	return (tab - (count_words(s, c) + 1));
 }
 /*#include <stdio.h>
 int	main()
