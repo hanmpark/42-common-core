@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 16:40:47 by hanmpark          #+#    #+#              #
-#    Updated: 2022/11/18 20:33:40 by hanmpark         ###   ########.fr        #
+#    Updated: 2022/11/18 21:11:55 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,12 @@ SOURCES 	=	ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 				ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c \
 				ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
 				ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-				ft_lstclear_bonus.c 
 
 OBJS		= ${SOURCES:.c=.o}
 
 BONUS 		=	ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
-				ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c 
+				ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
+				ft_lstclear_bonus.c ft_lstiter_bonus.c 
 
 BONUS_OBJS	= ${BONUS:.c=.o}
 
