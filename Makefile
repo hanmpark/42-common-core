@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 16:40:47 by hanmpark          #+#    #+#              #
-#    Updated: 2022/11/18 17:31:22 by hanmpark         ###   ########.fr        #
+#    Updated: 2022/11/18 18:02:43 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SOURCES 	=	ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 OBJS		= ${SOURCES:.c=.o}
 
 BONUS 		=	ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
-				ft_lstlast_bonus.c 
+				ft_lstlast_bonus.c ft_lstadd_back_bonus.c 
 
 BONUS_OBJS	= ${BONUS:.c=.o}
 
