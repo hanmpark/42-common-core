@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 15:31:11 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/16 12:03:31 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/18 00:59:08 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
-	if ((size_t)start > ft_strlen(s) + 1)
-	{
-		dest = ft_calloc(1, sizeof(char));
-		return (dest);
-	}
+	if (*s == 0 || (size_t)start > ft_strlen(s) + 1)
+		return (ft_strdup(""));
 	if (len > ft_strlen(s))
 		dest = ft_calloc(ft_strlen(s) + 1, sizeof(char));
 	else
@@ -31,9 +28,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!dest)
 		return (NULL);
 	i = 0;
-	while (i < len && i < ft_strlen(s))
+	while (i + start < ft_strlen(s) && s[start + i] && i < len)
 	{
-		dest[i] = s[(size_t)start + i];
+		dest[i] = s[start + i];
 		i++;
 	}
 	return (dest);
@@ -41,10 +38,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 /*#include <stdio.h>
 int	main()
 {
-	char	str[] = "lorem ipsum dolor sit amet";
+	char	str[] = "hola";
 	char	*strsub;
 
-	strsub = ft_substr(str, 400, 20);
+	strsub = ft_substr(str, 2, 30);
 	printf("%s\n", strsub);
 	return (0);
 }*/
