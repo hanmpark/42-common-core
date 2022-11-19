@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 21:21:16 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/18 21:55:06 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/19 13:40:25 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*newlst;
-	size_t	i;
+	t_list	*next;
 
 	if (lst && f)
 	{
-		i = 0;
 		newlst = ft_lstnew(f(lst->content));
 		if (lst->next)
 		{
-			
+			next = ;
+			if (f())
 		}
 	}
 	
