@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 20:32:18 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/18 21:06:55 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/19 20:30:42 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	t_list	*theone;
 	t_list	*next;
 
-	if (lst)
+	if (lst && del)
 	{
 		theone = *lst;
-		while (del && theone)
+		while (theone)
 		{
 			next = theone->next;
 			ft_lstdelone(theone, del);
