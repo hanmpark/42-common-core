@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 07:37:17 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/17 14:22:27 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/20 23:04:25 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ char	**ft_split(char const *s, char c)
 /*#include <stdio.h>
 int	main()
 {
-	char	str[] = "Whatawonderfulday!";
+	char	str[] = "What a wonderful day !";
 	char	sep = ' ';
 	char	**nstrs;
 	int		i;
