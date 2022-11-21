@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 15:36:26 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/11 17:42:06 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/21 15:26:46 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (n--)
 	{
 		if (str[i] == ch)
-			return ((char *)&(*s) + i);
+			return ((char *)s + i);
 		i++;
 	}
 	return (0);
