@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 15:31:11 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/18 00:59:08 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/21 10:25:06 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,21 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*dest;
-	size_t	i;
+	int		i;
+	int		gap;
 
 	if (!s)
 		return (NULL);
-	if (*s == 0 || (size_t)start > ft_strlen(s) + 1)
+	if (*s == 0 || start > ft_strlen(s))
 		return (ft_strdup(""));
-	if (len > ft_strlen(s))
-		dest = ft_calloc(ft_strlen(s) + 1, sizeof(char));
-	else
-		dest = ft_calloc(len + 1, sizeof(char));
+	gap = ft_strlen(s) - start;
+	while ((size_t)gap > len)
+		gap--;
+	dest = ft_calloc(gap + 1, sizeof(char));
 	if (!dest)
 		return (NULL);
 	i = 0;
-	while (i + start < ft_strlen(s) && s[start + i] && i < len)
+	while (i + start < ft_strlen(s) && s[start + i] && i < gap)
 	{
 		dest[i] = s[start + i];
 		i++;
@@ -41,7 +42,7 @@ int	main()
 	char	str[] = "hola";
 	char	*strsub;
 
-	strsub = ft_substr(str, 2, 30);
+	strsub = ft_substr(str, 2, 3);
 	printf("%s\n", strsub);
 	return (0);
 }*/
