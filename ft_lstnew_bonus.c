@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 13:06:04 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/18 14:35:05 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/21 12:35:21 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list	*data;
+	t_list	*lst;
 
-	data = malloc(sizeof(t_list));
-	if (!data)
+	lst = malloc(sizeof(t_list));
+	if (!lst)
 		return (NULL);
-	data->content = content;
-	data->next = 0;
-	return (data);
+	lst->content = content;
+	lst->next = 0;
+	return (lst);
 }

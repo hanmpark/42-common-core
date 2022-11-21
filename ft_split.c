@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 07:37:17 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/20 23:04:25 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/21 10:46:26 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (0);
 	count = count_words(s, c);
-	tab = malloc((count_words(s, c) + 1) * sizeof(char *));
+	tab = malloc((count + 1) * sizeof(char *));
 	if (!tab)
 		return (0);
 	while (*s)
@@ -81,8 +81,8 @@ char	**ft_split(char const *s, char c)
 /*#include <stdio.h>
 int	main()
 {
-	char	str[] = "What a wonderful day !";
-	char	sep = ' ';
+	char	str[] = "xxxxxxxxhello!";
+	char	sep = '\0';
 	char	**nstrs;
 	int		i;
 
