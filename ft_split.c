@@ -6,13 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 07:37:17 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/21 10:46:26 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/23 10:38:41 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	count_words(char const *str, char c)
+static size_t	count_words(char const *str, char c)
 {
 	size_t	count;
 
@@ -32,7 +32,7 @@ size_t	count_words(char const *str, char c)
 	return (count);
 }
 
-char	*cpy_to_tab(char const *str, size_t size)
+static char	*cpy_to_tab(char const *str, size_t size)
 {
 	char	*tab;
 	size_t	i;

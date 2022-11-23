@@ -6,13 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 10:03:35 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/16 17:51:35 by hanmpark         ###   ########.fr       */
+/*   Updated: 2022/11/23 10:38:12 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_len(int n)
+static int	count_len(int n)
 {
 	int		len;
 	long	nbr;
