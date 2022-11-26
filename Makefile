@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 16:40:47 by hanmpark          #+#    #+#              #
-#    Updated: 2022/11/26 17:40:53 by hanmpark         ###   ########.fr        #
+#    Updated: 2022/11/26 18:12:10 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ else
 OBJ			= ${OBJS}
 endif
 
-%.o:%.c		${H_FILE} Makefile
+%.o:%.c		${H_FILE}
 				${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 NAME		= libft.a
