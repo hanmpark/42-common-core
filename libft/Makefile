@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 16:40:47 by hanmpark          #+#    #+#              #
-#    Updated: 2023/02/28 21:29:31 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/01 15:04:58 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,8 +59,6 @@ CFLAGS = -Wall -Wextra -Werror
 
 %.o:%.c ${H_FILE}
 	@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
-	@echo "[${notdir $^}] to [${notdir $@}]"
-	@echo "${UP}${UP}"
 
 # <<<<<<<<<< rules >>>>>>>>>> #
 all:	${NAME}
