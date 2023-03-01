@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 21:10:12 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/02/28 14:34:50 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/03/01 17:36:53 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/03/01 17:45:09 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "../../inc/ft_printf.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_error(const char *message)
 {
-	if (lst && f)
-	{
-		while (lst)
-		{
-			f(lst->content);
-			lst = lst->next;
-		}
-	}
+	ft_printf("%s%s%s%s", BOLD, RED, message, DEF);
+	exit(1);
 }

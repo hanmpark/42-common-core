@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:33:23 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/01/05 11:25:17 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:40:23 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 # include <stdarg.h>
 # define TRUE 1
 # define FALSE 0
+
+# define BOLD "\033[1m"
+# define DEF "\033[0m"
+
+# define RED "\033[31m"
 
 typedef struct s_parseflags
 {
