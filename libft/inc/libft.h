@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:29:04 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/01 17:51:39 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/02 18:39:31 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);
+void	ft_freemap(char **map);
 
 /* CHAR MANIPULATION */
 int		ft_toupper(int character);
@@ -61,7 +62,8 @@ char	**ft_mapdup(char **map);
 
 /* CONVERSION */
 int		ft_atoi(const char *str);
-char	*ft_itoa(int n);
+char	*ft_itoa(long n);
+long	ft_atol(const char *str);
 
 /* PRINT TO STDOUT */
 void	ft_putchar_fd(char c, int fd);
@@ -75,8 +77,8 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
-void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstdelone(t_list *lst, void (*del)(int));
+void	ft_lstclear(t_list **lst, void (*del)(int));
 
 /* ERROR */
 void	ft_error(const char *message);

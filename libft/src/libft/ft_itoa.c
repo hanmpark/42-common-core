@@ -6,13 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 10:03:35 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/02/28 14:33:58 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/02 18:47:51 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-static int	count_len(int n)
+static int	count_len(long n)
 {
 	int		len;
 	long	nbr;
@@ -34,7 +34,7 @@ static int	count_len(int n)
 	return (len);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(long n)
 {
 	char	*a;
 	int		i;

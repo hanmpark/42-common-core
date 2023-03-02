@@ -6,11 +6,12 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 14:16:15 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/02/28 14:43:07 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/02 15:52:01 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/ft_printf.h"
+#include "../../inc/libft.h"
 
 void	print_x(t_parseflags *tab)
 {

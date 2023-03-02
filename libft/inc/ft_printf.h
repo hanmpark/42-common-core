@@ -6,13 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:33:23 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/01 17:40:23 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/02 15:51:32 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# include "libft.h"
+
 # include <stdarg.h>
 # define TRUE 1
 # define FALSE 0

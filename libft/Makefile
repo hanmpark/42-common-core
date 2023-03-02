@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 16:40:47 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/01 17:51:31 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/02 16:04:18 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,8 @@ SRCS_LIBFT =	ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 					ft_putendl_fd.c ft_putnbr_fd.c ft_lstnew.c \
 					ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 					ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c \
-					ft_filelen.c ft_mapdup.c ft_error.c
+					ft_filelen.c ft_mapdup.c ft_error.c ft_atol.c \
+					ft_freemap.c
 
 SRCS_FTPRINTF =	def_flags.c format_hexa.c ft_printf.c print_basic.c \
 					print_hexa.c specifier_filter.c treat_charflags.c \
@@ -64,19 +65,13 @@ CFLAGS = -Wall -Wextra -Werror
 all:	${NAME}
 
 ${NAME}:	${OBJS}
-	@echo "\n${CUR}${GRAY}\t- Compiling...${DEF}"
-	@ar rc ${NAME} ${OBJS}
-	@ranlib ${NAME}
-	@echo "${CUR}${BOLD}${GREEN}   ${UL}- Compiled -${DEF}\n"
+	@ar rcs ${NAME} ${OBJS}
 
 clean:
-	@echo "\n${CUR}${GRAY}\t- Removing object files...${DEF}"
 	@rm -f ${OBJS}
 
 fclean:	clean
-	@echo "${CUR}${GRAY}\t- Removing ${BOLD}${NAME}...${DEF}\n"
 	@rm -f ${NAME}
-	@echo "${CUR}${BOLD}${GREEN}   ${UL}- Cleaned -${DEF}\n"
 
 re:	fclean all
 
