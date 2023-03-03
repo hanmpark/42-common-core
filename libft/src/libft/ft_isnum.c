@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_isnum.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 13:06:04 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/03 10:17:29 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/03/03 10:21:35 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/03/03 10:28:00 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-t_list	*ft_lstnew(int number)
+int	ft_isnum(char *str)
 {
-	t_list	*lst;
+	int	i;
 
-	lst = malloc(sizeof(t_list));
-	if (!lst)
-		return (NULL);
-	lst->number = number;
-	lst->index = 0;
-	lst->next = 0;
-	return (lst);
+	i = 0;
+	if (str[i] == '-')
+		i++;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }
