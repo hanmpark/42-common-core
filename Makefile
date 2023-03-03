@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 14:42:42 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/02 16:00:55 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/03 09:31:47 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ GREEN = \033[32m
 GRAY = \033[2;37m
 MAGENTA = \033[35m
 
-SRCS = ${addprefix ${SRCS_PATH}, main.c}
+SRCS = ${addprefix ${SRCS_PATH}, main.c \
+									init_list_a.c}
 
 OBJS = ${SRCS:.c=.o}
 
