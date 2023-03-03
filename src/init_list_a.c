@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 09:29:38 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/03 11:26:37 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/03 16:42:29 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,40 +41,32 @@ static void	set_list(t_data *data, char **int_str)
 	}
 }
 
-static void	put_index_to_list(int index, int min, t_list *list_a)
-{
-	t_list	*current_list;
-
-	current_list = list_a;
-	while (current_list)
-	{
-		if (current_list->number == min)
-		{
-			current_list->index = index;
-			break ;
-		}
-		current_list = current_list->next;
-	}
-}
-
-static void	set_index(int length, t_list *list_a)
+static int	look_min(t_list **list_a)
 {
 	t_list	*current_list;
 	int		min;
+
+	current_list = *list_a;
+	min = current_list->number;
+	while (current_list)
+	{
+		if (current_list->number < min)
+			min = current_list->number;
+		current_list = current_list->next;
+	}
+	return (min);
+}
+
+static void	set_index(int length, t_list **list_a)
+{
+	int		min;
 	int		index;
 
-	min = current_list->number;
-	index = 0;
+	index = 1;
+	min = look_min(list_a);
 	while (index < length)
 	{
-		current_list = list_a;
-		while (current_list)
-		{
-			if (current_list->number < min)
-				min = current_list->number;
-			current_list = current_list->next;
-		}
-		put_index_to_list(index, min, list_a);
+		min = 
 		index++;
 	}
 }
