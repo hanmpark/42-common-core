@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 14:42:42 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/03 09:31:47 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/04 14:02:04 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,13 +25,18 @@ GRAY = \033[2;37m
 MAGENTA = \033[35m
 
 SRCS = ${addprefix ${SRCS_PATH}, main.c \
-									init_list_a.c}
+									init_list_a.c \
+									set_index.c}
 
 OBJS = ${SRCS:.c=.o}
 
 
 CC = gcc
-FLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
+
+ifdef DEBUG
+CFLAGS += -fsanitize=address -g3
+endif
 
 %.o:%.c ${HEADER_PATH}
 	@${CC} ${CFLAGS} -c -I ./${HEADER_PATH} $< -o ${<:.c=.o}
@@ -41,9 +46,12 @@ all: ${NAME}
 ${NAME}: ${OBJS}
 	@echo "\n${CUR}${GRAY}\t- Compiling...${DEF}"
 	@${MAKE} -C ${LIBFT_PATH}
-	@${CC} ${FLAGS} ${LIBFT_PATH}/libft.a ${OBJS} -o ${NAME}
+	@${CC} ${CFLAGS} ${LIBFT_PATH}/libft.a ${OBJS} -o ${NAME}
 	@echo "${CUR}${GRAY}\t- Created ${BOLD}${NAME}${DEF}"
 	@echo "   ${CUR}${BOLD}${UL}${GREEN}- Compiled -${DEF}\n"
+
+debug:
+	@${MAKE} DEBUG=1
 
 clean:
 	@echo "\n${CUR}${GRAY}\t- Removing object files${DEF}"	

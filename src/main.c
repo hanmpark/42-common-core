@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:02:01 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/03 09:31:24 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/04 14:11:55 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	init_list_a(&data, argc, argv);
+	init_list_a(&data, argv);
 	print_list(data.a); // checking if the parsing went well
 	// system("leaks push_swap");
 	return (0);

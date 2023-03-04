@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 09:29:38 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/03 16:42:29 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/04 14:55:19 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ static void	set_list(t_data *data, char **int_str)
 	{
 		if (check_int(int_str[i]) == FALSE)
 		{
-			ft_freemap(int_str);
-			ft_error("Error\nParameter(s) is/are not int\n");
+			ft_freemap(int_str + i);
+			ft_lstclear(&data->a);
+			// system("leaks push_swap");
+			ft_error(ERR_INT);
 		}
 		if (data->a == NULL)
 			data->a = ft_lstnew(ft_atoi(int_str[i]));
@@ -41,39 +43,44 @@ static void	set_list(t_data *data, char **int_str)
 	}
 }
 
-static int	look_min(t_list **list_a)
+static void	find_duplicate(t_list *list_a, int number)
 {
 	t_list	*current_list;
-	int		min;
+	int		check;
 
-	current_list = *list_a;
-	min = current_list->number;
+	current_list = list_a;
+	check = 0;
 	while (current_list)
 	{
-		if (current_list->number < min)
-			min = current_list->number;
+		if (current_list->number == number && !check)
+			check = 1;
+		else if (current_list->number == number && check)
+		{
+			ft_lstclear(&list_a);
+			// system("leaks push_swap");
+			ft_error(ERR_DUP);
+		}
 		current_list = current_list->next;
 	}
-	return (min);
 }
 
-static void	set_index(int length, t_list **list_a)
+static void	check_duplicate(t_list *list_a)
 {
-	int		min;
-	int		index;
+	t_list	*current_list;
+	int		number;
 
-	index = 1;
-	min = look_min(list_a);
-	while (index < length)
+	current_list = list_a;
+	number = 0;
+	while (current_list != NULL)
 	{
-		min = 
-		index++;
+		number = current_list->number;
+		find_duplicate(list_a, number);
+		current_list = current_list->next;
 	}
 }
 
-void	init_list_a(t_data *data, int length, char **integers)
+void	init_list_a(t_data *data, char **integers)
 {
-	long	number;
 	char	**int_str;
 	int		i;
 
@@ -85,5 +92,6 @@ void	init_list_a(t_data *data, int length, char **integers)
 		free(int_str);
 		i++;
 	}
-	set_index(length - 1, &data->a);
+	check_duplicate(data->a);
+	set_index(ft_lstsize(data->a), data->a);
 }
