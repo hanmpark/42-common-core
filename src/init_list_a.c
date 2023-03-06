@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 09:29:38 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/04 14:55:19 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/06 14:29:24 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	set_list(t_data *data, char **int_str)
 	{
 		if (check_int(int_str[i]) == FALSE)
 		{
-			ft_freemap(int_str + i);
+			ft_freemap(int_str, i);
 			ft_lstclear(&data->a);
 			// system("leaks push_swap");
 			ft_error(ERR_INT);

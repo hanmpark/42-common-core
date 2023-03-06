@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_freemap.c                                       :+:      :+:    :+:   */
+/*   sort_list.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 15:33:59 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/06 14:27:56 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/03/06 14:31:37 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/03/06 18:38:27 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "../inc/push_swap.h"
 
-void	ft_freemap(char **map, int i)
+void	sort_list(t_data *data)
 {
-	if (map)
-	{
-		while (map[i])
-		{
-			free(map[i]);
-			i++;
-		}
-		free(map);
-	}
+	reverse_rotate_a(&data->a);
 }

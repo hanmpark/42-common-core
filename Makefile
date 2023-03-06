@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 14:42:42 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/04 14:02:04 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/06 16:22:29 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,12 @@ MAGENTA = \033[35m
 
 SRCS = ${addprefix ${SRCS_PATH}, main.c \
 									init_list_a.c \
-									set_index.c}
+									set_index.c \
+									push_lists.c \
+									swap_lists.c \
+									rotate_lists.c \
+									reverse_rotate_lists.c \
+									sort_list.c}
 
 OBJS = ${SRCS:.c=.o}
 
