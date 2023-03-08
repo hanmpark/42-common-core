@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:54:55 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/06 19:09:35 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/08 09:55:27 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ void	reverse_rotate_a(t_list **list_a)
 	t_list	*current;
 
 	last = ft_lstlast(*list_a);
-	new = ft_lstnew(last->number);
-	new->index = last->index;
+	new = ft_lstnew(last->number, last->index);
 	ft_lstadd_front(list_a, new);
 	current = *list_a;
 	while (current->next->next)
@@ -36,8 +35,7 @@ void	reverse_rotate_b(t_list **list_b)
 	t_list	*current;
 
 	last = ft_lstlast(*list_b);
-	new = ft_lstnew(last->number);
-	new->index = last->index;
+	new = ft_lstnew(last->number, last->index);
 	ft_lstadd_front(list_b, new);
 	current = *list_b;
 	while (current->next->next)

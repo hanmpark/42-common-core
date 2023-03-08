@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:02:01 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/06 16:23:33 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/08 09:44:49 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,11 @@ int	main(int argc, char **argv)
 	init_list_a(&data, argv);
 	print_list(data.a); // checking if the parsing went well
 	sort_list(&data);
-	ft_printf("AFTER SORT\n");
+	ft_printf("\nAFTER SORT\n");
+	ft_printf("LIST A\n");
 	print_list(data.a);
+	ft_printf("LIST B\n");
+	print_list(data.b);
 	// system("leaks push_swap");
 	return (0);
 }

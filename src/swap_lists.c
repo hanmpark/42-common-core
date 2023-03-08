@@ -6,31 +6,37 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:34:20 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/06 14:54:09 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/08 10:17:09 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	swap_a(t_list *list_a)
+void	swap_a(t_list **list_a)
 {
-	t_list	*tmp;
+	t_list	*current;
+	t_list	*next;
 
-	tmp = list_a->next;
-	list_a->next = list_a;
-	list_a = tmp;
+	current = *list_a;
+	next = current->next;
+	current->next = next->next;
+	next->next = current;
+	*list_a = next;
 }
 
-void	swap_b(t_list *list_b)
+void	swap_b(t_list **list_b)
 {
-	t_list	*tmp;
+	t_list	*current;
+	t_list	*next;
 
-	tmp = list_b->next;
-	list_b->next = list_b;
-	list_b = tmp;
+	current = *list_b;
+	next = current->next;
+	current->next = next->next;
+	next->next = current;
+	*list_b = next;
 }
 
-void	swap_both(t_list *list_a, t_list *list_b)
+void	swap_both(t_list **list_a, t_list **list_b)
 {
 	swap_a(list_a);
 	swap_b(list_b);

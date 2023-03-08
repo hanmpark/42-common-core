@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:45:48 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/06 18:23:26 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/08 10:08:07 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ void	init_list_a(t_data *data, char **integers);
 void	set_index(int length, t_list *list_a);
 
 void	sort_list(t_data *data);
-void	push_a(t_list *list_b, t_list *list_a);
-void	push_b(t_list *list_a, t_list *list_b);
-void	swap_a(t_list *list_a);
-void	swap_b(t_list *list_b);
-void	swap_both(t_list *list_a, t_list *list_b);
+void	push_a(t_list **list_b, t_list **list_a);
+void	push_b(t_list **list_a, t_list **list_b);
+void	swap_a(t_list **list_a);
+void	swap_b(t_list **list_b);
+void	swap_both(t_list **list_a, t_list **list_b);
 void	rotate_a(t_list **list_a);
 void	rotate_b(t_list **list_b);
 void	rotate_both(t_list **list_a, t_list **list_b);

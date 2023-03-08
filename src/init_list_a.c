@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 09:29:38 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/06 14:29:24 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/08 09:54:06 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ static void	set_list(t_data *data, char **int_str)
 			ft_error(ERR_INT);
 		}
 		if (data->a == NULL)
-			data->a = ft_lstnew(ft_atoi(int_str[i]));
+			data->a = ft_lstnew(ft_atoi(int_str[i]), 0);
 		else
-			ft_lstadd_back(&data->a, ft_lstnew(ft_atoi(int_str[i])));
+			ft_lstadd_back(&data->a, ft_lstnew(ft_atoi(int_str[i]), 0));
 		free(int_str[i]);
 		i++;
 	}

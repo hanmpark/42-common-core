@@ -6,13 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 13:06:04 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/03 10:17:29 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/08 09:52:59 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-t_list	*ft_lstnew(int number)
+t_list	*ft_lstnew(int number, int index)
 {
 	t_list	*lst;
 
@@ -20,7 +20,7 @@ t_list	*ft_lstnew(int number)
 	if (!lst)
 		return (NULL);
 	lst->number = number;
-	lst->index = 0;
+	lst->index = index;
 	lst->next = 0;
 	return (lst);
 }
