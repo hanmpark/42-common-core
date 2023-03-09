@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:45:48 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/08 10:08:07 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/09 15:45:21 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 
 # define ERR_INT "Error\nParameter(s) is/are not int\n"
 # define ERR_DUP "Error\nThere is/are duplicate(s) in parameter(s)\n"
+
+# define UPPER_HALF 1
+# define BOTTOM_HALF 0
 
 typedef struct s_data
 {

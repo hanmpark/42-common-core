@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 14:42:42 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/06 16:22:29 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/09 16:35:35 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,17 +24,19 @@ GREEN = \033[32m
 GRAY = \033[2;37m
 MAGENTA = \033[35m
 
-SRCS = ${addprefix ${SRCS_PATH}, main.c \
-									init_list_a.c \
-									set_index.c \
-									push_lists.c \
-									swap_lists.c \
-									rotate_lists.c \
-									reverse_rotate_lists.c \
-									sort_list.c}
+PARSING_PATH = ${SRCS_PATH}/parsing/
+PARSING_SRCS = ${addprefix ${PARSING_PATH}, init_list_a.c \
+											set_index.c}
+
+INSTRUCTIONS_PATH = ${SRCS_PATH}/instructions/
+INSTRUCTIONS_SRCS = ${addprefix ${INSTRUCTIONS_PATH}, push_lists.c \
+														reverse_rotate_lists.c \
+														rotate_lists.c \
+														swap_lists.c}
+
+SRCS = ${PARSING_SRCS} ${INSTRUCTIONS_SRCS} ${SRCS_PATH}/main.c ${SRCS_PATH}/sort_list.c
 
 OBJS = ${SRCS:.c=.o}
-
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
