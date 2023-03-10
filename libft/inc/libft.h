@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:29:04 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/08 09:53:08 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/10 14:38:18 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct s_list
 {
 	int				number;
 	int				index;
+	int				moves;
 	struct s_list	*next;
 }	t_list;
 

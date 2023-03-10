@@ -6,17 +6,19 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:41:49 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/10 10:54:30 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/10 11:45:30 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_a(t_list **list_b, t_list **list_a)
+void	push_a(t_list **list_b, t_list **list_a, int print)
 {
 	t_list	*current;
 	t_list	*next;
 
+	if (print)
+		ft_printf("pa\n");
 	current = *list_b;
 	next = current->next;
 	if (!*list_a)
@@ -27,11 +29,13 @@ void	push_a(t_list **list_b, t_list **list_a)
 	*list_b = next;
 }
 
-void	push_b(t_list **list_a, t_list **list_b)
+void	push_b(t_list **list_a, t_list **list_b, int print)
 {
 	t_list	*current;
 	t_list	*next;
 
+	if (print)
+		ft_printf("pb\n");
 	current = *list_a;
 	next = current->next;
 	if (!*list_b)

@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:45:48 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/09 15:45:21 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/10 13:25:08 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,26 +25,30 @@
 # define UPPER_HALF 1
 # define BOTTOM_HALF 0
 
+# define PRINT 1
+# define NO_PRINT 0
+
 typedef struct s_data
 {
 	t_list	*a;
 	t_list	*b;
+	int		max_value;
 }	t_data;
 
 void	init_list_a(t_data *data, char **integers);
 void	set_index(int length, t_list *list_a);
 
-void	sort_list(t_data *data);
-void	push_a(t_list **list_b, t_list **list_a);
-void	push_b(t_list **list_a, t_list **list_b);
-void	swap_a(t_list **list_a);
-void	swap_b(t_list **list_b);
-void	swap_both(t_list **list_a, t_list **list_b);
-void	rotate_a(t_list **list_a);
-void	rotate_b(t_list **list_b);
-void	rotate_both(t_list **list_a, t_list **list_b);
-void	reverse_rotate_a(t_list **list_a);
-void	reverse_rotate_b(t_list **list_b);
-void	reverse_rotate_both(t_list **list_a, t_list **list_b);
+void	push_to_b(int max_value, t_list **list_a, t_list **list_b);
+void	push_a(t_list **list_b, t_list **list_a, int print);
+void	push_b(t_list **list_a, t_list **list_b, int print);
+void	swap_a(t_list **list_a, int print);
+void	swap_b(t_list **list_b, int print);
+void	swap_both(t_list **list_a, t_list **list_b, int print);
+void	rotate_a(t_list **list_a, int print);
+void	rotate_b(t_list **list_b, int print);
+void	rotate_both(t_list **list_a, t_list **list_b, int print);
+void	reverse_rotate_a(t_list **list_a, int print);
+void	reverse_rotate_b(t_list **list_b, int print);
+void	reverse_rotate_both(t_list **list_a, t_list **list_b, int print);
 
 #endif

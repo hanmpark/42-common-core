@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 14:42:42 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/09 16:35:35 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/10 11:53:16 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,11 @@ INSTRUCTIONS_SRCS = ${addprefix ${INSTRUCTIONS_PATH}, push_lists.c \
 														rotate_lists.c \
 														swap_lists.c}
 
-SRCS = ${PARSING_SRCS} ${INSTRUCTIONS_SRCS} ${SRCS_PATH}/main.c ${SRCS_PATH}/sort_list.c
+SORT_PATH = ${SRCS_PATH}/sort/
+SORT_SRCS = ${addprefix ${SORT_PATH}, preset_sort.c \
+										count_moves.c}
+
+SRCS = ${PARSING_SRCS} ${INSTRUCTIONS_SRCS} ${SORT_SRCS} ${SRCS_PATH}/main.c
 
 OBJS = ${SRCS:.c=.o}
 

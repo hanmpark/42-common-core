@@ -6,12 +6,12 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 16:40:47 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/10 10:59:18 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/10 13:36:02 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # <<<<<<<<<< presettings >>>>>>>>>> #
-H_DIR = ./inc/
+HEADER_PATH = ./inc/
 LIBFT_DIR = ./src/libft/
 FTPRINTF_DIR = ./src/ft_printf/
 GNL_DIR = ./src/get_next_line/
@@ -59,7 +59,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 %.o:%.c ${H_FILE}
-	@${CC} ${CFLAGS} -I ${H_DIR} -c $< -o ${<:.c=.o}
+	@${CC} ${CFLAGS} -I ${HEADER_PATH} -c $< -o ${<:.c=.o}
 
 # <<<<<<<<<< rules >>>>>>>>>> #
 all:	${NAME}
