@@ -6,11 +6,11 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 10:03:35 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/02 18:47:51 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/10 11:00:00 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "libft.h"
 
 static int	count_len(long n)
 {

@@ -6,11 +6,11 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:22:48 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/02/28 14:35:35 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/10 11:00:59 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {

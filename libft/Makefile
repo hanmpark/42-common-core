@@ -6,15 +6,15 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 16:40:47 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/03 10:23:49 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/10 10:59:18 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # <<<<<<<<<< presettings >>>>>>>>>> #
-H_DIR = inc/
-LIBFT_DIR = src/libft/
-FTPRINTF_DIR = src/ft_printf/
-GNL_DIR = src/get_next_line/
+H_DIR = ./inc/
+LIBFT_DIR = ./src/libft/
+FTPRINTF_DIR = ./src/ft_printf/
+GNL_DIR = ./src/get_next_line/
 NAME = libft.a
 
 # <<<<<<<<<< colors >>>>>>>>>> #
@@ -59,7 +59,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 %.o:%.c ${H_FILE}
-	@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+	@${CC} ${CFLAGS} -I ${H_DIR} -c $< -o ${<:.c=.o}
 
 # <<<<<<<<<< rules >>>>>>>>>> #
 all:	${NAME}

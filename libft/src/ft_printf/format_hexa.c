@@ -6,12 +6,12 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 11:36:47 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/02 15:51:52 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/10 10:56:21 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/ft_printf.h"
-#include "../../inc/libft.h"
+#include "ft_printf.h"
+#include "libft.h"
 
 static int	count_hexa(unsigned int nbr)
 {

@@ -6,11 +6,11 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 15:07:05 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/02/28 14:35:49 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/10 11:01:14 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "libft.h"
 
 char	*ft_strdup(const char *source)
 {

@@ -6,11 +6,11 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 15:33:59 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/06 14:27:56 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/10 10:59:46 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "libft.h"
 
 void	ft_freemap(char **map, int i)
 {

@@ -6,11 +6,11 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 09:44:33 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/02/28 14:36:06 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/10 11:01:30 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "libft.h"
 
 size_t	ft_strlen(const char *str)
 {

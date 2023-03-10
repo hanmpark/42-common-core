@@ -6,11 +6,11 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 10:21:35 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/03 10:28:00 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/10 10:59:54 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "libft.h"
 
 int	ft_isnum(char *str)
 {
