@@ -6,14 +6,14 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:20:53 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/11 15:11:32 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/11 17:09:02 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Number of moves done in 'B' to put the list to the top
-void	count_list_b(t_list **list_b, t_list *b)
+/* Number of moves done in 'B' to put the list to the top */
+static void	count_list_b(t_list **list_b, t_list *b)
 {
 	t_list	*current;
 
@@ -28,18 +28,22 @@ void	count_list_b(t_list **list_b, t_list *b)
 	ft_printf("[%d] Moves in list_b = %d\n", b->index, b->moves);
 }
 
-// Number of moves done in 'A' to put the list
-void	count_list_a(t_list **list_a, t_list *b)
+/* Number of moves done in 'A' to put the list */
+static void	count_list_a(t_list **list_a, t_list *b)
 {
 	t_list	*current;
+	int		moves;
 
 	current = *list_a;
-	b->moves++;
+	moves = 1;
 	while (current && (b->index > current->index))
 	{
-		b->moves++;
+		moves++;
 		current = current->next;
 	}
+	if (moves - 1 > ft_lstsize(*list_a) / 2)
+		moves = ft_lstsize(*list_a) - moves;
+	b->moves += moves;
 	ft_printf("[%d] Moves in list_a = %d\n\n", b->index, b->moves);
 }
 

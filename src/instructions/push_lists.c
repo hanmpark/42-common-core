@@ -6,42 +6,32 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:41:49 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/10 11:45:30 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/11 17:39:32 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_a(t_list **list_b, t_list **list_a, int print)
+static void	print_push(int print)
 {
-	t_list	*current;
-	t_list	*next;
-
-	if (print)
+	if (print == PRINT_A)
 		ft_printf("pa\n");
-	current = *list_b;
-	next = current->next;
-	if (!*list_a)
-		*list_a = ft_lstnew(current->number, current->index);
-	else
-		ft_lstadd_front(list_a, ft_lstnew(current->number, current->index));
-	ft_lstdelone(current);
-	*list_b = next;
+	else if (print == PRINT_B)
+		ft_printf("pb\n");
 }
 
-void	push_b(t_list **list_a, t_list **list_b, int print)
+void	push_list(t_list **from_list, t_list **to_list, int print)
 {
 	t_list	*current;
 	t_list	*next;
 
-	if (print)
-		ft_printf("pb\n");
-	current = *list_a;
+	print_push(print);
+	current = *from_list;
 	next = current->next;
-	if (!*list_b)
-		*list_b = ft_lstnew(current->number, current->index);
+	if (!*to_list)
+		*to_list = ft_lstnew(current->number, current->index);
 	else
-		ft_lstadd_front(list_b, ft_lstnew(current->number, current->index));
+		ft_lstadd_front(to_list, ft_lstnew(current->number, current->index));
 	ft_lstdelone(current);
-	*list_a = next;
+	*from_list = next;
 }

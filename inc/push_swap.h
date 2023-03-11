@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:45:48 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/11 14:46:15 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/11 18:42:02 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@
 # define UPPER_HALF 1
 # define BOTTOM_HALF 0
 
-# define PRINT 1
+# define PRINT_A 1
+# define PRINT_B 2
 # define NO_PRINT 0
 
 typedef struct s_data
@@ -39,18 +40,25 @@ void	init_list_a(t_data *data, char **integers);
 void	set_index(int length, t_list *list_a);
 
 void	push_to_b(int max_value, t_list **list_a, t_list **list_b);
-void	push_a(t_list **list_b, t_list **list_a, int print);
-void	push_b(t_list **list_a, t_list **list_b, int print);
-void	swap_a(t_list **list_a, int print);
-void	swap_b(t_list **list_b, int print);
-void	swap_both(t_list **list_a, t_list **list_b, int print);
-void	rotate_a(t_list **list_a, int print);
-void	rotate_b(t_list **list_b, int print);
-void	rotate_both(t_list **list_a, t_list **list_b, int print);
-void	reverse_rotate_a(t_list **list_a, int print);
-void	reverse_rotate_b(t_list **list_b, int print);
-void	reverse_rotate_both(t_list **list_a, t_list **list_b, int print);
+
+void	push_list(t_list **from_list, t_list **to_list, int print);
+
+void	swap_list(t_list **list, int print);
+void	swap_both(t_list **list_a, t_list **list_b);
+
+void	rotate_list(t_list **list, int print);
+void	rotate_both(t_list **list_a, t_list **list_b);
+
+void	reverse_rotate_list(t_list **list, int print);
+void	reverse_rotate_both(t_list **list_a, t_list **list_b);
 
 void	count_moves(t_list **list_a, t_list **list_b);
+void	pick_list(t_list **list_a, t_list **list_b);
+int		list_location(t_list **list, int index);
+int		index_to_move(t_list **b);
+int		ascending_index(t_list **list, int index);
+
+void	move_index_top(t_list **list, int index, int print);
+void	move_index_bottom(t_list **list, int index, int print);
 
 #endif
