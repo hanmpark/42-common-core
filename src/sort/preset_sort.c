@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:31:37 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/10 13:33:04 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/11 14:53:19 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,16 @@
 int	max_position(t_list **list_a, int max_value)
 {
 	t_list	*current;
+	int		i;
 
 	current = *list_a;
+	i = 0;
 	while (current)
 	{
+		i++;
 		if (current->index == max_value)
 		{
-			if (max_value <= ft_lstsize(*list_a) / 2)
+			if (i <= ft_lstsize(*list_a) / 2)
 				return (BOTTOM_HALF);
 			else
 				return (UPPER_HALF);
@@ -59,7 +62,7 @@ void	push_to_b(int max_value, t_list **list_a, t_list **list_b)
 
 	if (max_position(list_a, max_value) == BOTTOM_HALF)
 		max_to_bottom(list_a, max_value, BOTTOM_HALF);
-	else
+	else if (max_position(list_a, max_value) == UPPER_HALF)
 		max_to_bottom(list_a, max_value, UPPER_HALF);
 	i = 0;
 	times = max_value - 2;

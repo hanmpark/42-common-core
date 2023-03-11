@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:02:01 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/10 13:24:19 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/11 14:47:03 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ static void	sort_list(t_data *data)
 	}
 	data->max_value = ft_lstsize(data->a);
 	push_to_b(data->max_value, &data->a, &data->b);
+	count_moves(&data->a, &data->b);
 }
 
 /* prints out the list but only for checking the parsing */
