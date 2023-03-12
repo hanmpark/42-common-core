@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 17:12:52 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/12 00:13:21 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/12 21:17:38 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ void	move_index_ascending(t_list **list, int index, int print)
 	asc_index = ascending_index(list, index);
 	while (current && current->next->index != asc_index)
 	{
+		// ft_printf("asc_index = %d\n", asc_index);
+		// ft_printf("current->next->next->index = %d\n", current->next->next->index);
 		if (current->next->next->index == asc_index)
 		{
 			swap_list(list, print);
@@ -66,8 +68,8 @@ void	move_index_ascending(t_list **list, int index, int print)
 		}
 		else if (list_location(list, asc_index) == UPPER_HALF)
 		{
-			swap_list(list, print);
 			reverse_rotate_list(list, print);
+			swap_list(list, print);
 		}
 		current = *list;
 	}

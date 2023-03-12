@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:45:48 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/12 12:48:42 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/12 22:21:01 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ void	pick_list(t_list **list_a, t_list **list_b);
 int		list_location(t_list **list, int index);
 int		index_to_move(t_list **b);
 int		ascending_index(t_list **list, int index);
+
+void	sort_list(t_data *data);
 
 void	move_index_top(t_list **list, int index, int print);
 void	move_index_bottom(t_list **list, int index, int print);

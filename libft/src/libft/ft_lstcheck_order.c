@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   preset_sort.c                                      :+:      :+:    :+:   */
+/*   ft_lstcheck_order.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 14:31:37 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/11 18:09:01 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/03/12 22:24:02 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/03/12 22:27:16 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	push_to_b(int max_value, t_list **list_a, t_list **list_b)
+int	ft_lstcheck_order(t_list *list_a)
 {
-	int	times;
-	int	i;
+	int	count;
 
-	move_index_bottom(list_a, max_value, PRINT_A);
-	i = 0;
-	times = max_value - 2;
-	while (i < times)
+	count = 1;
+	while (list_a)
 	{
-		push_list(list_a, list_b, PRINT_B);
-		i++;
+		if (list_a->index != count)
+			return (0);
+		count++;
+		list_a = list_a->next;
 	}
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:56:05 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/11 23:05:18 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/12 21:24:31 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ int	list_location(t_list **list, int index)
 
 	current = *list;
 	count = 0;
-	while (current && (index > current->index))
+	while (current)
 	{
 		count++;
+		if (current->index == index)
+			break ;
 		current = current->next;
 	}
 	if (count > ft_lstsize(*list) / 2)

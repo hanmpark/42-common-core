@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 14:42:42 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/11 22:57:30 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/12 21:43:49 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,9 +35,8 @@ INSTRUCTIONS_SRCS = ${addprefix ${INSTRUCTIONS_PATH}, push_lists.c \
 														swap_lists.c}
 
 SORT_PATH = ${SRCS_PATH}/sort/
-SORT_SRCS = ${addprefix ${SORT_PATH}, preset_sort.c \
+SORT_SRCS = ${addprefix ${SORT_PATH}, algorithm.c \
 										count_moves.c \
-										pick_list.c \
 										locate_list.c \
 										moves.c}
 
