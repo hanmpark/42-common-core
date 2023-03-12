@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 13:06:04 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/10 14:40:48 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/12 13:36:57 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ t_list	*ft_lstnew(int number, int index)
 	lst->number = number;
 	lst->index = index;
 	lst->moves = 0;
-	lst->next = 0;
+	lst->next = NULL;
 	return (lst);
 }

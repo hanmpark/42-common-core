@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 09:29:38 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/10 14:40:37 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/12 13:58:28 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	check_int(char *nbr)
 	return (TRUE);
 }
 
-static void	set_list(t_data *data, char **int_str)
+static void	set_list(t_list **list, char **int_str)
 {
 	int	i;
 
@@ -30,14 +30,11 @@ static void	set_list(t_data *data, char **int_str)
 		if (check_int(int_str[i]) == FALSE)
 		{
 			ft_freemap(int_str, i);
-			ft_lstclear(&data->a);
+			ft_lstclear(list);
 			// system("leaks push_swap");
 			ft_error(ERR_INT);
 		}
-		if (data->a == NULL)
-			data->a = ft_lstnew(ft_atoi(int_str[i]), 0);
-		else
-			ft_lstadd_back(&data->a, ft_lstnew(ft_atoi(int_str[i]), 0));
+		ft_lstadd_back(list, ft_lstnew(ft_atoi(int_str[i]), 0));
 		free(int_str[i]);
 		i++;
 	}
@@ -88,7 +85,7 @@ void	init_list_a(t_data *data, char **integers)
 	while (integers[i])
 	{
 		int_str = ft_split(integers[i], ' ');
-		set_list(data, int_str);
+		set_list(&data->a, int_str);
 		free(int_str);
 		i++;
 	}

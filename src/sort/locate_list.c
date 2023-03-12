@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:56:05 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/11 18:45:32 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/11 23:05:18 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,15 @@ int	ascending_index(t_list **list, int index)
 	int		asc_index;
 
 	current = *list;
-	asc_index = index;
-	while (current)
+	asc_index = index + 1;
+	while (current && current->index != asc_index)
 	{
-		if (current->index < asc_index)
-			asc_index = current->index;
 		current = current->next;
+		if (current == NULL)
+		{
+			current = *list;
+			asc_index++;
+		}
 	}
 	return (asc_index);
 }

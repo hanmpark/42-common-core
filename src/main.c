@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:02:01 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/11 15:42:59 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/12 14:10:39 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,18 @@ static void	sort_list(t_data *data)
 }
 
 /* prints out the list but only for checking the parsing */
-static void	print_list(t_list *list)
+void	print_list(t_list *list, int print)
 {
+	if (print == PRINT_A)
+		ft_printf("A LIST:\n");
+	else if (print == PRINT_B)
+		ft_printf("B LIST\n");
 	while (list)
 	{
 		ft_printf("list[%d] = %d\n", list->index, list->number);
 		list = list->next;
 	}
+	ft_printf("\n");
 }
 
 int	main(int argc, char **argv)
@@ -59,14 +64,15 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
+	data.a = NULL;
+	data.b = NULL;
 	init_list_a(&data, argv);
-	print_list(data.a); // checking if the parsing went well
+	ft_printf("Before sort:\n");
+	print_list(data.a, PRINT_A);
 	sort_list(&data);
-	ft_printf("\nAFTER SORT\n");
-	ft_printf("LIST A\n");
-	print_list(data.a);
-	ft_printf("LIST B\n");
-	print_list(data.b);
+	ft_printf("\nAfter sort:\n");
+	print_list(data.a, PRINT_A);
+	print_list(data.b, PRINT_B);
 	// system("leaks push_swap");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:54:55 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/11 17:39:46 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/12 00:01:04 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ void	reverse_rotate_list(t_list **list, int print)
 void	reverse_rotate_both(t_list **list_a, t_list **list_b)
 {
 	ft_printf("rrr\n");
-	reverse_rotate_a(list_a, NO_PRINT);
-	reverse_rotate_b(list_b, NO_PRINT);
+	reverse_rotate_list(list_a, NO_PRINT);
+	reverse_rotate_list(list_b, NO_PRINT);
 }

@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 14:42:42 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/11 17:13:07 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/11 22:57:30 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ CFLAGS += -fsanitize=address -g3
 endif
 
 %.o:%.c ${HEADER_PATH}
-	@${CC} ${CFLAGS} -c -I ./${HEADER_PATH} $< -o ${<:.c=.o}
+	@${CC} ${CFLAGS} -c -I ${HEADER_PATH} $< -o ${<:.c=.o}
 
 all: ${NAME}
 

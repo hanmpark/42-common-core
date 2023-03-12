@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 17:12:52 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/11 18:44:10 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/12 00:13:21 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	move_index_top(t_list **list, int index, int print)
 	current = *list;
 	while (current && (current->index != index))
 	{
-		if (list_location(list, current->index) == UPPER_HALF)
+		if (list_location(list, index) == BOTTOM_HALF)
 			rotate_list(list, print);
-		else if (list_location(list, current->index) == BOTTOM_HALF)
+		else if (list_location(list, index) == UPPER_HALF)
 			reverse_rotate_list(list, print);
 		current = *list;
 	}
@@ -31,16 +31,16 @@ void	move_index_top(t_list **list, int index, int print)
 /* rotating or reverse_rotating until 'index' is at the bottom of the list */
 void	move_index_bottom(t_list **list, int index, int print)
 {
-	t_list	*current;
+	t_list	*last;
 
-	current = ft_lstlast(*list);
-	while (current && (current->index != index))
+	last = ft_lstlast(*list);
+	while (last && (last->index != index))
 	{
-		if (list_location(list, current->index) == UPPER_HALF)
+		if (list_location(list, index) == BOTTOM_HALF)
 			rotate_list(list, print);
-		else if (list_location(list, current->index) == BOTTOM_HALF)
+		else if (list_location(list, index) == UPPER_HALF)
 			reverse_rotate_list(list, print);
-		current = ft_lstlast(*list);
+		last = ft_lstlast(*list);
 	}
 }
 
@@ -48,10 +48,27 @@ void	move_index_bottom(t_list **list, int index, int print)
 void	move_index_ascending(t_list **list, int index, int print)
 {
 	t_list	*current;
+	int		asc_index;
 
 	current = *list;
-	while (current && (current->index > index))
+	asc_index = ascending_index(list, index);
+	while (current && current->next->index != asc_index)
 	{
-		
+		if (current->next->next->index == asc_index)
+		{
+			swap_list(list, print);
+			break ;
+		}
+		if (list_location(list, asc_index) == BOTTOM_HALF)
+		{
+			swap_list(list, print);
+			rotate_list(list, print);
+		}
+		else if (list_location(list, asc_index) == UPPER_HALF)
+		{
+			swap_list(list, print);
+			reverse_rotate_list(list, print);
+		}
+		current = *list;
 	}
 }

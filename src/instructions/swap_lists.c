@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:34:20 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/11 17:39:55 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/12 00:01:18 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ void	swap_list(t_list **list, int print)
 void	swap_both(t_list **list_a, t_list **list_b)
 {
 	ft_printf("ss\n");
-	swap_a(list_a, NO_PRINT);
-	swap_b(list_b, NO_PRINT);
+	swap_list(list_a, NO_PRINT);
+	swap_list(list_b, NO_PRINT);
 }

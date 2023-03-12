@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:45:48 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/11 18:42:02 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/12 12:48:42 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,9 @@ int		ascending_index(t_list **list, int index);
 
 void	move_index_top(t_list **list, int index, int print);
 void	move_index_bottom(t_list **list, int index, int print);
+void	move_index_ascending(t_list **list, int index, int print);
+
+/* PRINTING A LIST TO SEE ITS STATE */
+void	print_list(t_list *list, int print);
 
 #endif

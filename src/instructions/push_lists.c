@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:41:49 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/11 17:39:32 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/12 14:03:40 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,7 @@ void	push_list(t_list **from_list, t_list **to_list, int print)
 	print_push(print);
 	current = *from_list;
 	next = current->next;
-	if (!*to_list)
-		*to_list = ft_lstnew(current->number, current->index);
-	else
-		ft_lstadd_front(to_list, ft_lstnew(current->number, current->index));
-	ft_lstdelone(current);
+	ft_lstadd_front(to_list, ft_lstnew(current->number, current->index));
+	ft_lstdelone(*from_list);
 	*from_list = next;
 }

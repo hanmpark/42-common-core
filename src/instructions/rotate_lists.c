@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:49:21 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/11 17:28:13 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/12 12:41:55 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ void	rotate_list(t_list **list, int print)
 	next = head->next;
 	last = ft_lstnew(head->number, head->index);
 	ft_lstadd_back(list, last);
-	free(*list);
+	ft_lstdelone(*list);
 	*list = next;
 }
 
 void	rotate_both(t_list **list_a, t_list **list_b)
 {
 	ft_printf("rr\n");
-	rotate_a(list_a, NO_PRINT);
-	rotate_b(list_b, NO_PRINT);
+	rotate_list(list_a, NO_PRINT);
+	rotate_list(list_b, NO_PRINT);
 }
