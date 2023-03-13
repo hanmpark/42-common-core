@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 17:12:52 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/13 20:31:32 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/13 20:49:39 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ static void	move_index_top(t_list **list, int index, int print)
 	}
 }
 
+/* can do a better thing here... */
 void	move_both_index(t_list **list_a, t_list **list_b, int worthiest)
 {
 	t_list	*a;
