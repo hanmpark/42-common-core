@@ -6,13 +6,15 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:02:01 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/13 19:21:46 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/13 20:26:22 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "parsing.h"
 
 /* prints out the list but only for checking the parsing */
+#include "instructions.h"
 void	print_list(t_list *list, int print)
 {
 	if (print == PRINT_A)

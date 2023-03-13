@@ -6,11 +6,12 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 09:29:38 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/13 18:58:42 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/13 20:22:41 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "parsing.h"
 
 static int	check_int(char *nbr)
 {

@@ -6,11 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:31:37 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/13 20:07:16 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/13 20:29:01 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "locate.h"
+#include "instructions.h"
 
 static void	push_to_b(int max_value, t_list **list_a, t_list **list_b)
 {

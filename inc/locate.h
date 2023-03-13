@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   locate.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 14:34:20 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/13 20:19:52 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/03/13 20:26:48 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/03/13 20:29:48 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "instructions.h"
+#ifndef LOCATE_H
+# define LOCATE_H
 
-static void	print_swap(int print)
-{
-	if (print == PRINT_A)
-		ft_printf("sa\n");
-	else if (print == PRINT_B)
-		ft_printf("sb\n");
-}
+# define UPPER_HALF 1
+# define BOTTOM_HALF 0
 
-void	swap_list(t_list **list, int print)
-{
-	t_list	*current;
-	t_list	*next;
+void	count_moves(t_list **list_a, t_list **list_b);
+int		half_locate(t_list **list, int index);
+int		worthiest_index(t_list **list_b);
+int		strict_superior_index(t_list **list, int index);
 
-	print_swap(print);
-	current = *list;
-	next = current->next;
-	current->next = next->next;
-	next->next = current;
-	*list = next;
-}
+#endif

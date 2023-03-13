@@ -6,11 +6,12 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:41:49 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/13 18:57:34 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/13 20:20:11 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "instructions.h"
 
 static void	print_push(int print)
 {

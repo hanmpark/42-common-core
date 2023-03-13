@@ -6,11 +6,12 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:56:05 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/13 20:15:24 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/13 20:28:00 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "locate.h"
 
 /* function to see wether it's better to use 'rr' or 'r' */
 int	half_locate(t_list **list, int index)
