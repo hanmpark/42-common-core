@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:45:48 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/13 19:12:15 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/13 20:06:57 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,6 @@ typedef struct s_data
 void	init_list(t_data *data, char **integers);
 void	set_index(int length, t_list *list_a);
 
-void	push_to_a(t_list **list_a, t_list **list_b);
-void	push_to_b(int max_value, t_list **list_a, t_list **list_b);
-
 void	push_list(t_list **from_list, t_list **to_list, int print);
 
 void	swap_list(t_list **list, int print);
@@ -55,9 +52,9 @@ void	reverse_rotate_both(t_list **list_a, t_list **list_b);
 
 void	count_moves(t_list **list_a, t_list **list_b);
 int		half_locate(t_list **list, int index);
-int		index_to_move(t_list **b);
+int		worthiest_index(t_list **list_b);
 
-int		nearest_index(t_list **list, int index);
+int		nearest_taller_index(t_list **list, int index);
 
 void	sort_list(t_data *data);
 

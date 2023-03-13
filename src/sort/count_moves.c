@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:20:53 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/13 19:29:44 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/13 20:08:03 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ static void	count_list_b(t_list **list_b, t_list *b)
 	}
 	if (b->moves > ft_lstsize(*list_b) / 2)
 		b->moves = ft_lstsize(*list_b) - b->moves;
-	// ft_printf("[%d] Moves in list_b = %d\n", b->index, b->moves);
 }
 
 /* Number of moves done in 'A' to put the list */
@@ -44,7 +43,6 @@ static void	count_list_a(t_list **list_a, t_list *b)
 	if (moves > ft_lstsize(*list_a) / 2)
 		moves = ft_lstsize(*list_a) - moves;
 	b->moves += moves;
-	// ft_printf("[%d] Moves in list_a = %d\n\n", b->index, b->moves);
 }
 
 void	count_moves(t_list **list_a, t_list **list_b)

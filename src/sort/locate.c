@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   locate_list.c                                      :+:      :+:    :+:   */
+/*   locate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:56:05 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/13 19:07:34 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/13 20:04:51 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* function to see wether it's better to use 'rr' or 'r' */
 int	half_locate(t_list **list, int index)
 {
 	t_list	*current;
@@ -32,13 +33,13 @@ int	half_locate(t_list **list, int index)
 }
 
 /* worthiest index to move from list_b */
-int	index_to_move(t_list **list)
+int	worthiest_index(t_list **list_b)
 {
 	t_list	*current;
 	int		moves;
 	int		index;
 
-	current = *list;
+	current = *list_b;
 	moves = current->moves;
 	index = current->index;
 	while (current)
@@ -53,7 +54,8 @@ int	index_to_move(t_list **list)
 	return (index);
 }
 
-int	nearest_index(t_list **list, int index)
+/* nearest taller index from list_a */
+int	nearest_taller_index(t_list **list, int index)
 {
 	t_list	*current;
 	int		asc_index;

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithm.c                                        :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:31:37 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/13 19:31:59 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/13 20:07:16 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_to_b(int max_value, t_list **list_a, t_list **list_b)
+static void	push_to_b(int max_value, t_list **list_a, t_list **list_b)
 {
 	t_list	*pushed_list;
 	int		push_number;
@@ -32,13 +32,13 @@ void	push_to_b(int max_value, t_list **list_a, t_list **list_b)
 	}
 }
 
-void	push_to_a(t_list **list_a, t_list **list_b)
+static void	push_to_a(t_list **list_a, t_list **list_b)
 {
 	t_list	*b;
 	int		worthiest;
 
 	b = *list_b;
-	worthiest = index_to_move(list_b);
+	worthiest = worthiest_index(list_b);
 	ft_lstclear_moves(list_b);
 	if (b->next && b->next->index == worthiest)
 		swap_list(list_b, PRINT_B);
@@ -46,7 +46,7 @@ void	push_to_a(t_list **list_a, t_list **list_b)
 	push_list(list_b, list_a, PRINT_A);
 }
 
-void	reorder_list(t_list **list)
+static void	reorder_list(t_list **list)
 {
 	t_list	*current;
 

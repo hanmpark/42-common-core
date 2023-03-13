@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 14:42:42 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/13 19:19:25 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/13 19:48:40 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,9 +35,9 @@ INSTRUCTIONS_SRCS = ${addprefix ${INSTRUCTIONS_PATH}, push.c \
 														swap.c}
 
 SORT_PATH = ${SRCS_PATH}sort/
-SORT_SRCS = ${addprefix ${SORT_PATH}, algorithm.c \
+SORT_SRCS = ${addprefix ${SORT_PATH}, sort.c \
 										count_moves.c \
-										locate_list.c \
+										locate.c \
 										moves.c}
 
 SRCS = ${PARSING_SRCS} ${INSTRUCTIONS_SRCS} ${SORT_SRCS} ${SRCS_PATH}main.c
