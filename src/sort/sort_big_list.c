@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:31:37 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/13 20:29:01 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/13 20:41:46 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,8 @@ static void	reorder_list(t_list **list)
 	}
 }
 
-void	sort_list(t_data *data)
+void	sort_big_list(t_data *data)
 {
-	t_list	*current;
-
-	current = data->a;
-	if (ft_lstcheck_order(current))
-	{
-		ft_lstclear(&data->a);
-		exit(0);
-	}
 	data->max_value = ft_lstsize(data->a);
 	push_to_b(data->max_value, &data->a, &data->b);
 	while (data->b)
