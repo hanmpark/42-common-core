@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:56:05 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/13 20:04:51 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/13 20:15:24 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,22 +54,22 @@ int	worthiest_index(t_list **list_b)
 	return (index);
 }
 
-/* nearest taller index from list_a */
-int	nearest_taller_index(t_list **list, int index)
+/* strict superior index from list_a */
+int	strict_superior_index(t_list **list_a, int index)
 {
 	t_list	*current;
-	int		asc_index;
+	int		ss_index;
 
-	current = *list;
-	asc_index = index + 1;
-	while (current && current->index != asc_index)
+	current = *list_a;
+	ss_index = index + 1;
+	while (current && current->index != ss_index)
 	{
 		current = current->next;
 		if (current == NULL)
 		{
-			current = *list;
-			asc_index++;
+			current = *list_a;
+			ss_index++;
 		}
 	}
-	return (asc_index);
+	return (ss_index);
 }
