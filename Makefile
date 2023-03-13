@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 14:42:42 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/12 21:43:49 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/13 19:19:25 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,23 +24,23 @@ GREEN = \033[32m
 GRAY = \033[2;37m
 MAGENTA = \033[35m
 
-PARSING_PATH = ${SRCS_PATH}/parsing/
-PARSING_SRCS = ${addprefix ${PARSING_PATH}, init_list_a.c \
+PARSING_PATH = ${SRCS_PATH}parsing/
+PARSING_SRCS = ${addprefix ${PARSING_PATH}, init_list.c \
 											set_index.c}
 
-INSTRUCTIONS_PATH = ${SRCS_PATH}/instructions/
-INSTRUCTIONS_SRCS = ${addprefix ${INSTRUCTIONS_PATH}, push_lists.c \
-														reverse_rotate_lists.c \
-														rotate_lists.c \
-														swap_lists.c}
+INSTRUCTIONS_PATH = ${SRCS_PATH}instructions/
+INSTRUCTIONS_SRCS = ${addprefix ${INSTRUCTIONS_PATH}, push.c \
+														reverse_rotate.c \
+														rotate.c \
+														swap.c}
 
-SORT_PATH = ${SRCS_PATH}/sort/
+SORT_PATH = ${SRCS_PATH}sort/
 SORT_SRCS = ${addprefix ${SORT_PATH}, algorithm.c \
 										count_moves.c \
 										locate_list.c \
 										moves.c}
 
-SRCS = ${PARSING_SRCS} ${INSTRUCTIONS_SRCS} ${SORT_SRCS} ${SRCS_PATH}/main.c
+SRCS = ${PARSING_SRCS} ${INSTRUCTIONS_SRCS} ${SORT_SRCS} ${SRCS_PATH}main.c
 
 OBJS = ${SRCS:.c=.o}
 

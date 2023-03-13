@@ -6,13 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:56:05 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/12 21:24:31 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/13 19:07:34 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	list_location(t_list **list, int index)
+int	half_locate(t_list **list, int index)
 {
 	t_list	*current;
 	int		count;
@@ -53,7 +53,7 @@ int	index_to_move(t_list **list)
 	return (index);
 }
 
-int	ascending_index(t_list **list, int index)
+int	nearest_index(t_list **list, int index)
 {
 	t_list	*current;
 	int		asc_index;

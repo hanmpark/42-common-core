@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:45:48 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/12 22:21:01 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/13 19:12:15 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,10 @@ typedef struct s_data
 	int		max_value;
 }	t_data;
 
-void	init_list_a(t_data *data, char **integers);
+void	init_list(t_data *data, char **integers);
 void	set_index(int length, t_list *list_a);
 
+void	push_to_a(t_list **list_a, t_list **list_b);
 void	push_to_b(int max_value, t_list **list_a, t_list **list_b);
 
 void	push_list(t_list **from_list, t_list **to_list, int print);
@@ -53,16 +54,16 @@ void	reverse_rotate_list(t_list **list, int print);
 void	reverse_rotate_both(t_list **list_a, t_list **list_b);
 
 void	count_moves(t_list **list_a, t_list **list_b);
-void	pick_list(t_list **list_a, t_list **list_b);
-int		list_location(t_list **list, int index);
+int		half_locate(t_list **list, int index);
 int		index_to_move(t_list **b);
-int		ascending_index(t_list **list, int index);
+
+int		nearest_index(t_list **list, int index);
 
 void	sort_list(t_data *data);
 
 void	move_index_top(t_list **list, int index, int print);
 void	move_index_bottom(t_list **list, int index, int print);
-void	move_index_ascending(t_list **list, int index, int print);
+void	move_both_index(t_list **list_a, t_list **list_b, int worthiest);
 
 /* PRINTING A LIST TO SEE ITS STATE */
 void	print_list(t_list *list, int print);

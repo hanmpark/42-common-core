@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:20:53 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/12 14:02:16 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/13 19:29:44 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	count_list_b(t_list **list_b, t_list *b)
 	t_list	*current;
 
 	current = *list_b;
-	while (current && (current->index != b->index))
+	while (current && current->index != b->index)
 	{
 		b->moves++;
 		current = current->next;
@@ -35,13 +35,13 @@ static void	count_list_a(t_list **list_a, t_list *b)
 	int		moves;
 
 	current = *list_a;
-	moves = 1;
-	while (current && (b->index > current->index))
+	moves = 0;
+	while (current && b->index > current->index)
 	{
 		moves++;
 		current = current->next;
 	}
-	if (moves - 1 > ft_lstsize(*list_a) / 2)
+	if (moves > ft_lstsize(*list_a) / 2)
 		moves = ft_lstsize(*list_a) - moves;
 	b->moves += moves;
 	// ft_printf("[%d] Moves in list_a = %d\n\n", b->index, b->moves);

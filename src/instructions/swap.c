@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_lists.c                                       :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 14:41:49 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/12 14:03:40 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/03/06 14:34:20 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/03/13 18:57:53 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	print_push(int print)
+static void	print_swap(int print)
 {
 	if (print == PRINT_A)
-		ft_printf("pa\n");
+		ft_printf("sa\n");
 	else if (print == PRINT_B)
-		ft_printf("pb\n");
+		ft_printf("sb\n");
 }
 
-void	push_list(t_list **from_list, t_list **to_list, int print)
+void	swap_list(t_list **list, int print)
 {
 	t_list	*current;
 	t_list	*next;
 
-	print_push(print);
-	current = *from_list;
+	print_swap(print);
+	current = *list;
 	next = current->next;
-	ft_lstadd_front(to_list, ft_lstnew(current->number, current->index));
-	ft_lstdelone(*from_list);
-	*from_list = next;
+	current->next = next->next;
+	next->next = current;
+	*list = next;
+}
+
+void	swap_both(t_list **list_a, t_list **list_b)
+{
+	ft_printf("ss\n");
+	swap_list(list_a, NO_PRINT);
+	swap_list(list_b, NO_PRINT);
 }

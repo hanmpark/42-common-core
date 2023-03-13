@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:02:01 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/12 22:40:22 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/13 19:21:46 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,8 @@ int	main(int argc, char **argv)
 		return (0);
 	data.a = NULL;
 	data.b = NULL;
-	init_list_a(&data, argv);
-	ft_printf("Before sort:\n");
-	print_list(data.a, PRINT_A);
+	init_list(&data, argv);
 	sort_list(&data);
-	ft_printf("\nAfter sort:\n");
-	print_list(data.a, PRINT_A);
 	ft_lstclear(&data.a);
 	// system("leaks push_swap");
 	return (0);

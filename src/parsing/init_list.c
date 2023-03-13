@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_list_a.c                                      :+:      :+:    :+:   */
+/*   init_list.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 09:29:38 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/12 13:58:28 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/13 18:58:42 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static void	check_duplicate(t_list *list_a)
 	}
 }
 
-void	init_list_a(t_data *data, char **integers)
+void	init_list(t_data *data, char **integers)
 {
 	char	**int_str;
 	int		i;

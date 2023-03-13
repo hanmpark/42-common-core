@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:31:37 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/12 22:38:34 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/13 19:31:59 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,36 @@
 
 void	push_to_b(int max_value, t_list **list_a, t_list **list_b)
 {
-	int	times;
-	int	i;
+	t_list	*pushed_list;
+	int		push_number;
+	int		i;
 
 	move_index_bottom(list_a, max_value, PRINT_A);
 	i = 0;
-	times = max_value - 2;
-	while (i < times)
+	push_number = max_value - 2;
+	pushed_list = NULL;
+	while (i < push_number)
 	{
 		push_list(list_a, list_b, PRINT_B);
+		pushed_list = *list_b;
+		if (i > 0 && pushed_list->index > max_value / 2)
+			rotate_list(list_b, PRINT_B);
 		i++;
 	}
 }
 
-void	pick_list(t_list **list_a, t_list **list_b)
+void	push_to_a(t_list **list_a, t_list **list_b)
 {
-	int	worthiest_index;
+	t_list	*b;
+	int		worthiest;
 
-	worthiest_index = index_to_move(list_b);
-	// ft_printf("worthiest_index = %d\n", worthiest_index);
+	b = *list_b;
+	worthiest = index_to_move(list_b);
 	ft_lstclear_moves(list_b);
-	move_index_top(list_b, worthiest_index, PRINT_B);
+	if (b->next && b->next->index == worthiest)
+		swap_list(list_b, PRINT_B);
+	move_both_index(list_a, list_b, worthiest);
 	push_list(list_b, list_a, PRINT_A);
-	move_index_ascending(list_a, worthiest_index, PRINT_A);
 }
 
 void	reorder_list(t_list **list)
@@ -44,11 +51,11 @@ void	reorder_list(t_list **list)
 	t_list	*current;
 
 	current = *list;
-	while (current->index != 1)
+	while (current && current->index != 1)
 	{
-		if (list_location(list, 1) == BOTTOM_HALF)
+		if (half_locate(list, 1) == BOTTOM_HALF)
 			rotate_list(list, PRINT_A);
-		else if (list_location(list, 1) == UPPER_HALF)
+		else if (half_locate(list, 1) == UPPER_HALF)
 			reverse_rotate_list(list, PRINT_A);
 		current = *list;
 	}
@@ -69,9 +76,7 @@ void	sort_list(t_data *data)
 	while (data->b)
 	{
 		count_moves(&data->a, &data->b);
-		pick_list(&data->a, &data->b);
+		push_to_a(&data->a, &data->b);
 	}
 	reorder_list(&data->a);
-	// count_moves(&data->a, &data->b);
-	// pick_list(&data->a, &data->b);
 }

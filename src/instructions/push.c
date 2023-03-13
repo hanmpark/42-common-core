@@ -1,43 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_lists.c                                     :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 14:49:21 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/12 12:41:55 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/03/06 14:41:49 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/03/13 18:57:34 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	print_rotate(int print)
+static void	print_push(int print)
 {
 	if (print == PRINT_A)
-		ft_printf("ra\n");
+		ft_printf("pa\n");
 	else if (print == PRINT_B)
-		ft_printf("rb\n");
+		ft_printf("pb\n");
 }
 
-void	rotate_list(t_list **list, int print)
+void	push_list(t_list **from_list, t_list **to_list, int print)
 {
-	t_list	*head;
-	t_list	*last;
+	t_list	*current;
 	t_list	*next;
 
-	print_rotate(print);
-	head = *list;
-	next = head->next;
-	last = ft_lstnew(head->number, head->index);
-	ft_lstadd_back(list, last);
-	ft_lstdelone(*list);
-	*list = next;
-}
-
-void	rotate_both(t_list **list_a, t_list **list_b)
-{
-	ft_printf("rr\n");
-	rotate_list(list_a, NO_PRINT);
-	rotate_list(list_b, NO_PRINT);
+	print_push(print);
+	current = *from_list;
+	next = current->next;
+	ft_lstadd_front(to_list, ft_lstnew(current->number, current->index));
+	ft_lstdelone(*from_list);
+	*from_list = next;
 }
