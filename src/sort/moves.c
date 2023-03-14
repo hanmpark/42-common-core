@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 17:12:52 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/14 11:47:12 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/14 23:00:17 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,25 @@ void	move_index_bottom(t_list **list, int index, int print)
 		if (half_locate(list, index) == BOTTOM_HALF)
 			rotate_list(list, print);
 		else if (half_locate(list, index) == UPPER_HALF)
+			reverse_rotate_list(list, print);
+		last = ft_lstlast(*list);
+	}
+}
+
+void	move_three_bottom(t_list **list, int max, int print)
+{
+	t_list	*last;
+	int		i;
+
+	last = ft_lstlast(*list);
+	i = max - 3;
+	while (last)
+	{
+		if (last->index == i && i < max)
+			i++;
+		else if (half_locate(list, i) == BOTTOM_HALF)
+			rotate_list(list, print);
+		else if (half_locate(list, i) == UPPER_HALF)
 			reverse_rotate_list(list, print);
 		last = ft_lstlast(*list);
 	}
