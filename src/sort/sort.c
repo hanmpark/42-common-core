@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:31:37 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/13 20:41:46 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/14 12:10:45 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,29 +48,27 @@ static void	push_to_a(t_list **list_a, t_list **list_b)
 	push_list(list_b, list_a, PRINT_A);
 }
 
-static void	reorder_list(t_list **list)
-{
-	t_list	*current;
-
-	current = *list;
-	while (current && current->index != 1)
-	{
-		if (half_locate(list, 1) == BOTTOM_HALF)
-			rotate_list(list, PRINT_A);
-		else if (half_locate(list, 1) == UPPER_HALF)
-			reverse_rotate_list(list, PRINT_A);
-		current = *list;
-	}
-}
-
 void	sort_big_list(t_data *data)
 {
-	data->max_value = ft_lstsize(data->a);
 	push_to_b(data->max_value, &data->a, &data->b);
 	while (data->b)
 	{
 		count_moves(&data->a, &data->b);
 		push_to_a(&data->a, &data->b);
 	}
-	reorder_list(&data->a);
+	move_index_top(&data->a, 1, PRINT_A);
+}
+
+void	sort_small_list(t_list **list, int max_value)
+{
+	t_list	*current;
+	t_list	*last;
+	int		index;
+
+	current = *list;
+	index = 1;
+	while (index < max_value)
+	{
+		index++;
+	}
 }

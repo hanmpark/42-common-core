@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 17:12:52 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/13 20:49:39 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/14 11:47:12 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	move_index_bottom(t_list **list, int index, int print)
 }
 
 /* rotating or reverse_rotating until 'index' is at the top of the list */
-static void	move_index_top(t_list **list, int index, int print)
+void	move_index_top(t_list **list, int index, int print)
 {
 	t_list	*current;
 

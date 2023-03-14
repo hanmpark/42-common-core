@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 20:17:58 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/13 20:46:04 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/14 11:56:55 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ void	reverse_rotate_both(t_list **list_a, t_list **list_b);
 
 /* algorithm */
 void	sort_big_list(t_data *data);
-void	sort_small_list(t_data *data);
+void	sort_small_list(t_list **list, int max_value);
 void	move_index_bottom(t_list **list, int index, int print);
+void	move_index_top(t_list **list, int index, int print);
 void	move_both_index(t_list **list_a, t_list **list_b, int worthiest);
 
 #endif
