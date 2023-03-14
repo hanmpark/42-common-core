@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:56:05 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/13 20:28:00 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/14 14:41:36 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,21 @@ int	strict_superior_index(t_list **list_a, int index)
 		}
 	}
 	return (ss_index);
+}
+
+/* returns the smallest index in the list */
+int	smallest_index(t_list **list)
+{
+	t_list	*current;
+	int		index;
+
+	current = *list;
+	index = current->index;
+	while (current)
+	{
+		if (current->index < index)
+			index = current->index;
+		current = current->next;
+	}
+	return (index);
 }

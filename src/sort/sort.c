@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:31:37 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/14 12:10:45 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/14 16:07:17 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ static void	push_to_b(int max_value, t_list **list_a, t_list **list_b)
 {
 	t_list	*pushed_list;
 	int		push_number;
-	int		i;
+	int		index;
 
 	move_index_bottom(list_a, max_value, PRINT_A);
-	i = 0;
+	index = 0;
 	push_number = max_value - 2;
 	pushed_list = NULL;
-	while (i < push_number)
+	while (index < push_number)
 	{
 		push_list(list_a, list_b, PRINT_B);
 		pushed_list = *list_b;
-		if (i > 0 && pushed_list->index > max_value / 2)
+		if (index > 0 && pushed_list->index > max_value / 2)
 			rotate_list(list_b, PRINT_B);
-		i++;
+		index++;
 	}
 }
 
@@ -59,16 +59,26 @@ void	sort_big_list(t_data *data)
 	move_index_top(&data->a, 1, PRINT_A);
 }
 
+3
+1
+2
+
 void	sort_small_list(t_list **list, int max_value)
 {
-	t_list	*current;
 	t_list	*last;
-	int		index;
+	t_list	*current;
+	int		smallest;
 
+	last = ft_lstlast(*list);
 	current = *list;
-	index = 1;
-	while (index < max_value)
+	smallest = smallest_index(list);
+	while (ft_lstcheck_order(*list) == FALSE)
 	{
-		index++;
+		if (current->index == smallest || current->index == max_value)
+			swap_list(list, PRINT_A);
+		else if (current->index == max_value - 1)
+			rotate_list(list, PRINT_A);
+		else if (last->index == max_value - 1)
+			reverse_rotate_list(list, PRINT_A);
 	}
 }
