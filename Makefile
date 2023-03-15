@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 14:42:42 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/15 12:46:56 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/15 17:54:47 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ MAGENTA = \033[35m
 
 PARSING_PATH = ${SRCS_PATH}parsing/
 PARSING_SRCS = ${addprefix ${PARSING_PATH}, init_list.c \
-											set_index.c}
+											set_index.c \
+											check_init_list.c}
 
 INSTRUCTIONS_PATH = ${SRCS_PATH}instructions/
 INSTRUCTIONS_SRCS = ${addprefix ${INSTRUCTIONS_PATH}, push.c \
