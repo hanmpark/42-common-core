@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:56:05 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/15 15:53:09 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/15 23:35:00 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	half_locate(t_list **list, int index)
 			break ;
 		current = current->next;
 	}
-	if ((size % 2 == 0 && count > size / 2) ||
+	if ((size % 2 == 0 && count > size / 2) || \
 		(size % 2 != 0 && count - 1 > size / 2))
 		return (UPPER_HALF);
 	return (BOTTOM_HALF);

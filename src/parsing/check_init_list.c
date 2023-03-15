@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:27:25 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/15 17:57:53 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/15 23:35:06 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	check_duplicate(t_list *list_a)
 /* Checks if it is an int */
 int	check_int(char *nbr)
 {
-	if (!(ft_isnum(nbr)) ||
+	if (!(ft_isnum(nbr)) || \
 		!(ft_atol(nbr) >= -2147483648 && ft_atol(nbr) <= 2147483647))
 		return (FALSE);
 	return (TRUE);

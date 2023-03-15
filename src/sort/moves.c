@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 17:12:52 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/15 16:02:51 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/15 23:34:51 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ void	move_both_index_top(t_list **list_a, t_list **list_b, int worthiest)
 	nearest = strict_superior_index(list_a, worthiest);
 	while (a && b && a->index != nearest && b->index != worthiest)
 	{
-		if (half_locate(list_a, nearest) == BOTTOM_HALF &&
+		if (half_locate(list_a, nearest) == BOTTOM_HALF && \
 			half_locate(list_b, worthiest) == BOTTOM_HALF)
 			rotate_both(list_a, list_b);
-		else if (half_locate(list_a, nearest) == UPPER_HALF &&
+		else if (half_locate(list_a, nearest) == UPPER_HALF && \
 			half_locate(list_b, worthiest) == UPPER_HALF)
 			reverse_rotate_both(list_a, list_b);
 		else

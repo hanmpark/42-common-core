@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:31:37 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/15 16:03:15 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/15 23:34:24 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	push_to_b(int max, t_list **list_a, t_list **list_b)
 	top = *list_a;
 	while (ft_lstsize(*list_a) != 3)
 	{
-		if (top->index == max || top->index == max - 1 ||
+		if (top->index == max || top->index == max - 1 || \
 			top->index == max - 2)
 			rotate_list(list_a, PRINT_A);
 		else
