@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 14:42:42 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/15 17:54:47 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/15 20:19:40 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ DEF = \033[0m
 BOLD = \033[1m
 CUR = \033[3m
 UL = \033[4m
+PROGRESS = \033[0;92m
 
 GREEN = \033[32m
 GRAY = \033[2;37m
@@ -43,6 +44,10 @@ SORT_SRCS = ${addprefix ${SORT_PATH}, sort_big_number.c \
 										moves.c}
 
 SRCS = ${PARSING_SRCS} ${INSTRUCTIONS_SRCS} ${SORT_SRCS} ${SRCS_PATH}main.c
+SRCS_TOT = ${shell find ./src/ -type f -name '*.c' | wc -l}
+
+SRCS_COUNT := 0
+SRCS_PRCT = ${shell expr 100 \* ${SRCS_COUNT} / ${SRCS_TOT}}
 
 OBJS = ${SRCS:.c=.o}
 
@@ -54,6 +59,8 @@ CFLAGS += -fsanitize=address -g3
 endif
 
 %.o:%.c ${HEADER_PATH}
+	@${eval SRCS_COUNT = ${shell expr ${SRCS_COUNT} + 1}}
+	@printf "\r\t\r%d/%d (%d%%) Compiling ${GRAY}$<${DEF}..." ${SRCS_COUNT} ${SRCS_TOT} ${SRCS_PRCT}
 	@${CC} ${CFLAGS} -c -I ${HEADER_PATH} $< -o ${<:.c=.o}
 
 all: ${NAME}
