@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 14:42:42 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/15 23:31:02 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/15 23:46:23 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,24 @@ ${NAME}: ${OBJS}
 debug:
 	@${MAKE} DEBUG=1
 
+norminette:
+	@echo "\n\t${BOLD}${CUR}${ORANGE}NORMINETTE${DEF}\n"
+	@echo "${LYELLOW}${BOLD}LIBFT${DEF}"
+	@echo "${LBLUE}${CUR}ft_printf${DEF}"
+	@norminette ${LIBFT_PATH}src/ft_printf/
+	@echo "\n${LBLUE}${CUR}get_next_line${DEF}"
+	@norminette ${LIBFT_PATH}src/get_next_line/
+	@echo "\n${LBLUE}${CUR}libft${DEF}"
+	@norminette ${LIBFT_PATH}src/libft/
+	@echo "\n${LYELLOW}${BOLD}PUSH_SWAP${DEF}"
+	@echo "${LBLUE}${CUR}instructions${DEF}"
+	@norminette ${INSTRUCTIONS_PATH}
+	@echo "\n${LBLUE}${CUR}parsing${DEF}"
+	@norminette ${PARSING_PATH}
+	@echo "\n${LBLUE}${CUR}sort${DEF}"
+	@norminette ${SORT_PATH} ${SRCS_PATH}main.c
+	@echo ""
+
 clean:
 	@echo "\n\t${BOLD}${CUR}${ORANGE}CLEANING...${DEF}\n"
 	@rm -rf ${OBJS}
@@ -82,7 +100,7 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean clean re
+.PHONY: all clean fclean clean re debug
 
 # <<<<<<<<<< COLORS >>>>>>>>>> #
 DEF = \033[0m
