@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 14:42:42 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/15 23:46:23 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/15 23:47:44 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,18 @@ NAME = push_swap
 SRCS_PATH = ./src/
 HEADER_PATH = ./inc/
 LIBFT_PATH = ./libft/
+
+# <<<<<<<<<< COLORS >>>>>>>>>> #
+DEF = \033[0m
+BOLD = \033[1m
+CUR = \033[3m
+UL = \033[4m
+UP = \033[A
+
+ORANGE = \033[38;5;216m
+LBLUE = \033[38;5;153m
+LYELLOW = \033[38;5;222m
+BEIGE = \033[38;5;223m
 
 # <<<<<<<<<< SRC /OBJ >>>>>>>>>> #
 PARSING_PATH = ${SRCS_PATH}parsing/
@@ -101,15 +113,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean clean re debug
-
-# <<<<<<<<<< COLORS >>>>>>>>>> #
-DEF = \033[0m
-BOLD = \033[1m
-CUR = \033[3m
-UL = \033[4m
-UP = \033[A
-
-ORANGE = \033[38;5;216m
-LBLUE = \033[38;5;153m
-LYELLOW = \033[38;5;222m
-BEIGE = \033[38;5;223m
