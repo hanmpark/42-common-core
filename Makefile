@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 14:42:42 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/15 20:19:40 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/15 23:31:02 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,16 +15,7 @@ SRCS_PATH = ./src/
 HEADER_PATH = ./inc/
 LIBFT_PATH = ./libft/
 
-DEF = \033[0m
-BOLD = \033[1m
-CUR = \033[3m
-UL = \033[4m
-PROGRESS = \033[0;92m
-
-GREEN = \033[32m
-GRAY = \033[2;37m
-MAGENTA = \033[35m
-
+# <<<<<<<<<< SRC /OBJ >>>>>>>>>> #
 PARSING_PATH = ${SRCS_PATH}parsing/
 PARSING_SRCS = ${addprefix ${PARSING_PATH}, init_list.c \
 											set_index.c \
@@ -44,13 +35,10 @@ SORT_SRCS = ${addprefix ${SORT_PATH}, sort_big_number.c \
 										moves.c}
 
 SRCS = ${PARSING_SRCS} ${INSTRUCTIONS_SRCS} ${SORT_SRCS} ${SRCS_PATH}main.c
-SRCS_TOT = ${shell find ./src/ -type f -name '*.c' | wc -l}
-
-SRCS_COUNT := 0
-SRCS_PRCT = ${shell expr 100 \* ${SRCS_COUNT} / ${SRCS_TOT}}
 
 OBJS = ${SRCS:.c=.o}
 
+# <<<<<<<<<< COMPILER >>>>>>>>>> #
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
@@ -58,34 +46,52 @@ ifdef DEBUG
 CFLAGS += -fsanitize=address -g3
 endif
 
+SRCS_COUNT = 0
+SRCS_TOT = ${shell find ./src/ -type f -name '*.c' | wc -l}
+SRCS_PRCT = ${shell expr 100 \* ${SRCS_COUNT} / ${SRCS_TOT}}
+
 %.o:%.c ${HEADER_PATH}
 	@${eval SRCS_COUNT = ${shell expr ${SRCS_COUNT} + 1}}
-	@printf "\r\t\r%d/%d (%d%%) Compiling ${GRAY}$<${DEF}..." ${SRCS_COUNT} ${SRCS_TOT} ${SRCS_PRCT}
 	@${CC} ${CFLAGS} -c -I ${HEADER_PATH} $< -o ${<:.c=.o}
+	@echo " ${BOLD}${CUR}${BEIGE}-> Compiling ${DEF}${BOLD}${LYELLOW}[PUSH_SWAP]${DEF}"
+	@printf " ${BEIGE}  [%d/%d files (%d%%)]${DEF}" ${SRCS_COUNT} ${SRCS_TOT} ${SRCS_PRCT}
+	@echo "${UP}${UP}"
 
+# <<<<<<<<<< RULES >>>>>>>>>> #
 all: ${NAME}
 
 ${NAME}: ${OBJS}
-	@echo "\n${CUR}${GRAY}\t- Compiling...${DEF}"
+	@echo "\n\n"
 	@${MAKE} -C ${LIBFT_PATH}
 	@${CC} ${CFLAGS} ${LIBFT_PATH}/libft.a ${OBJS} -o ${NAME}
-	@echo "${CUR}${GRAY}\t- Created ${BOLD}${NAME}${DEF}"
-	@echo "   ${CUR}${BOLD}${UL}${GREEN}- Compiled -${DEF}\n"
+	@echo "\n\n\n\t${BOLD}${CUR}${LYELLOW}COMPILED ✨${DEF}\n"
 
 debug:
 	@${MAKE} DEBUG=1
 
 clean:
-	@echo "\n${CUR}${GRAY}\t- Removing object files${DEF}"	
+	@echo "\n\t${BOLD}${CUR}${ORANGE}CLEANING...${DEF}\n"
 	@rm -rf ${OBJS}
 	@${MAKE} -C ${LIBFT_PATH} clean
+	@echo "${LBLUE}${BOLD}${CUR}- Deleted object files${DEF}\n"
 
 fclean: clean
-	@echo "${CUR}${GRAY}\t- Removing ${BOLD}${NAME}${DEF}"
 	@rm -rf ${LIBFT_PATH}/libft.a
 	@rm -rf ${NAME}
-	@echo "   ${CUR}${BOLD}${UL}${GREEN}- Cleaned -${DEF}\n"
+	@echo "${LBLUE}${BOLD}${CUR}- Deleted libft.a and ${NAME}${DEF}\n\n"
 
 re: fclean all
 
 .PHONY: all clean fclean clean re
+
+# <<<<<<<<<< COLORS >>>>>>>>>> #
+DEF = \033[0m
+BOLD = \033[1m
+CUR = \033[3m
+UL = \033[4m
+UP = \033[A
+
+ORANGE = \033[38;5;216m
+LBLUE = \033[38;5;153m
+LYELLOW = \033[38;5;222m
+BEIGE = \033[38;5;223m

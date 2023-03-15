@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 16:40:47 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/15 17:19:11 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/15 23:30:27 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,10 @@ CUR = \033[3m
 UL = \033[4m
 UP = \033[A
 
-GRAY = \033[2;37m
-GREEN = \033[1;32m
+ORANGE = \033[38;5;216m
+LBLUE = \033[38;5;153m
+LYELLOW = \033[38;5;222m
+BEIGE = \033[38;5;223m
 
 # <<<<<<<<<<<< sources and objects >>>>>>>>>> #
 SRCS_LIBFT =	ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
@@ -56,11 +58,20 @@ SRCS =	${addprefix ${LIBFT_DIR}, ${SRCS_LIBFT}} \
 OBJS =	${SRCS:.c=.o}
 
 # <<<<<<<<<< compiler >>>>>>>>>> #
+
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-%.o:%.c ${H_FILE}
+SRCS_COUNT = 0
+SRCS_TOT = ${shell find ./src/ -type f -name '*.c' | wc -l}
+SRCS_PRCT = ${shell expr 100 \* ${SRCS_COUNT} / ${SRCS_TOT}}
+
+%.o:%.c ${HEADER_PATH}
+	@${eval SRCS_COUNT = ${shell expr ${SRCS_COUNT} + 1}}
 	@${CC} ${CFLAGS} -I ${HEADER_PATH} -c $< -o ${<:.c=.o}
+	@echo " ${BOLD}${CUR}${BEIGE}-> Compiling ${DEF}${BOLD}${LYELLOW}[LIBFT]${DEF}"
+	@printf " ${BEIGE}  [%d/%d files (%d%%)]${DEF}" ${SRCS_COUNT} ${SRCS_TOT} ${SRCS_PRCT}
+	@echo "${UP}${UP}"
 
 # <<<<<<<<<< rules >>>>>>>>>> #
 all:	${NAME}
