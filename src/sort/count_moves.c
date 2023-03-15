@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:20:53 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/13 20:16:22 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/15 15:50:50 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static void	count_list_a(t_list **list_a, t_list *b)
 	b->moves += moves;
 }
 
+/* Count the number of moves needed for a list to be pushed to a */
 void	count_moves(t_list **list_a, t_list **list_b)
 {
 	t_list	*b;

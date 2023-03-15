@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 17:12:52 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/14 23:00:17 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/15 16:02:51 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,7 @@
 #include "instructions.h"
 #include "locate.h"
 
-/* rotating or reverse_rotating until 'index' is at the bottom of the list */
-void	move_index_bottom(t_list **list, int index, int print)
-{
-	t_list	*last;
-
-	last = ft_lstlast(*list);
-	while (last && (last->index != index))
-	{
-		if (half_locate(list, index) == BOTTOM_HALF)
-			rotate_list(list, print);
-		else if (half_locate(list, index) == UPPER_HALF)
-			reverse_rotate_list(list, print);
-		last = ft_lstlast(*list);
-	}
-}
-
-void	move_three_bottom(t_list **list, int max, int print)
-{
-	t_list	*last;
-	int		i;
-
-	last = ft_lstlast(*list);
-	i = max - 3;
-	while (last)
-	{
-		if (last->index == i && i < max)
-			i++;
-		else if (half_locate(list, i) == BOTTOM_HALF)
-			rotate_list(list, print);
-		else if (half_locate(list, i) == UPPER_HALF)
-			reverse_rotate_list(list, print);
-		last = ft_lstlast(*list);
-	}
-}
-
-/* rotating or reverse_rotating until 'index' is at the top of the list */
+/* Rotating or reverse_rotating until 'index' is at the top of the list */
 void	move_index_top(t_list **list, int index, int print)
 {
 	t_list	*current;
@@ -65,8 +30,8 @@ void	move_index_top(t_list **list, int index, int print)
 	}
 }
 
-/* can do a better thing here... */
-void	move_both_index(t_list **list_a, t_list **list_b, int worthiest)
+/* Move the worthiest and the strict superior index to the top */
+void	move_both_index_top(t_list **list_a, t_list **list_b, int worthiest)
 {
 	t_list	*a;
 	t_list	*b;
@@ -90,4 +55,28 @@ void	move_both_index(t_list **list_a, t_list **list_b, int worthiest)
 	}
 	move_index_top(list_a, nearest, PRINT_A);
 	move_index_top(list_b, worthiest, PRINT_B);
+}
+
+/* Reorders the list for three indexes */
+void	reorder_list(t_list **list_a, int max)
+{
+	t_list	*top;
+	t_list	*last;
+
+	last = ft_lstlast(*list_a);
+	top = *list_a;
+	while (ft_lstcheck_order(*list_a) == FALSE)
+	{
+		if (last->index == top->index - 1)
+		{
+			if (top->index == max)
+				rotate_list(list_a, PRINT_A);
+			else if (top->index == max - 1)
+				reverse_rotate_list(list_a, PRINT_A);
+		}
+		else
+			swap_list(list_a, PRINT_A);
+		top = *list_a;
+		last = ft_lstlast(*list_a);
+	}
 }

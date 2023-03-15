@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 20:26:48 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/14 21:12:40 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/15 15:53:32 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 void	count_moves(t_list **list_a, t_list **list_b);
 int		half_locate(t_list **list, int index);
-int		worthiest_index(t_list **list_b);
+int		worthiest_index(t_list **list);
 int		strict_superior_index(t_list **list, int index);
 
 #endif

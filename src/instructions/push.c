@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:41:49 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/13 20:20:11 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/15 15:58:42 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static void	print_push(int print)
 		ft_printf("pb\n");
 }
 
+/* Push a list to the top of the other chained list */
 void	push_list(t_list **from_list, t_list **to_list, int print)
 {
 	t_list	*current;

@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:02:01 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/14 12:06:25 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/15 14:58:25 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	sort_filter(t_data *data)
 	}
 	data->max_value = ft_lstsize(data->a);
 	if (data->max_value <= 5)
-		sort_small_list(&data->a, data->max_value);
+		sort_small_list(&data->a, &data->b);
 	else
 		sort_big_list(data);
 }

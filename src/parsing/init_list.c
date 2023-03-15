@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 09:29:38 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/13 20:22:41 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/15 16:01:11 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static void	set_list(t_list **list, char **int_str)
 		{
 			ft_freemap(int_str, i);
 			ft_lstclear(list);
-			// system("leaks push_swap");
 			ft_error(ERR_INT);
 		}
 		ft_lstadd_back(list, ft_lstnew(ft_atoi(int_str[i]), 0));
@@ -55,7 +54,6 @@ static void	find_duplicate(t_list *list_a, int number)
 		else if (current_list->number == number && check)
 		{
 			ft_lstclear(&list_a);
-			// system("leaks push_swap");
 			ft_error(ERR_DUP);
 		}
 		current_list = current_list->next;
@@ -77,6 +75,7 @@ static void	check_duplicate(t_list *list_a)
 	}
 }
 
+/* Initialize the first list and parse it */
 void	init_list(t_data *data, char **integers)
 {
 	char	**int_str;

@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:34:20 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/13 20:19:52 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/15 16:00:50 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static void	print_swap(int print)
 		ft_printf("sb\n");
 }
 
+/* Swaps the first two lists of a chained lists */
 void	swap_list(t_list **list, int print)
 {
 	t_list	*current;

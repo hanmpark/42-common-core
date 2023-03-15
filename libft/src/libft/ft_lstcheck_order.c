@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 22:24:02 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/12 22:27:16 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/15 15:25:37 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_lstcheck_order(t_list *list_a)
 {
 	int	count;
 
-	count = 1;
+	count = list_a->index;
 	while (list_a)
 	{
 		if (list_a->index != count)

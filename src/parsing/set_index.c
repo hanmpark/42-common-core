@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 14:01:11 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/13 20:22:57 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/15 16:02:29 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static int	set_min(t_list *list_a)
 	return (min);
 }
 
+/* Set index to lists (better sorting experience) */
 void	set_index(int length, t_list *list_a)
 {
 	t_list	*current_list;
