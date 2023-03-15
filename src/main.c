@@ -6,28 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:02:01 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/15 14:58:25 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/16 00:04:12 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "parsing.h"
 #include "instructions.h"
-
-/* prints out the list but only for checking the parsing */
-void	print_list(t_list *list, int print)
-{
-	if (print == PRINT_A)
-		ft_printf("A LIST:\n");
-	else if (print == PRINT_B)
-		ft_printf("B LIST\n");
-	while (list)
-	{
-		ft_printf("list[%d] = %d\n", list->index, list->number);
-		list = list->next;
-	}
-	ft_printf("\n");
-}
 
 static void	sort_filter(t_data *data)
 {
