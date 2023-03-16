@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:49:21 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/15 15:59:27 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/16 22:27:43 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	rotate_list(t_list **list, int print)
 	t_list	*last;
 	t_list	*next;
 
+	if (!*list || ft_lstsize(*list) < 2)
+		return ;
 	print_rotate(print);
 	head = *list;
 	next = head->next;
@@ -40,6 +42,9 @@ void	rotate_list(t_list **list, int print)
 /* Put the top of both chained lists to the bottom */
 void	rotate_both(t_list **list_a, t_list **list_b)
 {
+	if (!*list_a || !*list_b || ft_lstsize(*list_a) < 2 || \
+		ft_lstsize(*list_b) < 2)
+		return ;
 	ft_printf("rr\n");
 	rotate_list(list_a, NO_PRINT);
 	rotate_list(list_b, NO_PRINT);

@@ -6,14 +6,11 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 14:42:42 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/16 19:40:50 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/16 23:51:02 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
-LIBFT_PATH = ./libft/
-
-# <<<<<<<<<< COLORS >>>>>>>>>> #
+# ---------------------------------- COLORS ---------------------------------- #
 DEF = \033[0m
 BOLD = \033[1m
 CUR = \033[3m
@@ -25,7 +22,9 @@ LBLUE = \033[38;5;153m
 LYELLOW = \033[38;5;222m
 BEIGE = \033[38;5;223m
 
-# <<<<<<<<<< SRC /OBJ >>>>>>>>>> #
+
+# ------------------------------ MANDATORY PART ------------------------------ #
+
 SRCS_PATH = ./src/
 PARSING_PATH = ${SRCS_PATH}parsing/
 PARSING_SRCS = ${addprefix ${PARSING_PATH}, init_list.c \
@@ -45,6 +44,7 @@ SORT_SRCS = ${addprefix ${SORT_PATH}, sort_big_number.c \
 										locate.c \
 										moves.c}
 
+# -------------------------------- BONUS PART -------------------------------- #
 BONUS_PATH = ${SRCS_PATH}bonus/
 
 BONUS_INSTRUCTIONS_PATH = ${BONUS_PATH}instructions/
@@ -58,14 +58,17 @@ BONUS_PARSING_SRCS = ${addprefix ${BONUS_PARSING_PATH}, check_init_list_bonus.c 
 														init_list_bonus.c \
 														set_index_bonus.c}
 
+# --------------------------------- SRC /OBJ --------------------------------- #
+
 BONUS_SRCS = ${BONUS_INSTRUCTIONS_SRCS} ${BONUS_PARSING_SRCS} ${BONUS_PATH}checker_bonus.c
 
 SRCS = ${PARSING_SRCS} ${INSTRUCTIONS_SRCS} ${SORT_SRCS} ${SRCS_PATH}push_swap.c
 
 OBJS_MAN = ${SRCS:.c=.o}
+
 OBJS_BONUS = ${BONUS_SRCS:.c=.o}
 
-# <<<<<<<<<< COMPILER >>>>>>>>>> #
+# --------------------------------- COMPILER --------------------------------- #
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 ifdef DEBUG
@@ -73,6 +76,9 @@ ifdef DEBUG
 endif
 
 SRCS_COUNT := ${shell find ./src/ -type f -name '*.o' | wc -l}
+ifeq (${shell expr ${SRCS_COUNT} '=' ${MAIN_SRCS_TOT}}, 1)
+	SRCS_COUNT = 0;
+endif
 MAIN_SRCS_TOT = ${shell find ./src/ -type f -name '*.c' | wc -l}
 MAIN_SRCS_PRCT = ${shell expr 100 \* ${SRCS_COUNT} / ${MAIN_SRCS_TOT}}
 HEADER_PATH = ./inc/
@@ -83,16 +89,26 @@ HEADER_PATH = ./inc/
 	@printf " ${BEIGE}  [%d/%d files (%d%%)]${DEF}" ${SRCS_COUNT} ${MAIN_SRCS_TOT} ${MAIN_SRCS_PRCT}
 	@echo "${UP}${UP}"
 
-# <<<<<<<<<< RULES >>>>>>>>>> #
+# ----------------------------------- RULES ---------------------------------- #
+LIBFT_PATH = ./libft/
+NAME = push_swap
+CHECKER_NAME = checker
+
 all: ${NAME}
 
 ${NAME}: ${OBJS_MAN}
 	@echo "\n\n"
+ifeq (${shell expr ${SRCS_COUNT} '=' 13}, 1)
+	@echo "lol"
+else ifeq (${shell expr ${SRCS_COUNT} '=' 8}, 1)
+	@echo "${shell expr ${SRCS_COUNT} '=' 8}"
+endif
 	@${MAKE} -C ${LIBFT_PATH}
 	@${CC} ${CFLAGS} ${LIBFT_PATH}/libft.a ${OBJS_MAN} -o ${NAME}
 	@echo "\n\n\n\t${BOLD}${CUR}${LYELLOW}COMPILED ✨${DEF}\n"
 
-CHECKER_NAME = checker
+bonus: ${CHECKER_NAME}
+
 ${CHECKER_NAME}: ${OBJS_BONUS}
 	@echo "\n\n"
 	@${MAKE} -C ${LIBFT_PATH}
@@ -120,8 +136,6 @@ norminette:
 	@norminette ${SORT_PATH} ${SRCS_PATH}main.c || TRUE
 	@echo ""
 
-bonus: ${CHECKER_NAME}
-
 clean:
 	@echo "\n\t${BOLD}${CUR}${ORANGE}CLEANING...${DEF}\n"
 	@rm -f ${OBJS_MAN} ${OBJS_BONUS}
@@ -135,4 +149,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean clean re debug
+.PHONY: all clean fclean clean re debug bonus norminette

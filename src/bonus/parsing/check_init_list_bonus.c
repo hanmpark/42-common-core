@@ -6,12 +6,12 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:27:25 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/16 18:10:10 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/16 22:28:50 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../inc/push_swap_bonus.h"
-#include "../../../inc/parsing_bonus.h"
+#include "push_swap_bonus.h"
+#include "parsing_bonus.h"
 
 static void	find_duplicate(t_list *list_a, int number)
 {

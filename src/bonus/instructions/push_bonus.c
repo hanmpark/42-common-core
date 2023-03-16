@@ -6,12 +6,12 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:41:49 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/16 19:23:47 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/16 22:14:15 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../inc/push_swap_bonus.h"
-#include "../../../inc/instructions_bonus.h"
+#include "push_swap_bonus.h"
+#include "instructions_bonus.h"
 
 /* Push a list to the top of the other chained list */
 void	push_list(t_list **from_list, t_list **to_list)

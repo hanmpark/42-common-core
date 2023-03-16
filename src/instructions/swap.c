@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:34:20 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/15 16:00:50 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/16 22:28:31 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	swap_list(t_list **list, int print)
 	t_list	*current;
 	t_list	*next;
 
+	if (!*list || ft_lstsize(*list) < 2)
+		return ;
 	print_swap(print);
 	current = *list;
 	next = current->next;

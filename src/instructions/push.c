@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:41:49 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/15 15:58:42 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/16 22:25:31 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	push_list(t_list **from_list, t_list **to_list, int print)
 	t_list	*current;
 	t_list	*next;
 
+	if (!*from_list)
+		return ;
 	print_push(print);
 	current = *from_list;
 	next = current->next;
