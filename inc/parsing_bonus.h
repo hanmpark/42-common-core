@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   parsing_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/01 14:45:48 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/16 14:24:39 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/03/16 14:31:50 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/03/16 15:51:51 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PARSING_BONUS_H
+# define PARSING_BONUS_H
 
-# include "../libft/inc/libft.h"
-# include "../libft/inc/ft_printf.h"
+# define TRUE 1
+# define FALSE 0
 
-typedef struct s_data
-{
-	t_list	*a;
-	t_list	*b;
-	int		max_value;
-}	t_data;
+# define ERR "Error\n"
+
+void	init_list_bonus(t_data *data, char **integers);
+void	set_index_bonus(int length, t_list *list_a);
+int		check_int_bonus(char *nbr);
+void	check_duplicate_bonus(t_list *list_a);
 
 #endif
