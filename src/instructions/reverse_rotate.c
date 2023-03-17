@@ -6,12 +6,12 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:54:55 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/16 22:28:11 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/17 16:35:53 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "instructions.h"
+#include "main/push_swap.h"
+#include "main/instructions.h"
 
 static void	print_reverse_rotate(int print)
 {

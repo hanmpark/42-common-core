@@ -6,11 +6,11 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:20:53 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/16 07:42:37 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/17 16:34:24 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "main/push_swap.h"
 
 /* Number of moves done in 'B' to put the worthiest index to the top */
 static void	count_list_b(t_list **list_b, t_list *b)

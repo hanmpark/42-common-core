@@ -6,15 +6,15 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:34:20 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/16 22:29:19 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/17 16:37:22 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_bonus.h"
-#include "instructions_bonus.h"
+#include "bonus/push_swap_bonus.h"
+#include "bonus/instructions_bonus.h"
 
 /* Swaps the first two lists of a chained lists */
-void	swap_list(t_list **list)
+void	swap(t_list **list)
 {
 	t_list	*current;
 	t_list	*next;
@@ -30,6 +30,9 @@ void	swap_list(t_list **list)
 
 void	swap_both(t_list **list_a, t_list **list_b)
 {
-	swap_list(list_a);
-	swap_list(list_b);
+	if (!*list_a || !*list_b || ft_lstsize(*list_a) < 2 || \
+		ft_lstsize(*list_b) < 2)
+		return ;
+	swap(list_a);
+	swap(list_b);
 }

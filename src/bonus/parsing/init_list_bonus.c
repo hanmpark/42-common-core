@@ -6,12 +6,12 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 09:29:38 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/16 22:29:31 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/17 16:37:48 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_bonus.h"
-#include "parsing_bonus.h"
+#include "bonus/push_swap_bonus.h"
+#include "bonus/parsing_bonus.h"
 
 static void	set_list(t_list **list, char **int_str)
 {
@@ -20,7 +20,7 @@ static void	set_list(t_list **list, char **int_str)
 	i = 0;
 	while (int_str && int_str[i])
 	{
-		if (check_int_bonus(int_str[i]) == FALSE)
+		if (check_int(int_str[i]) == FALSE)
 		{
 			ft_freemap(int_str, i);
 			ft_lsterror(list, ERR);
@@ -32,7 +32,7 @@ static void	set_list(t_list **list, char **int_str)
 }
 
 /* Initialize the first list and parse it */
-void	init_list_bonus(t_data *data, char **integers)
+void	init_list(t_data *data, char **integers)
 {
 	char	**int_str;
 	int		i;
@@ -50,6 +50,6 @@ void	init_list_bonus(t_data *data, char **integers)
 		ft_lstclear(&data->a);
 		exit(0);
 	}
-	check_duplicate_bonus(data->a);
-	set_index_bonus(ft_lstsize(data->a), data->a);
+	check_duplicate(data->a);
+	set_index(ft_lstsize(data->a), data->a);
 }

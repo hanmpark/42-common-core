@@ -6,12 +6,12 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:27:25 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/16 22:28:50 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/17 16:37:44 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_bonus.h"
-#include "parsing_bonus.h"
+#include "bonus/push_swap_bonus.h"
+#include "bonus/parsing_bonus.h"
 
 static void	find_duplicate(t_list *list_a, int number)
 {
@@ -31,7 +31,7 @@ static void	find_duplicate(t_list *list_a, int number)
 }
 
 /* Checks if there is any duplicate number */
-void	check_duplicate_bonus(t_list *list_a)
+void	check_duplicate(t_list *list_a)
 {
 	t_list	*current_list;
 	int		number;
@@ -47,7 +47,7 @@ void	check_duplicate_bonus(t_list *list_a)
 }
 
 /* Checks if it is an int */
-int	check_int_bonus(char *nbr)
+int	check_int(char *nbr)
 {
 	if (!(ft_isnum(nbr)) || \
 		!(ft_atol(nbr) >= -2147483648 && ft_atol(nbr) <= 2147483647))

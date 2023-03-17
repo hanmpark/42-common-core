@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_bonus.h                                    :+:      :+:    :+:   */
+/*   ft_lstgreatest_index.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 14:31:50 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/16 15:51:51 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/03/17 16:17:59 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/03/17 16:19:46 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_BONUS_H
-# define PARSING_BONUS_H
+#include "libft.h"
 
-# define TRUE 1
-# define FALSE 0
+int	ft_lstgreatest_index(t_list *list)
+{
+	int	greatest;
 
-# define ERR "Error\n"
-
-void	init_list_bonus(t_data *data, char **integers);
-void	set_index_bonus(int length, t_list *list_a);
-int		check_int_bonus(char *nbr);
-void	check_duplicate_bonus(t_list *list_a);
-
-#endif
+	greatest = list->index;
+	while (list != NULL)
+	{
+		if (list->index > greatest)
+			greatest = list->index;
+		list = list->next;
+	}
+	return (greatest);
+}

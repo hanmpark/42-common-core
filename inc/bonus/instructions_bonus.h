@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 20:17:58 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/16 18:11:49 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/17 14:53:58 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 # define NO_PRINT 0
 
 /* push_swap instructions */
-void	push_list(t_list **from_list, t_list **to_list);
-void	swap_list(t_list **list);
+void	push(t_list **from_list, t_list **to_list);
+void	swap(t_list **list);
 void	swap_both(t_list **list_a, t_list **list_b);
-void	rotate_list(t_list **list);
-void	rotate_both(t_list **list_a, t_list **list_b);
-void	reverse_rotate_list(t_list **list);
-void	reverse_rotate_both(t_list **list_a, t_list **list_b);
+void	rot(t_list **list);
+void	rot_both(t_list **list_a, t_list **list_b);
+void	rev_rot(t_list **list);
+void	rev_rot_both(t_list **list_a, t_list **list_b);
 
 #endif

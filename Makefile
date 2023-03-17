@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 14:42:42 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/16 23:51:02 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/17 17:01:18 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,6 @@ ORANGE = \033[38;5;216m
 LBLUE = \033[38;5;153m
 LYELLOW = \033[38;5;222m
 BEIGE = \033[38;5;223m
-
 
 # ------------------------------ MANDATORY PART ------------------------------ #
 
@@ -76,9 +75,6 @@ ifdef DEBUG
 endif
 
 SRCS_COUNT := ${shell find ./src/ -type f -name '*.o' | wc -l}
-ifeq (${shell expr ${SRCS_COUNT} '=' ${MAIN_SRCS_TOT}}, 1)
-	SRCS_COUNT = 0;
-endif
 MAIN_SRCS_TOT = ${shell find ./src/ -type f -name '*.c' | wc -l}
 MAIN_SRCS_PRCT = ${shell expr 100 \* ${SRCS_COUNT} / ${MAIN_SRCS_TOT}}
 HEADER_PATH = ./inc/
@@ -98,14 +94,9 @@ all: ${NAME}
 
 ${NAME}: ${OBJS_MAN}
 	@echo "\n\n"
-ifeq (${shell expr ${SRCS_COUNT} '=' 13}, 1)
-	@echo "lol"
-else ifeq (${shell expr ${SRCS_COUNT} '=' 8}, 1)
-	@echo "${shell expr ${SRCS_COUNT} '=' 8}"
-endif
 	@${MAKE} -C ${LIBFT_PATH}
 	@${CC} ${CFLAGS} ${LIBFT_PATH}/libft.a ${OBJS_MAN} -o ${NAME}
-	@echo "\n\n\n\t${BOLD}${CUR}${LYELLOW}COMPILED ✨${DEF}\n"
+	@echo "\n\n\n\t${BOLD}${CUR}${LYELLOW}PUSH_SWAP COMPILED ✨${DEF}\n"
 
 bonus: ${CHECKER_NAME}
 
@@ -113,7 +104,7 @@ ${CHECKER_NAME}: ${OBJS_BONUS}
 	@echo "\n\n"
 	@${MAKE} -C ${LIBFT_PATH}
 	@${CC} ${CFLAGS} ${LIBFT_PATH}/libft.a ${OBJS_BONUS} -o ${CHECKER_NAME}
-	@echo "\n\n\n\t${BOLD}${CUR}${LYELLOW}COMPILED ✨${DEF}\n"
+	@echo "\n\n\n\t${BOLD}${CUR}${LYELLOW}CHECKER COMPILED ✨${DEF}\n"
 
 debug:
 	@${MAKE} DEBUG=1
@@ -143,9 +134,10 @@ clean:
 	@echo "${LBLUE}${BOLD}${CUR}- Deleted object files${DEF}\n"
 
 fclean: clean
+	@${eval SRCS_COUNT = 0}
 	@rm -f ${LIBFT_PATH}/libft.a
 	@rm -f ${NAME} ${CHECKER_NAME}
-	@echo "${LBLUE}${BOLD}${CUR}- Deleted libft.a and ${NAME}${DEF}\n\n"
+	@echo "${LBLUE}${BOLD}${CUR}- Deleted libft.a ${NAME} and checker${DEF}\n\n"
 
 re: fclean all
 

@@ -6,13 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:02:01 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/16 08:22:57 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/17 16:43:03 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "parsing.h"
-#include "instructions.h"
+#include "main/push_swap.h"
+#include "main/parsing.h"
+#include "main/instructions.h"
 
 static void	sort_filter(t_data *data)
 {

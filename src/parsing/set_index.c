@@ -6,12 +6,12 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 14:01:11 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/15 16:02:29 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/17 16:35:01 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "parsing.h"
+#include "main/push_swap.h"
+#include "main/parsing.h"
 
 static void	put_index_min(t_list *list_a, int min, int index)
 {

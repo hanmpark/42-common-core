@@ -6,13 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:31:37 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/16 22:12:09 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/17 16:54:12 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "locate.h"
-#include "instructions.h"
+#include "main/push_swap.h"
+#include "main/locate.h"
+#include "main/instructions.h"
 
 static void	push_to_b(int max, t_list **list_a, t_list **list_b)
 {
@@ -27,13 +27,13 @@ static void	push_to_b(int max, t_list **list_a, t_list **list_b)
 		else
 		{
 			push_list(list_a, list_b, PRINT_B);
-			top = *list_a;
+			top = *list_b;
 			if (ft_lstsize(*list_b) > 1 && top->index > max / 2)
 				rotate_list(list_b, PRINT_B);
 		}
 		top = *list_a;
 	}
-	reorder_list(list_a, max);
+	reorder_small_list(list_a, max);
 }
 
 static void	push_to_a(t_list **list_a, t_list **list_b)

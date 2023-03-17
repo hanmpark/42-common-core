@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 20:17:58 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/15 15:54:16 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/17 16:24:07 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ void	sort_big_list(t_data *data);
 void	sort_small_list(t_list **list_a, t_list **list_b);
 void	move_index_top(t_list **list, int index, int print);
 void	move_both_index_top(t_list **list_a, t_list **list_b, int worthiest);
-void	reorder_list(t_list **list_a, int max);
+void	reorder_small_list(t_list **list_a, int max);
 
 #endif

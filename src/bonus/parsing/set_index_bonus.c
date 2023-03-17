@@ -6,12 +6,12 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 14:01:11 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/16 22:29:36 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/17 16:37:51 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_bonus.h"
-#include "parsing_bonus.h"
+#include "bonus/push_swap_bonus.h"
+#include "bonus/parsing_bonus.h"
 
 static void	put_index_min(t_list *list_a, int min, int index)
 {
@@ -46,7 +46,7 @@ static int	set_min(t_list *list_a)
 }
 
 /* Set index to lists (better sorting experience) */
-void	set_index_bonus(int length, t_list *list_a)
+void	set_index(int length, t_list *list_a)
 {
 	t_list	*current_list;
 	int		min;
