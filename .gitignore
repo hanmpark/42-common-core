@@ -2,3 +2,4 @@ push_swap_visualizer/
 push_swap_tester/
 .vscode/
 .DS_Store/
+tester.py

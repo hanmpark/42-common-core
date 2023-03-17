@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:29:04 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/17 16:20:00 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/17 18:52:01 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void	ft_lstclear_moves(t_list **b);
 int		ft_lstcheck_order(t_list *list_a);
 void	ft_lsterror(t_list **list, const char *error_message);
 int		ft_lstgreatest_index(t_list *list);
+int		ft_lstsmallest_index(t_list *list);
 
 /* ERROR */
 void	ft_error(const char *error_message);
