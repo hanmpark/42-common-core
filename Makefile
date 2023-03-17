@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 14:42:42 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/17 18:20:30 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/17 23:17:25 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,19 +24,19 @@ BEIGE = \033[38;5;223m
 
 # ------------------------------ MANDATORY PART ------------------------------ #
 
-SRCS_PATH = ./src/
-PARSING_PATH = ${SRCS_PATH}parsing/
+MAIN_SRCS_PATH = ./src/main/
+PARSING_PATH = ${MAIN_SRCS_PATH}parsing/
 PARSING_SRCS = ${addprefix ${PARSING_PATH}, init_list.c \
 											set_index.c \
 											check_init_list.c}
 
-INSTRUCTIONS_PATH = ${SRCS_PATH}instructions/
+INSTRUCTIONS_PATH = ${MAIN_SRCS_PATH}instructions/
 INSTRUCTIONS_SRCS = ${addprefix ${INSTRUCTIONS_PATH}, push.c \
 														reverse_rotate.c \
 														rotate.c \
 														swap.c}
 
-SORT_PATH = ${SRCS_PATH}sort/
+SORT_PATH = ${MAIN_SRCS_PATH}sort/
 SORT_SRCS = ${addprefix ${SORT_PATH}, sort_big_number.c \
 										sort_small_number.c \
 										count_moves.c \
@@ -44,26 +44,26 @@ SORT_SRCS = ${addprefix ${SORT_PATH}, sort_big_number.c \
 										moves.c}
 
 # -------------------------------- BONUS PART -------------------------------- #
-BONUS_PATH = ${SRCS_PATH}bonus/
+BONUS_SRCS_PATH = ./src/bonus/
 
-BONUS_INSTRUCTIONS_PATH = ${BONUS_PATH}instructions/
+BONUS_INSTRUCTIONS_PATH = ${BONUS_SRCS_PATH}instructions/
 BONUS_INSTRUCTIONS_SRCS = ${addprefix ${BONUS_INSTRUCTIONS_PATH}, push_bonus.c \
 																	reverse_rotate_bonus.c \
 																	rotate_bonus.c \
 																	swap_bonus.c}
 
-BONUS_PARSING_PATH = ${BONUS_PATH}parsing/
+BONUS_PARSING_PATH = ${BONUS_SRCS_PATH}parsing/
 BONUS_PARSING_SRCS = ${addprefix ${BONUS_PARSING_PATH}, check_init_list_bonus.c \
 														init_list_bonus.c \
 														set_index_bonus.c}
 
 # --------------------------------- SRC /OBJ --------------------------------- #
 
-BONUS_SRCS = ${BONUS_INSTRUCTIONS_SRCS} ${BONUS_PARSING_SRCS} ${BONUS_PATH}checker_bonus.c
+MAIN_SRCS = ${PARSING_SRCS} ${INSTRUCTIONS_SRCS} ${SORT_SRCS} ${MAIN_SRCS_PATH}push_swap.c
 
-SRCS = ${PARSING_SRCS} ${INSTRUCTIONS_SRCS} ${SORT_SRCS} ${SRCS_PATH}push_swap.c
+BONUS_SRCS = ${BONUS_INSTRUCTIONS_SRCS} ${BONUS_PARSING_SRCS} ${BONUS_SRCS_PATH}checker_bonus.c
 
-OBJS_MAN = ${SRCS:.c=.o}
+OBJS_MAIN = ${MAIN_SRCS:.c=.o}
 
 OBJS_BONUS = ${BONUS_SRCS:.c=.o}
 
@@ -92,10 +92,10 @@ CHECKER_NAME = checker
 
 all: ${NAME}
 
-${NAME}: ${OBJS_MAN}
+${NAME}: ${OBJS_MAIN}
 	@echo "\n\n"
 	@${MAKE} -C ${LIBFT_PATH}
-	@${CC} ${CFLAGS} ${LIBFT_PATH}libft.a ${OBJS_MAN} -o ${NAME}
+	@${CC} ${CFLAGS} ${LIBFT_PATH}libft.a ${OBJS_MAIN} -o ${NAME}
 	@echo "\n\n\n   ${BOLD}${CUR}${LYELLOW}PUSH_SWAP COMPILED ✨${DEF}\n"
 
 bonus: ${CHECKER_NAME}
@@ -124,12 +124,12 @@ norminette:
 	@echo "\n${LBLUE}${CUR}parsing${DEF}"
 	@norminette ${PARSING_PATH} || TRUE
 	@echo "\n${LBLUE}${CUR}sort${DEF}"
-	@norminette ${SORT_PATH} ${SRCS_PATH}main.c || TRUE
+	@norminette ${SORT_PATH} ${MAIN_SRCS_PATH}main.c || TRUE
 	@echo ""
 
 clean:
 	@echo "\n\t${BOLD}${CUR}${ORANGE}CLEANING...${DEF}\n"
-	@rm -f ${OBJS_MAN} ${OBJS_BONUS}
+	@rm -f ${OBJS_MAIN} ${OBJS_BONUS}
 	@${MAKE} -C ${LIBFT_PATH} clean
 	@echo "${LBLUE}${BOLD}${CUR}- Deleted object files${DEF}\n"
 
