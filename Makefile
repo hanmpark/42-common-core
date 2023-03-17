@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 14:42:42 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/17 23:17:25 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/17 23:24:50 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -119,12 +119,22 @@ norminette:
 	@echo "\n${LBLUE}${CUR}libft${DEF}"
 	@norminette ${LIBFT_PATH}src/libft/ || TRUE
 	@echo "\n${LYELLOW}${BOLD}PUSH_SWAP${DEF}"
+	@echo "\n${LYELLOW}${BOLD}- main part -${DEF}"
 	@echo "${LBLUE}${CUR}instructions${DEF}"
 	@norminette ${INSTRUCTIONS_PATH} || TRUE
 	@echo "\n${LBLUE}${CUR}parsing${DEF}"
 	@norminette ${PARSING_PATH} || TRUE
 	@echo "\n${LBLUE}${CUR}sort${DEF}"
-	@norminette ${SORT_PATH} ${MAIN_SRCS_PATH}main.c || TRUE
+	@norminette ${SORT_PATH} || TRUE
+	@echo "\n${LBLUE}${CUR}main${DEF}"
+	@norminette ${MAIN_SRCS_PATH}push_swap.c || TRUE
+	@echo "\n${LYELLOW}${BOLD}- bonus part -${DEF}"
+	@echo "${LBLUE}${CUR}instructions${DEF}"
+	@norminette ${BONUS_INSTRUCTIONS_PATH} || TRUE
+	@echo "\n${LBLUE}${CUR}parsing${DEF}"
+	@norminette ${BONUS_PARSING_PATH} || TRUE
+	@echo "\n${LBLUE}${CUR}main${DEF}"
+	@norminette ${BONUS_SRCS_PATH}checker_bonus.c || TRUE
 	@echo ""
 
 clean:
