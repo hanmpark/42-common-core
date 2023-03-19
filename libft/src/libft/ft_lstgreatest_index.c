@@ -6,22 +6,22 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 16:17:59 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/17 16:19:46 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/19 12:39:56 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstgreatest_index(t_list *list)
+int	ft_lstgreatest_index(t_list *pile)
 {
 	int	greatest;
 
-	greatest = list->index;
-	while (list != NULL)
+	greatest = pile->index;
+	while (pile != NULL)
 	{
-		if (list->index > greatest)
-			greatest = list->index;
-		list = list->next;
+		if (pile->index > greatest)
+			greatest = pile->index;
+		pile = pile->next;
 	}
 	return (greatest);
 }

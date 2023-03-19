@@ -6,23 +6,23 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:56:05 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/17 16:34:33 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/19 13:57:19 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main/push_swap.h"
 #include "main/locate.h"
 
-/* Tells wether the index is in the bottom part / the upper part of the list */
-int	half_locate(t_list **list, int index)
+/* Tells wether the index is in the bottom part / the upper part of the pile */
+int	half_locate(t_list **pile, int index)
 {
 	t_list	*current;
 	int		size;
 	int		count;
 
-	current = *list;
+	current = *pile;
 	count = 0;
-	size = ft_lstsize(*list);
+	size = ft_lstsize(*pile);
 	while (current)
 	{
 		count++;
@@ -36,14 +36,14 @@ int	half_locate(t_list **list, int index)
 	return (BOTTOM_HALF);
 }
 
-/* Worthiest index to move from a list */
-int	worthiest_index(t_list **list)
+/* Worthiest index to move from a pile */
+int	worthiest_index(t_list **pile)
 {
 	t_list	*current;
 	int		moves;
 	int		index;
 
-	current = *list;
+	current = *pile;
 	moves = current->moves;
 	index = current->index;
 	while (current)
@@ -58,20 +58,20 @@ int	worthiest_index(t_list **list)
 	return (index);
 }
 
-/* Strict superior index from a list */
-int	strict_superior_index(t_list **list, int index)
+/* Strict superior index from a pile */
+int	strict_superior_index(t_list **pile, int index)
 {
 	t_list	*current;
 	int		ss_index;
 
-	current = *list;
+	current = *pile;
 	ss_index = index + 1;
 	while (current && current->index != ss_index)
 	{
 		current = current->next;
 		if (current == NULL)
 		{
-			current = *list;
+			current = *pile;
 			ss_index++;
 		}
 	}

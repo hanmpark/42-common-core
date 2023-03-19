@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_list.c                                        :+:      :+:    :+:   */
+/*   init_pile_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 09:29:38 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/17 16:35:11 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/19 13:12:50 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main/push_swap.h"
-#include "main/parsing.h"
+#include "bonus/push_swap_bonus.h"
+#include "bonus/parsing_bonus.h"
 
-static void	set_list(t_list **list, char **int_str)
+static void	set_list(t_list **pile, char **int_str)
 {
 	int	i;
 
@@ -23,16 +23,16 @@ static void	set_list(t_list **list, char **int_str)
 		if (check_int(int_str[i]) == FALSE)
 		{
 			ft_freemap(int_str, i);
-			ft_lsterror(list, ERR);
+			ft_lsterror(pile, NULL, ERR);
 		}
-		ft_lstadd_back(list, ft_lstnew(ft_atoi(int_str[i]), 0));
+		ft_lstadd_back(pile, ft_lstnew(ft_atoi(int_str[i]), 0));
 		free(int_str[i]);
 		i++;
 	}
 }
 
-/* Initialize the first list and parse it */
-void	init_list(t_data *data, char **integers)
+/* Initialize the first pile and parse it */
+void	init_pile(t_data *data, char **integers)
 {
 	char	**int_str;
 	int		i;
@@ -46,10 +46,7 @@ void	init_list(t_data *data, char **integers)
 		i++;
 	}
 	if (ft_lstsize(data->a) < 2)
-	{
-		ft_lstclear(&data->a);
-		exit(0);
-	}
+		ft_lsterror(&data->a, NULL, NULL);
 	check_duplicate(data->a);
 	set_index(ft_lstsize(data->a), data->a);
 }

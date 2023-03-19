@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 17:12:52 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/17 16:34:41 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/19 13:57:04 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,69 +14,69 @@
 #include "main/instructions.h"
 #include "main/locate.h"
 
-/* Rotating or reverse_rotating until 'index' is at the top of the list */
-void	move_index_top(t_list **list, int index, int print)
+/* Rotating or reverse_rotating until 'index' is at the top of the pile */
+void	move_index_top(t_list **pile, int index, int print)
 {
 	t_list	*current;
 
-	current = *list;
+	current = *pile;
 	while (current && (current->index != index))
 	{
-		if (half_locate(list, index) == BOTTOM_HALF)
-			rotate_list(list, print);
-		else if (half_locate(list, index) == UPPER_HALF)
-			reverse_rotate_list(list, print);
-		current = *list;
+		if (half_locate(pile, index) == BOTTOM_HALF)
+			rotate_pile(pile, print);
+		else if (half_locate(pile, index) == UPPER_HALF)
+			reverse_rotate_pile(pile, print);
+		current = *pile;
 	}
 }
 
-/* Move the worthiest and the strict superior index to the top */
-void	move_both_index_top(t_list **list_a, t_list **list_b, int worthiest)
+/* Move the worthiest and the strict superior index to the top of the pile*/
+void	move_both_index_top(t_list **pile_a, t_list **pile_b, int worthiest)
 {
 	t_list	*a;
 	t_list	*b;
 	int		nearest;
 
-	a = *list_a;
-	b = *list_b;
-	nearest = strict_superior_index(list_a, worthiest);
+	a = *pile_a;
+	b = *pile_b;
+	nearest = strict_superior_index(pile_a, worthiest);
 	while (a && b && a->index != nearest && b->index != worthiest)
 	{
-		if (half_locate(list_a, nearest) == BOTTOM_HALF && \
-			half_locate(list_b, worthiest) == BOTTOM_HALF)
-			rotate_both(list_a, list_b);
-		else if (half_locate(list_a, nearest) == UPPER_HALF && \
-			half_locate(list_b, worthiest) == UPPER_HALF)
-			reverse_rotate_both(list_a, list_b);
+		if (half_locate(pile_a, nearest) == BOTTOM_HALF && \
+			half_locate(pile_b, worthiest) == BOTTOM_HALF)
+			rotate_both(pile_a, pile_b);
+		else if (half_locate(pile_a, nearest) == UPPER_HALF && \
+			half_locate(pile_b, worthiest) == UPPER_HALF)
+			reverse_rotate_both(pile_a, pile_b);
 		else
 			break ;
-		a = *list_a;
-		b = *list_b;
+		a = *pile_a;
+		b = *pile_b;
 	}
-	move_index_top(list_a, nearest, PRINT_A);
-	move_index_top(list_b, worthiest, PRINT_B);
+	move_index_top(pile_a, nearest, PRINT_A);
+	move_index_top(pile_b, worthiest, PRINT_B);
 }
 
-/* Reorders the list for three indexes */
-void	reorder_small_list(t_list **list_a, int max)
+/* Reorders the pile for three indexes */
+void	reorder_small_pile(t_list **pile_a, int max)
 {
 	t_list	*top;
 	t_list	*last;
 
-	last = ft_lstlast(*list_a);
-	top = *list_a;
-	while (ft_lstcheck_order(*list_a) == FALSE)
+	last = ft_lstlast(*pile_a);
+	top = *pile_a;
+	while (ft_lstcheck_order(*pile_a) == FALSE)
 	{
 		if (last->index == top->index - 1)
 		{
 			if (top->index == max)
-				rotate_list(list_a, PRINT_A);
+				rotate_pile(pile_a, PRINT_A);
 			else if (top->index == max - 1)
-				reverse_rotate_list(list_a, PRINT_A);
+				reverse_rotate_pile(pile_a, PRINT_A);
 		}
 		else
-			swap_list(list_a, PRINT_A);
-		top = *list_a;
-		last = ft_lstlast(*list_a);
+			swap_pile(pile_a, PRINT_A);
+		top = *pile_a;
+		last = ft_lstlast(*pile_a);
 	}
 }

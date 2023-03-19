@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 14:42:42 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/17 23:24:50 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/19 13:14:59 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,9 +26,9 @@ BEIGE = \033[38;5;223m
 
 MAIN_SRCS_PATH = ./src/main/
 PARSING_PATH = ${MAIN_SRCS_PATH}parsing/
-PARSING_SRCS = ${addprefix ${PARSING_PATH}, init_list.c \
+PARSING_SRCS = ${addprefix ${PARSING_PATH}, init_pile.c \
 											set_index.c \
-											check_init_list.c}
+											check_pile.c}
 
 INSTRUCTIONS_PATH = ${MAIN_SRCS_PATH}instructions/
 INSTRUCTIONS_SRCS = ${addprefix ${INSTRUCTIONS_PATH}, push.c \
@@ -37,8 +37,8 @@ INSTRUCTIONS_SRCS = ${addprefix ${INSTRUCTIONS_PATH}, push.c \
 														swap.c}
 
 SORT_PATH = ${MAIN_SRCS_PATH}sort/
-SORT_SRCS = ${addprefix ${SORT_PATH}, sort_big_number.c \
-										sort_small_number.c \
+SORT_SRCS = ${addprefix ${SORT_PATH}, sort_big_pile.c \
+										sort_small_pile.c \
 										count_moves.c \
 										locate.c \
 										moves.c}
@@ -53,8 +53,8 @@ BONUS_INSTRUCTIONS_SRCS = ${addprefix ${BONUS_INSTRUCTIONS_PATH}, push_bonus.c \
 																	swap_bonus.c}
 
 BONUS_PARSING_PATH = ${BONUS_SRCS_PATH}parsing/
-BONUS_PARSING_SRCS = ${addprefix ${BONUS_PARSING_PATH}, check_init_list_bonus.c \
-														init_list_bonus.c \
+BONUS_PARSING_SRCS = ${addprefix ${BONUS_PARSING_PATH}, check_pile_bonus.c \
+														init_pile_bonus.c \
 														set_index_bonus.c}
 
 # --------------------------------- SRC /OBJ --------------------------------- #
@@ -120,7 +120,9 @@ norminette:
 	@norminette ${LIBFT_PATH}src/libft/ || TRUE
 	@echo "\n${LYELLOW}${BOLD}PUSH_SWAP${DEF}"
 	@echo "\n${LYELLOW}${BOLD}- main part -${DEF}"
-	@echo "${LBLUE}${CUR}instructions${DEF}"
+	@echo "${LBLUE}${CUR}include files${DEF}"
+	@norminette ${HEADER_PATH}main/ || TRUE
+	@echo "\n${LBLUE}${CUR}instructions${DEF}"
 	@norminette ${INSTRUCTIONS_PATH} || TRUE
 	@echo "\n${LBLUE}${CUR}parsing${DEF}"
 	@norminette ${PARSING_PATH} || TRUE
@@ -129,7 +131,9 @@ norminette:
 	@echo "\n${LBLUE}${CUR}main${DEF}"
 	@norminette ${MAIN_SRCS_PATH}push_swap.c || TRUE
 	@echo "\n${LYELLOW}${BOLD}- bonus part -${DEF}"
-	@echo "${LBLUE}${CUR}instructions${DEF}"
+	@echo "${LBLUE}${CUR}include files${DEF}"
+	@norminette ${HEADER_PATH}bonus/ || TRUE
+	@echo "\n${LBLUE}${CUR}instructions${DEF}"
 	@norminette ${BONUS_INSTRUCTIONS_PATH} || TRUE
 	@echo "\n${LBLUE}${CUR}parsing${DEF}"
 	@norminette ${BONUS_PARSING_PATH} || TRUE

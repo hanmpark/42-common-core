@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 08:23:25 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/17 19:22:38 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/19 12:48:00 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,10 @@ static void	wait_instructions(t_data *data)
 	{
 		if (check_instruction(gnl_return, data) == NOT_READABLE)
 		{
-			if (data->a)
-				ft_lstclear(&data->a);
-			if (data->b)
-				ft_lstclear(&data->b);
-			ft_error("Error\n");
+			free(gnl_return);
+			ft_lsterror(&data->a, &data->b, "Error\n");
 		}
+		free(gnl_return);
 		gnl_return = get_next_line(0);
 	}
 }
@@ -70,15 +68,12 @@ int	main(int argc, char **argv)
 		return (0);
 	data.a = NULL;
 	data.b = NULL;
-	init_list(&data, argv);
+	init_pile(&data, argv);
 	wait_instructions(&data);
 	if (ft_lstcheck_order(data.a) == TRUE && data.b == NULL)
 		ft_printf("OK\n");
 	else if (ft_lstcheck_order(data.a) == FALSE || data.b != NULL)
 		ft_printf("KO\n");
-	if (data.a)
-		ft_lstclear(&data.a);
-	if (data.b)
-		ft_lstclear(&data.b);
+	ft_lsterror(&data.a, &data.b, NULL);
 	return (0);
 }

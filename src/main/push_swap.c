@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:02:01 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/17 16:43:03 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/19 13:08:49 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static void	sort_filter(t_data *data)
 	}
 	data->max_value = ft_lstsize(data->a);
 	if (data->max_value <= 5)
-		sort_small_list(&data->a, &data->b);
+		sort_small_pile(&data->a, &data->b);
 	else
-		sort_big_list(data);
+		sort_big_pile(data);
 }
 
 int	main(int argc, char **argv)
@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 		return (0);
 	data.a = NULL;
 	data.b = NULL;
-	init_list(&data, argv);
+	init_pile(&data, argv);
 	sort_filter(&data);
 	ft_lstclear(&data.a);
 	return (0);

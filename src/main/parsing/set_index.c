@@ -6,18 +6,18 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 14:01:11 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/17 16:35:01 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/19 13:13:42 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main/push_swap.h"
 #include "main/parsing.h"
 
-static void	put_index_min(t_list *list_a, int min, int index)
+static void	put_index_min(t_list *pile_a, int min, int index)
 {
 	t_list	*current_list;
 
-	current_list = list_a;
+	current_list = pile_a;
 	while (current_list)
 	{
 		if (current_list->number == min)
@@ -26,12 +26,12 @@ static void	put_index_min(t_list *list_a, int min, int index)
 	}
 }
 
-static int	set_min(t_list *list_a)
+static int	set_min(t_list *pile_a)
 {
 	t_list	*current_list;
 	int		min;
 
-	current_list = list_a;
+	current_list = pile_a;
 	min = 0;
 	while (current_list != NULL)
 	{
@@ -46,25 +46,25 @@ static int	set_min(t_list *list_a)
 }
 
 /* Set index to lists (better sorting experience) */
-void	set_index(int length, t_list *list_a)
+void	set_index(int length, t_list *pile_a)
 {
 	t_list	*current_list;
 	int		min;
 	int		index;
 
 	index = 1;
-	current_list = list_a;
+	current_list = pile_a;
 	while (index <= length)
 	{
-		min = set_min(list_a);
-		current_list = list_a;
+		min = set_min(pile_a);
+		current_list = pile_a;
 		while (current_list)
 		{
 			if (current_list->number < min && !current_list->index)
 				min = current_list->number;
 			current_list = current_list->next;
 		}
-		put_index_min(list_a, min, index);
+		put_index_min(pile_a, min, index);
 		index++;
 	}
 }

@@ -6,23 +6,23 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 22:24:02 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/15 15:25:37 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/19 12:40:29 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstcheck_order(t_list *list_a)
+int	ft_lstcheck_order(t_list *pile)
 {
 	int	count;
 
-	count = list_a->index;
-	while (list_a)
+	count = pile->index;
+	while (pile)
 	{
-		if (list_a->index != count)
+		if (pile->index != count)
 			return (0);
 		count++;
-		list_a = list_a->next;
+		pile = pile->next;
 	}
 	return (1);
 }

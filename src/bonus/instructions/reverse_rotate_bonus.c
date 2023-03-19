@@ -6,38 +6,38 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:54:55 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/17 16:37:14 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/19 13:03:51 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bonus/push_swap_bonus.h"
 #include "bonus/instructions_bonus.h"
 
-/* Put the last list of a chained list to the top */
-void	rev_rot(t_list **list)
+/* Put the last list of a pile to the top */
+void	rev_rot(t_list **pile)
 {
 	t_list	*last;
 	t_list	*new;
 	t_list	*current;
 
-	if (!*list || ft_lstsize(*list) < 2)
+	if (!*pile || ft_lstsize(*pile) < 2)
 		return ;
-	last = ft_lstlast(*list);
+	last = ft_lstlast(*pile);
 	new = ft_lstnew(last->number, last->index);
-	ft_lstadd_front(list, new);
-	current = *list;
+	ft_lstadd_front(pile, new);
+	current = *pile;
 	while (current->next->next)
 		current = current->next;
 	current->next = NULL;
 	ft_lstdelone(last);
 }
 
-/* Put the last list of both chained lists to the top */
-void	rev_rot_both(t_list **list_a, t_list **list_b)
+/* Put the last list of both piles to the top */
+void	rev_rot_both(t_list **pile_a, t_list **pile_b)
 {
-	if (!*list_a || !*list_b || ft_lstsize(*list_a) < 2 || \
-		ft_lstsize(*list_b) < 2)
+	if (!*pile_a || !*pile_b || ft_lstsize(*pile_a) < 2 || \
+		ft_lstsize(*pile_b) < 2)
 		return ;
-	rev_rot(list_a);
-	rev_rot(list_b);
+	rev_rot(pile_a);
+	rev_rot(pile_b);
 }

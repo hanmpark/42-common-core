@@ -1,47 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_init_list.c                                  :+:      :+:    :+:   */
+/*   check_init_list_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:27:25 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/17 16:35:18 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/19 12:47:24 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main/push_swap.h"
-#include "main/parsing.h"
+#include "bonus/push_swap_bonus.h"
+#include "bonus/parsing_bonus.h"
 
-static void	find_duplicate(t_list *list_a, int number)
+static void	find_duplicate(t_list *pile_a, int number)
 {
 	t_list	*current_list;
 	int		check;
 
-	current_list = list_a;
+	current_list = pile_a;
 	check = 0;
 	while (current_list)
 	{
 		if (current_list->number == number && !check)
 			check = 1;
 		else if (current_list->number == number && check)
-			ft_lsterror(&list_a, ERR);
+			ft_lsterror(&pile_a, NULL, ERR);
 		current_list = current_list->next;
 	}
 }
 
 /* Checks if there is any duplicate number */
-void	check_duplicate(t_list *list_a)
+void	check_duplicate(t_list *pile_a)
 {
 	t_list	*current_list;
 	int		number;
 
-	current_list = list_a;
+	current_list = pile_a;
 	number = 0;
 	while (current_list != NULL)
 	{
 		number = current_list->number;
-		find_duplicate(list_a, number);
+		find_duplicate(pile_a, number);
 		current_list = current_list->next;
 	}
 }

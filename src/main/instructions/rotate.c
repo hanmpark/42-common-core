@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:49:21 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/17 16:35:57 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/19 13:07:07 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,31 +21,31 @@ static void	print_rotate(int print)
 		ft_printf("rb\n");
 }
 
-/* Put the top list of the chained list to the bottom */
-void	rotate_list(t_list **list, int print)
+/* Put the top list of the pile to the bottom */
+void	rotate_pile(t_list **pile, int print)
 {
 	t_list	*head;
 	t_list	*last;
 	t_list	*next;
 
-	if (!*list || ft_lstsize(*list) < 2)
+	if (!*pile || ft_lstsize(*pile) < 2)
 		return ;
 	print_rotate(print);
-	head = *list;
+	head = *pile;
 	next = head->next;
 	last = ft_lstnew(head->number, head->index);
-	ft_lstadd_back(list, last);
-	ft_lstdelone(*list);
-	*list = next;
+	ft_lstadd_back(pile, last);
+	ft_lstdelone(*pile);
+	*pile = next;
 }
 
-/* Put the top of both chained lists to the bottom */
-void	rotate_both(t_list **list_a, t_list **list_b)
+/* Put the top list of both piles to the bottom */
+void	rotate_both(t_list **pile_a, t_list **pile_b)
 {
-	if (!*list_a || !*list_b || ft_lstsize(*list_a) < 2 || \
-		ft_lstsize(*list_b) < 2)
+	if (!*pile_a || !*pile_b || ft_lstsize(*pile_a) < 2 || \
+		ft_lstsize(*pile_b) < 2)
 		return ;
 	ft_printf("rr\n");
-	rotate_list(list_a, NO_PRINT);
-	rotate_list(list_b, NO_PRINT);
+	rotate_pile(pile_a, NO_PRINT);
+	rotate_pile(pile_b, NO_PRINT);
 }

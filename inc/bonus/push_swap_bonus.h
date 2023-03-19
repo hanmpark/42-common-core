@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:24:39 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/17 15:47:53 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/19 12:26:50 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_data
 
 typedef void	(*t_ft_instr)();
 
-typedef struct	s_instr
+typedef struct s_instr
 {
 	const char	*cmp_str;
 	int			param;

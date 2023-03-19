@@ -6,33 +6,34 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:34:20 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/17 16:37:22 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/19 13:03:29 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bonus/push_swap_bonus.h"
 #include "bonus/instructions_bonus.h"
 
-/* Swaps the first two lists of a chained lists */
-void	swap(t_list **list)
+/* Swaps the first two lists of a pile */
+void	swap(t_list **pile)
 {
 	t_list	*current;
 	t_list	*next;
 
-	if (!*list || ft_lstsize(*list) < 2)
+	if (!*pile || ft_lstsize(*pile) < 2)
 		return ;
-	current = *list;
+	current = *pile;
 	next = current->next;
 	current->next = next->next;
 	next->next = current;
-	*list = next;
+	*pile = next;
 }
 
-void	swap_both(t_list **list_a, t_list **list_b)
+/* Swaps the first two lists of both piles */
+void	swap_both(t_list **pile_a, t_list **pile_b)
 {
-	if (!*list_a || !*list_b || ft_lstsize(*list_a) < 2 || \
-		ft_lstsize(*list_b) < 2)
+	if (!*pile_a || !*pile_b || ft_lstsize(*pile_a) < 2 || \
+		ft_lstsize(*pile_b) < 2)
 		return ;
-	swap(list_a);
-	swap(list_b);
+	swap(pile_a);
+	swap(pile_b);
 }

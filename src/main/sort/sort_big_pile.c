@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_big_number.c                                  :+:      :+:    :+:   */
+/*   sort_big_pile.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:31:37 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/17 16:54:12 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/19 13:53:14 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,44 +14,44 @@
 #include "main/locate.h"
 #include "main/instructions.h"
 
-static void	push_to_b(int max, t_list **list_a, t_list **list_b)
+static void	push_to_b(int max, t_list **pile_a, t_list **pile_b)
 {
 	t_list	*top;
 
-	top = *list_a;
-	while (ft_lstsize(*list_a) != 3)
+	top = *pile_a;
+	while (ft_lstsize(*pile_a) != 3)
 	{
 		if (top->index == max || top->index == max - 1 || \
 			top->index == max - 2)
-			rotate_list(list_a, PRINT_A);
+			rotate_pile(pile_a, PRINT_A);
 		else
 		{
-			push_list(list_a, list_b, PRINT_B);
-			top = *list_b;
-			if (ft_lstsize(*list_b) > 1 && top->index > max / 2)
-				rotate_list(list_b, PRINT_B);
+			push_pile(pile_a, pile_b, PRINT_B);
+			top = *pile_b;
+			if (ft_lstsize(*pile_b) > 1 && top->index > max / 2)
+				rotate_pile(pile_b, PRINT_B);
 		}
-		top = *list_a;
+		top = *pile_a;
 	}
-	reorder_small_list(list_a, max);
+	reorder_small_pile(pile_a, max);
 }
 
-static void	push_to_a(t_list **list_a, t_list **list_b)
+static void	push_to_a(t_list **pile_a, t_list **pile_b)
 {
 	t_list	*b;
 	int		worthiest;
 
-	b = *list_b;
-	worthiest = worthiest_index(list_b);
-	ft_lstclear_moves(list_b);
+	b = *pile_b;
+	worthiest = worthiest_index(pile_b);
+	ft_lstclear_moves(pile_b);
 	if (b->next && b->next->index == worthiest)
-		swap_list(list_b, PRINT_B);
-	move_both_index_top(list_a, list_b, worthiest);
-	push_list(list_b, list_a, PRINT_A);
+		swap_pile(pile_b, PRINT_B);
+	move_both_index_top(pile_a, pile_b, worthiest);
+	push_pile(pile_b, pile_a, PRINT_A);
 }
 
-/* Sort big chained list */
-void	sort_big_list(t_data *data)
+/* Sort big pile */
+void	sort_big_pile(t_data *data)
 {
 	push_to_b(data->max_value, &data->a, &data->b);
 	while (data->b)
