@@ -62,7 +62,3 @@ You will also need another algorithm for smaller data.
 | | 3 | less than 8 500 |
 | | 4 | less than 7 000 |
 | | 5 | less than 5 500 |
-
-Mine does for an average of 5000 instructions to sort a pile of 500 numbers.
-
-PS: I don't recommend you to try and make your own algorithm (you will loose a lot of time).
