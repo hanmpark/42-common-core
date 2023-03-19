@@ -3,7 +3,7 @@
 ***push_swap*** is a simple project in which you have to sort data. You are given two empty piles: _a_ and _b_.
 You have top put the integers in _a_ after the parsing. Therefore with the _Push swap instructions_ you have to sort the _a_ pile using the _b_ pile.
 
-The difficulty of this project comes from the number of instruction that you'll use. You have to sort the data using as few instruction as possible.
+The difficulty of this project comes from the number of instruction that you'll use. You have to sort the data using as few instruction as possible. For that, you will have to look up at some already existing sorting algorithms and understand the notion of **complexity**.
 
 ## Push_swap instructions 🔨
 
