@@ -11,7 +11,7 @@ The difficulty of this project comes from the number of instruction that you'll 
 | --- | --- |
 | ***sa (swap a)*** | switches the first 2 elements at the top of the stack a. Does nothing if there is only one or none. |
 | ***sb (swap b)*** | switches the first 2 elements at the top of the stack b. Does nothing if there is only one or none. |
-| ***ss *** | sa + sb but I personally don't use it |
+| ***ss*** | sa + sb but I personally don't use it |
 | ***pa (push a)*** | takes the first element on top of b and puts it on a. Does nothing if b is empty. |
 | ***pb (push b)*** | takes the first element on top of a and puts it on b. Does nothing if a is empty. |
 | ***ra (rotate a)*** | shifts all the elements of the stack a one position upwards. The first element becomes the last. |
