@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:27:25 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/21 13:14:00 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/21 13:39:34 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	find_duplicate(t_list *pile_a, int number)
 		{
 			ft_lstclear(&pile_a);
 			ft_strexit(ERR, 1);
-		};
+		}
 		current_list = current_list->next;
 	}
 }
