@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 07:20:43 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/02/28 14:39:29 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/21 18:41:46 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <fcntl.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5
+#  define BUFFER_SIZE 1
 # endif
 
 char	*get_next_line(int fd);
