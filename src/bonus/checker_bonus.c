@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 08:23:25 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/19 12:48:00 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/21 13:37:05 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ static void	wait_instructions(t_data *data)
 		if (check_instruction(gnl_return, data) == NOT_READABLE)
 		{
 			free(gnl_return);
-			ft_lsterror(&data->a, &data->b, "Error\n");
+			ft_lstclear_piles(&data->a, &data->b);
+			ft_strexit(ERR, 1);
 		}
 		free(gnl_return);
 		gnl_return = get_next_line(0);
@@ -74,6 +75,6 @@ int	main(int argc, char **argv)
 		ft_printf("OK\n");
 	else if (ft_lstcheck_order(data.a) == FALSE || data.b != NULL)
 		ft_printf("KO\n");
-	ft_lsterror(&data.a, &data.b, NULL);
+	ft_lstclear_piles(&data.a, &data.b);
 	return (0);
 }

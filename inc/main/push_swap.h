@@ -6,15 +6,15 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:45:48 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/16 14:24:39 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/21 12:54:11 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/inc/libft.h"
-# include "../libft/inc/ft_printf.h"
+# include "../../libft/inc/libft.h"
+# include "../../libft/inc/ft_printf.h"
 
 typedef struct s_data
 {
