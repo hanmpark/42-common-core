@@ -334,3 +334,131 @@ int	main(int argc, char **argv) {
 	return 0;
 }
 ```
+
+### How to send an array through a pipe
+
+```c
+#include <time.h>
+
+// 2 processes
+// 1) Child process should generate random numbers and send them to the parent
+// 2) Parent is going to sum all the numbers and print the result
+
+int	main(int argc, char **argv) {
+	int	fd[2];
+	if (pipe(fd) == -1) {
+		return 2;
+	}
+	int	pid = fork();
+	if (pid == -1) {
+		return 1;
+	}
+	if (pid == 0) {
+		// Child process
+		close(fd[0]); // read fd
+		int	n, i;
+		int	arr[10];
+		srand(time(NULL));
+		n = rand() % 10 + 1; // anything between 1 and 10
+		printf("Generated: ");
+		for (i = 0; i < n; i++) {
+			arr[i] = rand() % 11; // anything from 0 to 10
+			printf("%d ", arr[i]);
+		}
+		printf("\n")
+
+		if (write(fd[1], &n, sizeof(int)) < 0) {
+			return 4;
+		}
+		printf("Sent n = %d\n", n);
+
+		if (write(fd[1], arr, sizeof(int) * n) < 0) {
+			return 3;
+		}
+		printf("Sent array\n");
+
+		close(fd[1]);
+	} else {
+		// Parent process
+		close(fd[1]); // write fd
+		int	arr[10];
+		int	n, i, sum = 0;
+		if (read(fd[0], &n, sizeof(int)) < 0) {
+			return 5;
+		}
+		printf("Received n = %d\n", n);
+		if (read(fd[0], arr, sizeof(int) * n) < 0) {
+			return 6;
+		}
+		printf("Received array\n");
+		close(fd[0]);
+		for (i = 0; i < n; i++) {
+			sum += arr[i];
+		}
+		printf("Result is: %d\n", sum);
+		wait(NULL);
+	}
+	return 0;
+}
+```
+```sh
+Generated: 5 3 8 3 10 0 1 9
+Sent n = 8
+Received n = 8
+Received array
+Result is: 39
+```
+
+### How to send a string through a pipe
+
+```c
+int	main(int argc, char **argv) {
+	int	fd[2];
+	if (pipe(fd) < 0) {
+		return 1;
+	}
+
+	int	pid = fork();
+	if (pid < 0) {
+		return 2;
+	}
+
+	if (pid == 0) {
+		// Child process
+		close(fd[0]);
+		char	str[200];
+		printf("Input string: ");
+		fgets(str, 200, stdin);
+		str[strlen(str) - 1] = 0;
+
+		int	n = strlen(str) + 1;
+		if (write(fd[1], &n, sizeof(int)) < 0) {
+			return 4;
+		}
+
+		if (write(fd[1], str, sizeof(char) * n) < 0) {
+			return 3;
+		}
+		close(fd[1]);
+	} else {
+		// Parent process
+		close(fd[1]);
+		char	str[200];
+		int		n;
+
+		if (read(fd[0], &n, sizeof(int)) < 0) {
+			return 5;
+		}
+		if (read(fd[0], str, sizeof(char) * n) < 0) {
+			return 6;
+		}
+		printf("Received: %s\n", str);
+		close(fd[0]);
+		wait(NULL);
+	}
+
+	return 0;
+}
+```
+
+You could technically do a while loop instead of another read but it will add more lines for nothing.
