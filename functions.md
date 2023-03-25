@@ -462,3 +462,58 @@ int	main(int argc, char **argv) {
 ```
 
 You could technically do a while loop instead of another read but it will add more lines for nothing.
+
+### Simulating the pipe operator in C
+
+Move the output to the input of the next command is the goal here.
+```c
+
+int	main(int argc, char **argv) {
+	int	fd[2];
+	if (pipe(fd) == -1) {
+		return 1;
+	}
+
+	int	pid1 = fork();
+	if (pid1 < 0) {
+		return 2;
+	}
+
+	if (pid1 == 0) {
+		// Child process 1 (ping)
+		dup2(fd[1], STDOUT_FILENO);
+		close(fd[0]);
+		close(fd[1]); // Because it remains open even if we have duplicated it
+		execlp("ping", "ping", "-c", "5", "google.com", NULL);
+		// It replaces everything inside the executing process
+		// That's why we don't need an else
+	}
+
+	int pid2 = fork();
+	if (pid2 < 0) {
+		return 3;
+	}
+
+	if (pid2 == 0) {
+		// Child process (grep)
+		dup2(fd[0], STDIN_FILENO);
+		close(fd[0]);
+		close(fd[1]);
+		execlp("grep", "grep", "rtt", NULL);
+	}
+
+	close(fd[0]);
+	close(fd[1]);
+
+	waitpid(pid1, NULL, 0);
+	waitpid(pid2, NULL, 0);
+	return 0;
+}
+
+```
+
+### Working with multiple pipes
+
+```c
+
+```
