@@ -6,11 +6,11 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:03:05 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/02/28 14:43:10 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/27 10:20:19 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/ft_printf.h"
+#include "ft_printf.h"
 
 void	str_wflags(t_parseflags *tab, char *str, int len)
 {

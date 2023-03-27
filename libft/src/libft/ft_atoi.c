@@ -6,11 +6,11 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 13:00:07 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/02/28 14:33:37 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/27 10:16:26 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "libft.h"
 
 int	ft_atoi(const char *str)
 {

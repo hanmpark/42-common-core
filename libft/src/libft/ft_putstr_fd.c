@@ -6,11 +6,11 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:08:23 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/02/28 14:35:38 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/27 10:18:11 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "libft.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {

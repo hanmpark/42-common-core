@@ -6,11 +6,11 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 14:59:34 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/02/28 14:43:00 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/27 10:20:01 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/ft_printf.h"
+#include "ft_printf.h"
 
 static void	def_specifier(t_parseflags *tab, const char *format, int *i)
 {

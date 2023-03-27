@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 17:19:39 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/27 10:17:40 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/03/27 09:57:07 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/03/27 10:16:12 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	ft_error(char *message)
 {
-	unsigned char	*str;
-	unsigned char	*str1;
-	int				i;
-
-	str = (unsigned char *)s1;
-	str1 = (unsigned char *)s2;
-	i = 0;
-	while (n--)
-	{
-		if (str[i] != str1[i])
-			return ((str[i] - str1[i]));
-		i++;
-	}
-	return (0);
+	ft_putstr_fd("\033[31m", 2);
+	ft_putstr_fd(message, 2);
+	ft_putstr_fd("\033[0m", 2);
+	exit(1);
 }

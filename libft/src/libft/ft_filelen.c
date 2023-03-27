@@ -6,11 +6,11 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:38:43 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/02/28 14:39:41 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/27 10:16:43 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/get_next_line.h"
+#include "get_next_line.h"
 
 int	ft_filelen(const char *file)
 {

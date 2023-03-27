@@ -6,11 +6,11 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:24:55 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/02/28 14:34:53 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/27 10:17:14 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "libft.h"
 
 t_list	*ft_lstlast(t_list *lst)
 {

@@ -6,11 +6,11 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:33:05 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/02/28 14:36:42 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/27 10:17:31 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "libft.h"
 
 static int	maplen(char **map)
 {

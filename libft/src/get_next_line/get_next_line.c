@@ -6,11 +6,11 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 07:20:08 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/02/28 14:42:49 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/27 10:19:45 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/get_next_line.h"
+#include "get_next_line.h"
 
 static int	ft_is_nl(char *str)
 {

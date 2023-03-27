@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 16:40:47 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/25 12:22:33 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/27 10:01:35 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,8 @@ SRCS_LIBFT = ${addprefix ${LIBFT_PATH}, ft_bzero.c \
 										ft_lstiter.c \
 										ft_lstmap.c \
 										ft_filelen.c \
-										ft_mapdup.c}
+										ft_mapdup.c \
+										ft_error.c}
 
 PRINTF_PATH = ./src/ft_printf/
 SRCS_PRINTF = ${addprefix ${PRINTF_PATH}, def_flags.c \
