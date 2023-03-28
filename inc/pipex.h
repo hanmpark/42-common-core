@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 13:37:05 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/28 22:23:01 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/28 23:39:06 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,23 @@
 
 # define ERR "Error\n"
 # define ERR_ARGS "Error\nWrong number of arguments\n"
-# define ERR_PIPE "Error\nProblem occurred in pipe()\n"
-# define ERR_FORK "Error\nProblem occurred in fork()\n"
+# define ERR_PIPE "Error\nProblem occurred with pipe()\n"
+# define ERR_FORK "Error\nProblem occurred with fork()\n"
+# define ERR_MALLOC "Error\nProblem occurred with malloc()\n"
+# define ERR_PATH "Error\nenvPath not found\n"
+# define ERR_CMDPATH "Error\ncmdPath not found\n"
 
 # define NOT_FOUND 0
 
-void	exec_cmd(char **cmd, char **envp);
+typedef struct s_cmd
+{
+	int		nbrCommands;
+	char	*envPath;
+	char	**cmdPath;
+}	t_cmd;
+
+void	exec_cmd(t_cmd *data, char **cmd, char **envp);
+char	*defineCommandPath(char *cmd, char *env_path);
+char	*definePath(char **envp);
 
 #endif

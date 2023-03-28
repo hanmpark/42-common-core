@@ -6,39 +6,39 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:25:57 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/28 22:12:05 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/28 23:37:32 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-static char	*choose_correctPath(char *cmd, char *env_path)
+char	*defineCommandPath(char *cmd, char *env_path)
 {
-	char	**cmd_paths;
-	char	*right_path;
-	char	*path;
+	char	**cmdPaths;
+	char	*rightPath;
+	char	*dirPath;
 	int		i;
 
-	cmd_paths = ft_split(env_path + 5, ':');
+	cmdPaths = ft_split(env_path + 5, ':');
 	i = 0;
-	while (cmd_paths[i])
+	while (cmdPaths[i])
 	{
-		path = ft_strjoin(cmd_paths[i], "/");
-		right_path = ft_strjoin(path, cmd);
-		free(path);
-		if (access(right_path, F_OK) == 0)
+		dirPath = ft_strjoin(cmdPaths[i], "/");
+		rightPath = ft_strjoin(dirPath, cmd);
+		free(dirPath);
+		if (access(rightPath, F_OK) == 0)
 		{
-			ft_freestr_array(cmd_paths);
-			return (right_path);
+			ft_freestr_array(cmdPaths);
+			return (rightPath);
 		}
-		free(right_path);
+		free(rightPath);
 		i++;
 	}
-	ft_freestr_array(cmd_paths);
+	ft_freestr_array(cmdPaths);
 	return (0);
 }
 
-static char	*find_path(char **envp)
+char	*definePath(char **envp)
 {
 	int	i;
 
@@ -52,18 +52,11 @@ static char	*find_path(char **envp)
 	return (0);
 }
 
-void	exec_cmd(char **cmd, char **envp)
+void	exec_cmd(t_cmd *data, char **cmd, char **envp)
 {
-	char	*env_path;
 	char	*cmd_path;
 
 	if (!cmd)
-		ft_error(ERR);
-	env_path = find_path(envp);
-	if (!env_path)
-		ft_error(ERR);
-	cmd_path = choose_correctPath(cmd[0], env_path);
-	if (!cmd_path)
 		ft_error(ERR);
 	free(cmd[0]);
 	cmd[0] = cmd_path;

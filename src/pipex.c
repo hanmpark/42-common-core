@@ -6,19 +6,19 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 11:33:58 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/28 22:25:21 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/28 23:54:19 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-static void	firstCommand(char **argv, char **envp, int *pipe)
+static void	firstCommand(t_cmd *data, char *fileName, int *pipe)
 {
 	int		fileIn;
 	char	**cmd;
 
 	close(pipe[0]);
-	fileIn = open(argv[1], O_RDONLY);
+	fileIn = open(fileName, O_RDONLY);
 	if (fileIn < 0)
 		ft_error(ERR);
 	cmd = ft_split(argv[2], ' ');
@@ -26,7 +26,7 @@ static void	firstCommand(char **argv, char **envp, int *pipe)
 	dup2(pipe[1], STDOUT_FILENO);
 	close(pipe[1]);
 	close(fileIn);
-	exec_cmd(cmd, envp);
+	exec_cmd(cmd);
 }
 
 static void	secondCommand(char **argv, char **envp, int *pipe)
@@ -46,16 +46,47 @@ static void	secondCommand(char **argv, char **envp, int *pipe)
 	exec_cmd(cmd, envp);
 }
 
-static void	pipex(char **argv, char **envp)
+/* Checks if the commands exist */
+static void	checkCommands(t_cmd *data, char **argv)
+{
+	int		i;
+	char	**cmdv;
+
+	i = 0;
+	data->cmdPath = ft_calloc(data->nbrCommands, sizeof(char *));
+	if (data->cmdPath == NULL)
+		ft_error(ERR_MALLOC);
+	while (i < data->nbrCommands)
+	{
+		cmdv = ft_split(argv[2 + i], ' ');
+		data->cmdPath[i] = defineCommandPath(cmdv[0], data->envPath);
+		ft_freestr_array(cmdv);
+		if (data->cmdPath[i] == NULL)
+		{
+			ft_freestr_array(data->cmdPath);
+			ft_error(ERR_CMDPATH);
+		}
+		i++;
+	}
+}
+
+static void	pipex(t_cmd *data, char **argv, char **envp)
 {
 	int	fd[2];
 	int	pid;
 
 	if (pipe(fd) == -1)
 		ft_error(ERR_PIPE);
+	data->envPath = definePath(envp);
+	if (data->envPath == NULL)
+		ft_error(ERR_PATH);
+	checkCommands(data, argv);
 	pid = fork();
 	if (pid == -1)
+	{
+		ft_freestr_array(data->cmdPath);
 		ft_error(ERR_FORK);
+	}
 	else if (pid == 0)
 		firstCommand(argv, envp, fd);
 	waitpid(pid, NULL, 0);
@@ -64,11 +95,11 @@ static void	pipex(char **argv, char **envp)
 
 int	main(int argc, char **argv, char **envp)
 {
-	int	fd[2];
-	int	pid;
+	t_cmd	data;
 
 	if (argc != 5)
 		ft_error(ERR_ARGS);
-	pipex(argv, envp);
+	data.nbrCommands = argc - 3;
+	pipex(&data, argv, envp);
 	return (0);
 }
