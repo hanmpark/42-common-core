@@ -6,11 +6,11 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:25:57 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/27 18:58:56 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/28 22:12:05 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/pipex.h"
+#include "pipex.h"
 
 static char	*choose_correctPath(char *cmd, char *env_path)
 {
