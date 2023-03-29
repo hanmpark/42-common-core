@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_cmd.c                                        :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:25:57 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/28 23:37:32 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/29 17:19:57 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+#include "errors.h"
 
-char	*defineCommandPath(char *cmd, char *env_path)
+/* Look for the right path for the command and returns the path as a string */
+static char	*defineCommandPath(char *cmd, char *env_path)
 {
 	char	**cmdPaths;
 	char	*rightPath;
@@ -38,7 +40,8 @@ char	*defineCommandPath(char *cmd, char *env_path)
 	return (0);
 }
 
-char	*definePath(char **envp)
+/* Returns the PATH in envp */
+static char	*definePath(char **envp)
 {
 	int	i;
 
@@ -49,21 +52,41 @@ char	*definePath(char **envp)
 			return (envp[i]);
 		i++;
 	}
+	ft_error(ERR_PATH);
 	return (0);
 }
 
-void	exec_cmd(t_cmd *data, char **cmd, char **envp)
+/* Checks if the file exists */
+void	checkInfile(char *Infile)
 {
-	char	*cmd_path;
+	int	fd;
 
-	if (!cmd)
-		ft_error(ERR);
-	free(cmd[0]);
-	cmd[0] = cmd_path;
-	if (execve(cmd_path, cmd, envp) == -1)
+	fd = open(Infile, O_RDONLY);
+	if (fd == -1)
+		ft_error(ERR_OPEN);
+}
+
+/* Checks if the commands exist */
+void	defineCommand(t_cmd *data, char **argv, char **envp)
+{
+	int		i;
+	char	**cmdv;
+
+	data->envPath = definePath(envp);
+	data->cmdPath = ft_calloc(data->nbrCommands, sizeof(char *));
+	if (data->cmdPath == NULL)
+		ft_error(ERR_MALLOC);
+	i = 0;
+	while (i < data->nbrCommands)
 	{
-		free(cmd_path);
-		ft_error(ERR);
+		cmdv = ft_split(argv[2 + i], ' ');
+		data->cmdPath[i] = defineCommandPath(cmdv[0], data->envPath);
+		ft_freestr_array(cmdv);
+		if (data->cmdPath[i] == NULL)
+		{
+			ft_freestr_array(data->cmdPath);
+			ft_error(ERR_CMDPATH);
+		}
+		i++;
 	}
-	free(cmd_path);
 }

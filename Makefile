@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/25 13:32:25 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/27 15:50:33 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/29 15:33:44 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,10 @@ BEIGE = \033[38;5;223m
 # --------------------------------- SOURCES ---------------------------------- #
 SRC_PATH = ./src/
 
-SRCS_MAIN = ${SRC_PATH}pipex.c ${SRC_PATH}check_cmd.c
+MAIN_PATH = ${SRC_PATH}main/
+SRCS_MAIN = ${addprefix ${MAIN_PATH}, check.c \
+										execCommand.c \
+										pipex.c}
 
 OBJS_MAIN = ${SRCS_MAIN:.c=.o}
 
