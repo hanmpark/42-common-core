@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   defineCommand.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:25:57 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/29 17:19:57 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/30 11:14:18 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,6 @@ static char	*definePath(char **envp)
 	}
 	ft_error(ERR_PATH);
 	return (0);
-}
-
-/* Checks if the file exists */
-void	checkInfile(char *Infile)
-{
-	int	fd;
-
-	fd = open(Infile, O_RDONLY);
-	if (fd == -1)
-		ft_error(ERR_OPEN);
 }
 
 /* Checks if the commands exist */
