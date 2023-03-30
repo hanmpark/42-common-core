@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/25 13:32:25 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/29 15:33:44 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/30 10:04:00 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ BEIGE = \033[38;5;223m
 SRC_PATH = ./src/
 
 MAIN_PATH = ${SRC_PATH}main/
-SRCS_MAIN = ${addprefix ${MAIN_PATH}, check.c \
+SRCS_MAIN = ${addprefix ${MAIN_PATH}, defineCommand.c \
 										execCommand.c \
 										pipex.c}
 

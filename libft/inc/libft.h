@@ -6,13 +6,14 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:29:04 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/27 10:32:44 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/30 10:51:23 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stdlib.h>
+# include <stdio.h>
 # include <unistd.h>
 
 typedef struct s_list

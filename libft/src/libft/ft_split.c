@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 07:37:17 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/27 10:18:18 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/30 10:18:40 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (0);
 	count = count_words(s, c);
-	tab = malloc((count + 1) * sizeof(char *));
+	tab = ft_calloc((count + 1), sizeof(char *));
 	if (!tab)
 		return (0);
 	while (*s)
@@ -75,6 +75,5 @@ char	**ft_split(char const *s, char c)
 		else
 			s++;
 	}
-	*tab = 0;
 	return (tab - count);
 }
