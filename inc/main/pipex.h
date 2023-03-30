@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 13:37:05 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/30 11:14:28 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/30 11:43:06 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 # define PIPEX_H
 
 # include <fcntl.h>
-# include <string.h>
-# include <sys/wait.h>
 # include <stdio.h>
-# include "../libft/inc/libft.h"
-# include "../libft/inc/ft_printf.h"
+# include <sys/wait.h>
+# include "../../libft/inc/libft.h"
 
 # define NOT_FOUND 0
 # define READ 1

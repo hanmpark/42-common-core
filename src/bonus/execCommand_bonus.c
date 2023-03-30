@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execCommand.c                                      :+:      :+:    :+:   */
+/*   execCommand_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 13:18:06 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/30 11:20:17 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/03/30 18:17:18 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/03/30 19:02:46 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main/pipex.h"
-#include "main/errors.h"
+#include "bonus/pipex_bonus.h"
+#include "bonus/errors_bonus.h"
 
 /* Execute the command */
 static void	exec_cmd(char **cmd, char **envp)
@@ -33,6 +33,8 @@ static int	openFile(t_cmd *data, char *fileName, int mode)
 		fd = open(fileName, O_RDONLY);
 	else if (mode == WRITE)
 		fd = open(fileName, O_WRONLY | O_TRUNC | O_CREAT, 0777);
+	else if (mode == APPEND)
+		fd = open(fileName, O_WRONLY | O_APPEND | O_CREAT, 0777);
 	if (fd == -1)
 	{
 		close(data->pipe[0]);
@@ -61,20 +63,17 @@ void	writeEnd(t_cmd *data, char **argv, char **envp)
 	exec_cmd(cmd, envp);
 }
 
-/* Takes the last output as the stdin for the command */
-void	readEnd(t_cmd *data, char **argv, char **envp)
+void	runCommand(t_cmd *data, char **argv, char **envp)
 {
-	int		fileOut;
-	char	**cmd;
+	int	i;
+	int	pid;
 
-	fileOut = openFile(data, argv[4], WRITE);
-	close(data->pipe[1]);
-	cmd = ft_split(argv[3], ' ');
-	free(cmd[0]);
-	cmd[0] = data->cmdPath[1];
-	dup2(fileOut, STDOUT_FILENO);
-	dup2(data->pipe[0], STDIN_FILENO);
-	close(fileOut);
-	close(data->pipe[0]);
-	exec_cmd(cmd, envp);
+	i = 0;
+	while (i < data->nbrCommands)
+	{
+		pid = fork();
+		if (pid == 0)
+
+		i++;
+	}
 }

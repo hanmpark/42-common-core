@@ -467,7 +467,6 @@ You could technically do a while loop instead of another read but it will add mo
 
 Move the output to the input of the next command is the goal here.
 ```c
-
 int	main(int argc, char **argv) {
 	int	fd[2];
 	if (pipe(fd) == -1) {
@@ -509,11 +508,4 @@ int	main(int argc, char **argv) {
 	waitpid(pid2, NULL, 0);
 	return 0;
 }
-
-```
-
-### Working with multiple pipes
-
-```c
-
 ```

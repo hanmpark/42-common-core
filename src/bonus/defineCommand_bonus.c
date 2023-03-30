@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   defineCommand.c                                    :+:      :+:    :+:   */
+/*   defineCommand_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/27 12:25:57 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/30 18:13:01 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/03/30 16:51:11 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/03/30 18:43:53 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main/pipex.h"
-#include "main/errors.h"
+#include "bonus/pipex_bonus.h"
+#include "bonus/errors_bonus.h"
 
 /* Look for the right path for the command and returns the path as a string */
 static char	*defineCommandPath(char *cmd, char *envPath)
@@ -65,15 +65,21 @@ void	defineCommand(t_cmd *data, char **argv, char **envp)
 	data->envPath = definePath(envp);
 	data->cmdPath = ft_calloc(data->nbrCommands, sizeof(char *));
 	if (data->cmdPath == NULL)
+	{
+		close(data->pipe[0]);
+		close(data->pipe[1]);
 		ft_error(ERR_MALLOC);
+	}
 	i = 0;
 	while (i < data->nbrCommands)
 	{
-		cmdv = ft_split(argv[2 + i], ' ');
+		cmdv = ft_split(argv[data->cmd + i], ' ');
 		data->cmdPath[i] = defineCommandPath(cmdv[0], data->envPath);
 		ft_freestr_array(cmdv);
 		if (data->cmdPath[i] == NULL)
 		{
+			close(data->pipe[0]);
+			close(data->pipe[1]);
 			ft_freestr_array(data->cmdPath);
 			ft_error(ERR_CMDPATH);
 		}

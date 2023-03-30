@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/25 13:32:25 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/30 10:04:00 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/30 18:17:33 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,19 @@ SRCS_MAIN = ${addprefix ${MAIN_PATH}, defineCommand.c \
 										execCommand.c \
 										pipex.c}
 
+BONUS_PATH = ${SRC_PATH}bonus/
+SRCS_BONUS = ${addprefix ${BONUS_PATH}, pipex_bonus.c \
+										defineCommand_bonus.c \
+										execCommand_bonus.c}
+
 OBJS_MAIN = ${SRCS_MAIN:.c=.o}
+OBJS_BONUS = ${SRCS_BONUS:.c=.o}
+
+ifdef BONUS
+OBJS = ${OBJS_BONUS}
+else
+OBJS = ${OBJS_MAIN}
+endif
 
 # --------------------------------- COMPILER --------------------------------- #
 
@@ -58,11 +70,14 @@ NAME = pipex
 
 all: ${NAME}
 
-${NAME}:	${OBJS_MAIN}
+${NAME}:	${OBJS} ${OBJS_BONUS}
 	@echo "\n\n"
 	@${MAKE} -C ${LIBFT_PATH}
-	@${CC} ${CFLAGS} ${LIBFT_PATH}libft.a ${OBJS_MAIN} -o ${NAME}
-	@echo "\n\n\n   ${BOLD}${CUR}${LYELLOW}${NAME} COMPILED ✨${DEF}\n"
+	@${CC} ${CFLAGS} ${LIBFT_PATH}libft.a ${OBJS} -o ${NAME}
+	@echo "\n\n\n   ${BOLD}${CUR}${LYELLOW}PIPEX COMPILED ✨${DEF}\n"
+
+bonus:
+	@${MAKE} BONUS=1
 
 debug:
 	@${MAKE} DEBUG=1
@@ -81,4 +96,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re debug
+.PHONY: all clean fclean re debug bonus
