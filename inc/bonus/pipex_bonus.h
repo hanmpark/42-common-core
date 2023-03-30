@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 11:20:46 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/30 18:43:09 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/30 23:15:44 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,15 @@
 
 typedef struct s_cmd
 {
-	int		pipe[2];
 	int		cmd;
-	int		nbrCommands;
+	int		lastCommand;
 	char	*envPath;
-	char	**cmdPath;
+	char	*cmdPath;
 }	t_cmd;
 
-void	defineCommand(t_cmd *data, char **argv, char **envp);
+void	checkCommand(t_cmd *data, char **argv, char **envp);
+char	*defineCommandPath(char *cmd, char *envPath);
+void	treatInfile(t_cmd *data, char *infile, int argc);
+int		openFile(t_cmd *data, char *fileName, int mode);
 
 # endif

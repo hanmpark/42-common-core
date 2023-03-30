@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/25 13:32:25 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/30 18:17:33 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/30 22:41:36 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,9 @@ SRCS_MAIN = ${addprefix ${MAIN_PATH}, defineCommand.c \
 BONUS_PATH = ${SRC_PATH}bonus/
 SRCS_BONUS = ${addprefix ${BONUS_PATH}, pipex_bonus.c \
 										defineCommand_bonus.c \
-										execCommand_bonus.c}
+										execCommand_bonus.c \
+										here_doc_bonus.c \
+										utils_bonus.c}
 
 OBJS_MAIN = ${SRCS_MAIN:.c=.o}
 OBJS_BONUS = ${SRCS_BONUS:.c=.o}
