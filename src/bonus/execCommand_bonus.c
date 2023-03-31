@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:17:18 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/30 23:22:20 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/31 08:15:51 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 #include "bonus/errors_bonus.h"
 
 /* Execute the command */
-static void	execCmd(char **cmd, char **envp)
+static void	execCmd(int fileOut, char **cmd, char **envp)
 {
 	if (execve(cmd[0], cmd, envp) == -1)
 	{
+		close(fileOut);
 		ft_freestr_array(cmd);
 		ft_error(ERR_EXEC);
 	}
@@ -27,6 +28,7 @@ static void	execCmd(char **cmd, char **envp)
 void	execProcess(t_cmd *data, char *cmd, char **envp)
 {
 	char	**cmdArgs;
+	char	*cmdPath;
 	int		pid;
 	int		pfd[2];
 
@@ -37,29 +39,57 @@ void	execProcess(t_cmd *data, char *cmd, char **envp)
 	{
 		close(pfd[0]);
 		close(pfd[1]);
+		close(data->fileOut);
 		ft_error(ERR_FORK);
 	}
 	if (pid == 0)
 	{
 		close(pfd[0]);
 		cmdArgs = ft_split(cmd, ' ');
-		data->cmdPath = defineCommandPath(cmdArgs[0], data->envPath);
+		cmdPath = defineCommandPath(cmdArgs[0], data->envPath);
 		free(cmdArgs[0]);
-		cmdArgs[0] = data->cmdPath;
+		cmdArgs[0] = cmdPath;
 		dup2(pfd[1], STDOUT_FILENO);
 		close(pfd[1]);
-		exec_cmd(cmdArgs, envp);
+		execCmd(data->fileOut, cmdArgs, envp);
 	}
+	close(pfd[0]);
+	dup2(pfd[0], STDIN_FILENO);
+	close(pfd[0]);
+	waitpid(pid, NULL, 0);
+}
+
+static void	lastCommand(t_cmd *data, char *cmd, char **envp)
+{
+	char	**cmdArgs;
+	char	*cmdPath;
+	int		pid;
+
+	pid = fork();
+	if (pid == -1)
+		ft_error(ERR_PIPE);
+	if (pid == 0)
+	{
+		cmdArgs = ft_split(cmd, ' ');
+		cmdPath = defineCommandPath(cmdArgs[0], data->envPath);
+		ft_printf("cmdPath for the last command is %s\n", cmdPath);
+		ft_printf("cmdArgs = %s\n\n", cmdArgs[1]);
+		free(cmdArgs[0]);
+		cmdArgs[0] = cmdPath;
+		execCmd(data->fileOut, cmdArgs, envp);
+	}
+	waitpid(pid, NULL, 0);
 }
 
 void	runCommand(t_cmd *data, char **argv, char **envp)
 {
-	int	i;
-
-	i = 0;
-	while (i < data->nbrCommands)
+	while (data->cmdIndex < data->lastCommand)
 	{
-
-		i++;
+		ft_printf("runCommand() entered in the loop, at cmdIndex = %d\n", data->cmdIndex);
+		ft_printf("-> cmd = %s\n\n", argv[data->cmdIndex]);
+		execProcess(data, argv[data->cmdIndex], envp);
+		data->cmdIndex++;
 	}
+	ft_printf("The last command is %s\n\n", argv[data->cmdIndex]);
+	lastCommand(data, argv[data->cmdIndex], envp);
 }

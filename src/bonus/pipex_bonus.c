@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 11:19:28 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/30 22:54:30 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/31 08:04:02 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,20 @@
 /* Pipex main function */
 static void	pipex(t_cmd *data, int argc, char **argv, char **envp)
 {
-	int	pid;
-	int	fileout;
-	int	i;
-
 	data->lastCommand = argc - 2;
 	if (!ft_strncmp(argv[1], "here_doc", ft_strlen(argv[1])))
 	{
-		here_doc(data, argc, argv);
-		fileout = openFile(data, argv[argc - 1], APPEND);
-		data->cmd = 3;
+		here_doc(argv);
+		data->fileOut = openFile(argv[argc - 1], APPEND);
+		data->cmdIndex = 3;
 	}
 	else
 	{
-		treatInfile(data, argv[1], argc);
-		fileout = openFile(data, argv[argc - 1], WRITE);
-		data->cmd = 2;
+		treatInfile(argv[1]);
+		data->fileOut = openFile(argv[argc - 1], WRITE);
+		data->cmdIndex = 2;
 	}
-	defineCommand(data, argv, envp);
+	checkCommand(data, argv, envp);
 	runCommand(data, argv, envp);
 }
 

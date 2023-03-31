@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/25 13:32:25 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/30 22:41:36 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/31 08:10:52 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,8 @@ ${NAME}:	${OBJS} ${OBJS_BONUS}
 bonus:
 	@${MAKE} BONUS=1
 
+rebonus: fclean bonus
+
 debug:
 	@${MAKE} DEBUG=1
 
@@ -98,4 +100,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re debug bonus
+.PHONY: all clean fclean re debug bonus rebonus

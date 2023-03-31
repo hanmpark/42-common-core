@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 22:01:16 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/30 22:39:11 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/31 08:01:46 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "bonus/errors_bonus.h"
 
 /* Reads in the 'here_doc' */
-static void	read_line(t_cmd *data, char *limiter, int *pfd)
+static void	read_line(char *limiter, int *pfd)
 {
 	char	*gnl;
 
@@ -35,21 +35,20 @@ static void	read_line(t_cmd *data, char *limiter, int *pfd)
 }
 
 /* Writes to the pipe the stdin */
-void	here_doc(t_cmd *data, int argc, char **argv)
+void	here_doc(char **argv)
 {
 	char	*gnl;
 	int		pfd[2];
 	int		pid;
 
 	if (pipe(pfd) == - 1)
-	{
-		ft_freestr_array(data->cmdPath);
 		ft_error(ERR_PIPE);
-	}
-	pid = createProcess(data);
+	pid = fork();
+	if (pid == -1)
+		ft_error(ERR_FORK);
 	gnl = get_next_line(0);
 	if (pid == 0)
-		read_line(data, argv[2], pfd);
+		read_line(argv[2], pfd);
 	close(pfd[1]);
 	dup2(pfd[0], STDIN_FILENO);
 	close(pfd[0]);

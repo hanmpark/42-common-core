@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 16:51:11 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/30 23:16:16 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/31 08:08:41 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,18 +59,23 @@ char	*defineCommandPath(char *cmd, char *envPath)
 /* Checks if the commands exist and stock its path data->cmdPath */
 void	checkCommand(t_cmd *data, char **argv, char **envp)
 {
-	int		i;
 	char	**cmdv;
+	char	*cmdPath;
+	int		i;
 
 	data->envPath = definePath(envp);
-	i = data->cmd;
-	while (i < data->lastCommand)
+	i = data->cmdIndex;
+	while (i < data->lastCommand + 1)
 	{
-		cmdv = ft_split(argv[data->cmd + i], ' ');
-		data->cmdPath = defineCommandPath(cmdv[0], data->envPath);
+		cmdv = ft_split(argv[i], ' ');
+		cmdPath = defineCommandPath(cmdv[0], data->envPath);
 		ft_freestr_array(cmdv);
-		if (data->cmdPath == NULL)
+		if (cmdPath == NULL)
+		{
+			close(data->fileOut);
 			ft_error(ERR_CMDPATH);
+		}
+		free(cmdPath);
 		i++;
 	}
 }

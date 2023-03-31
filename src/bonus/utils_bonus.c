@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 22:40:59 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/30 23:03:27 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/31 08:03:17 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 #include "bonus/errors_bonus.h"
 
 /* Treats the infile */
-void	treatInfile(t_cmd *data, char *infile, int argc)
+void	treatInfile(char *infile)
 {
 	int	fd;
 
-	fd = openFile(data, infile, READ);
+	fd = openFile(infile, READ);
 	if (fd == -1)
 		ft_error(ERR_OPEN);
 	dup2(fd, STDIN_FILENO);
@@ -26,7 +26,7 @@ void	treatInfile(t_cmd *data, char *infile, int argc)
 }
 
 /* Opens the file and returns its file descriptor */
-int	openFile(t_cmd *data, char *fileName, int mode)
+int	openFile(char *fileName, int mode)
 {
 	int	fd;
 
@@ -38,9 +38,6 @@ int	openFile(t_cmd *data, char *fileName, int mode)
 	else if (mode == APPEND)
 		fd = open(fileName, O_WRONLY | O_APPEND | O_CREAT, 0777);
 	if (fd == -1)
-	{
-		ft_freestr_array(data->cmdPath);
 		ft_error(ERR_OPEN);
-	}
 	return (fd);
 }
