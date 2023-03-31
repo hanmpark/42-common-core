@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/25 13:32:25 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/31 11:50:17 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/31 13:53:37 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,8 @@ BEIGE = \033[38;5;223m
 SRC_PATH = ./src/
 
 MAIN_PATH = ${SRC_PATH}main/
-SRCS_MAIN = ${addprefix ${MAIN_PATH}, defineCommand.c \
-										execCommand.c \
+SRCS_MAIN = ${addprefix ${MAIN_PATH}, define.c \
+										exec.c \
 										pipex.c}
 
 BONUS_PATH = ${SRC_PATH}bonus/
@@ -71,7 +71,7 @@ NAME = pipex
 
 all: ${NAME}
 
-${NAME}:	${OBJS} ${OBJS_BONUS}
+${NAME}:	${OBJS}
 	@echo "\n\n"
 	@${MAKE} -C ${LIBFT_PATH}
 	@${CC} ${CFLAGS} ${LIBFT_PATH}libft.a ${OBJS} -o ${NAME}

@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 10:36:46 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/31 12:15:25 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/31 15:19:34 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	here_doc(t_cmd *data, int argc, char **argv)
 	int		pfd[2];
 	int		pid;
 
-	if (pipe(pfd) == - 1)
+	if (pipe(pfd) == -1)
 		ft_error(ERR_PIPE);
 	pid = fork();
 	if (pid == -1)
@@ -51,8 +51,8 @@ void	here_doc(t_cmd *data, int argc, char **argv)
 	dup2(pfd[READ_END], STDIN_FILENO);
 	close(pfd[READ_END]);
 	waitpid(pid, NULL, 0);
-	data->fileOut = openFile(argv[argc - 1], APPEND);
-	data->cmdIndex = 3;
+	data->fileout = open_file(argv[argc - 1], APPEND);
+	data->cmd_index = 3;
 }
 
 /* INFILE: sets the content of the infile as the STDIN */
@@ -60,17 +60,17 @@ static void	infile(t_cmd *data, int argc, char **argv)
 {
 	int	fd;
 
-	fd = openFile(argv[1], READ);
+	fd = open_file(argv[1], READ);
 	dup2(fd, STDIN_FILENO);
 	close(fd);
-	data->fileOut = openFile(argv[argc - 1], WRITE);
-	data->cmdIndex = 2;
+	data->fileout = open_file(argv[argc - 1], WRITE);
+	data->cmd_index = 2;
 }
 
 /* Checks wether we have to treat the here_doc or the infile */
-void	treatStdin(t_cmd *data, int argc, char **argv)
+void	treat_stdin(t_cmd *data, int argc, char **argv)
 {
-	data->lastCommand = argc - 2;
+	data->last_cmd = argc - 2;
 	if (!ft_strncmp(argv[1], "here_doc", ft_strlen(argv[1])))
 	{
 		if (argc < 5)

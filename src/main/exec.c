@@ -1,59 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exec_bonus.c                                       :+:      :+:    :+:   */
+/*   exec.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 18:17:18 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/31 16:21:46 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/03/29 13:18:06 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/03/31 15:34:22 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bonus/pipex_bonus.h"
-#include "bonus/errors_bonus.h"
+#include "main/pipex.h"
+#include "main/errors.h"
 
 /* Execute the sent command in the child process */
-static void	exec_cmd(t_cmd *data, char *cmd, char **envp, int *pfd)
+static void	exec_cmd(int fileout, char *cmd, char **envp, int *pfd)
 {
 	char	**cmd_args;
 
 	close(pfd[READ_END]);
-	cmd_args = define_cmdargs(cmd, data->env_path);
+	cmd_args = define_cmdargs(cmd, define_path(envp));
 	dup2(pfd[WRITE_END], STDOUT_FILENO);
 	close(pfd[WRITE_END]);
-	close(data->fileout);
+	close(fileout);
 	execve(cmd_args[0], cmd_args, envp);
 }
 
 /* Creates a new child process to execute the sent command in it */
-static void	create_process(t_cmd *data, char *cmd, char **envp)
+static void	write_end(int fileout, char *cmd, char **envp)
 {
 	int	pid;
 	int	pfd[2];
 
 	if (pipe(pfd) == -1)
-	{
-		close(data->fileout);
 		ft_error(ERR_PIPE);
-	}
 	pid = fork();
 	if (pid == -1)
 	{
 		close(pfd[READ_END]);
 		close(pfd[WRITE_END]);
-		close(data->fileout);
 		ft_error(ERR_FORK);
 	}
 	if (pid == CHILD_PROCESS)
-		exec_cmd(data, cmd, envp, pfd);
+		exec_cmd(fileout, cmd, envp, pfd);
 	close(pfd[WRITE_END]);
 	dup2(pfd[READ_END], STDIN_FILENO);
 	close(pfd[READ_END]);
 }
 
-/* Creates a new child process to execute the last command */
-static void	last_cmd(t_cmd *data, char *cmd, char **envp)
+/* Creates a new child process to execute the second command */
+static void	read_end(int fileout, char *cmd, char **envp)
 {
 	char	**cmd_args;
 	int		pid;
@@ -61,26 +57,42 @@ static void	last_cmd(t_cmd *data, char *cmd, char **envp)
 	pid = fork();
 	if (pid == -1)
 	{
-		close(data->fileout);
+		close(fileout);
 		ft_error(ERR_FORK);
 	}
 	if (pid == CHILD_PROCESS)
 	{
-		dup2(data->fileout, STDOUT_FILENO);
-		close(data->fileout);
-		cmd_args = define_cmdargs(cmd, data->env_path);
+		dup2(fileout, STDOUT_FILENO);
+		close(fileout);
+		cmd_args = define_cmdargs(cmd, define_path(envp));
 		execve(cmd_args[0], cmd_args, envp);
 	}
 	waitpid(pid, NULL, 0);
 }
 
-/* Executes all the commands */
-void	run_cmd(t_cmd *data, char **argv, char **envp)
+static void	set_stdin(char **argv, int fileout)
 {
-	while (data->cmd_index < data->last_cmd)
+	int	filein;
+
+	filein = open(argv[1], O_RDONLY);
+	if (filein == -1)
 	{
-		create_process(data, argv[data->cmd_index], envp);
-		data->cmd_index++;
+		close(fileout);
+		ft_error(ERR_OPEN);
 	}
-	last_cmd(data, argv[data->cmd_index], envp);
+	dup2(filein, STDIN_FILENO);
+	close(filein);
+}
+
+void	run_cmd(char **argv, char **envp)
+{
+	int	fileout;
+	int	filein;
+
+	fileout = open(argv[4], O_CREAT | O_WRONLY | O_TRUNC, 0777);
+	if (fileout == -1)
+		ft_error(ERR_OPEN);
+	set_stdin(argv, fileout);
+	write_end(fileout, argv[2], envp);
+	read_end(fileout, argv[3], envp);
 }

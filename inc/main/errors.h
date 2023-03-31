@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:54:04 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/30 11:09:49 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/31 12:34:58 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <sys/errno.h>
 
-# define ERR_ARGS "main()"
+# define ERR_ARGS "stdin"
 # define ERR_PIPE "pipe()"
 # define ERR_FORK "fork()"
 # define ERR_MALLOC "malloc()"

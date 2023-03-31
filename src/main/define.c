@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   define_bonus.c                                     :+:      :+:    :+:   */
+/*   define.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 16:51:11 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/31 15:39:45 by hanmpark         ###   ########.fr       */
+/*   Created: 2023/03/27 12:25:57 by hanmpark          #+#    #+#             */
+/*   Updated: 2023/03/31 15:24:22 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bonus/pipex_bonus.h"
-#include "bonus/errors_bonus.h"
+#include "main/pipex.h"
+#include "main/errors.h"
 
-/* Returns the PATH variable in envp as a string */
-static char	*define_path(int fileout, char **envp)
+/* Returns the PATH in envp */
+char	*define_path(char **envp)
 {
 	int	i;
 
@@ -25,12 +25,11 @@ static char	*define_path(int fileout, char **envp)
 			return (envp[i]);
 		i++;
 	}
-	close(fileout);
 	ft_error(ERR_PATH);
 	return (0);
 }
 
-/* Looks for the command's path and returns it (if found) as a string */
+/* Look for the right path for the command and returns the path as a string */
 char	*define_cmdpath(char *cmd, char *env_path)
 {
 	char	**cmd_paths;
@@ -57,30 +56,6 @@ char	*define_cmdpath(char *cmd, char *env_path)
 	return (0);
 }
 
-/* Checks if the commands exist and stock its path data->cmd_path */
-void	check_cmd(t_cmd *data, char **argv, char **envp)
-{
-	char	**cmd_args;
-	char	*cmd_path;
-	int		i;
-
-	data->env_path = define_path(data->fileout, envp);
-	i = data->cmd_index;
-	while (i < data->last_cmd + 1)
-	{
-		cmd_args = ft_split(argv[i], ' ');
-		cmd_path = define_cmdpath(cmd_args[0], data->env_path);
-		ft_freestr_array(cmd_args);
-		if (cmd_path == NULL)
-		{
-			close(data->fileout);
-			ft_error(ERR_CMDPATH);
-		}
-		free(cmd_path);
-		i++;
-	}
-}
-
 /* Defines the cmd_args */
 char	**define_cmdargs(char *cmd, char *path)
 {
@@ -94,19 +69,24 @@ char	**define_cmdargs(char *cmd, char *path)
 	return (cmd_args);
 }
 
-/* Opens the file and returns its file descriptor */
-int	open_file(char *fileName, int mode)
+/* Checks if the commands exist and stock its path cmd_path */
+void	check_cmd(char **argv, char **envp)
 {
-	int	fd;
+	char	**cmd_args;
+	char	*cmd_path;
+	char	*env_path;
+	int		i;
 
-	fd = -1;
-	if (mode == READ)
-		fd = open(fileName, O_RDONLY);
-	else if (mode == WRITE)
-		fd = open(fileName, O_CREAT | O_WRONLY | O_TRUNC, 0777);
-	else if (mode == APPEND)
-		fd = open(fileName, O_CREAT | O_WRONLY | O_APPEND, 0777);
-	if (fd == -1)
-		ft_error(ERR_OPEN);
-	return (fd);
+	env_path = define_path(envp);
+	i = 0;
+	while (i < 2)
+	{
+		cmd_args = ft_split(argv[2 + i], ' ');
+		cmd_path = define_cmdpath(cmd_args[0], env_path);
+		ft_freestr_array(cmd_args);
+		if (cmd_path == NULL)
+			ft_error(ERR_CMDPATH);
+		free(cmd_path);
+		i++;
+	}
 }

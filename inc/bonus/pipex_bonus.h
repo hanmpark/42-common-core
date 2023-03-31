@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 11:20:46 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/31 12:28:13 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/31 15:27:56 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,18 @@
 
 typedef struct s_cmd
 {
-	int		cmdIndex;
-	int		lastCommand;
-	int		fileOut;
-	char	*envPath;
+	int		cmd_index;
+	int		last_cmd;
+	int		fileout;
+	char	*env_path;
 }	t_cmd;
 
-void	treatStdin(t_cmd *data, int argc, char **argv);
-void	checkCommand(t_cmd *data, char **argv, char **envp);
-void	runCommand(t_cmd *data, char **argv, char **envp);
+void	treat_stdin(t_cmd *data, int argc, char **argv);
+void	check_cmd(t_cmd *data, char **argv, char **envp);
+void	run_cmd(t_cmd *data, char **argv, char **envp);
 
-char	*defineCommandPath(char *cmd, char *envPath);
-int		openFile(char *fileName, int mode);
+char	*define_cmdpath(char *cmd, char *envPath);
+char	**define_cmdargs(char *cmd, char *path);
+int		open_file(char *fileName, int mode);
 
-# endif
+#endif

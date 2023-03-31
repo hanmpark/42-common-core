@@ -6,32 +6,29 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 13:37:05 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/30 11:43:06 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/03/31 15:20:14 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
 
-# include <fcntl.h>
-# include <stdio.h>
 # include <sys/wait.h>
+# include <fcntl.h>
 # include "../../libft/inc/libft.h"
 
-# define NOT_FOUND 0
-# define READ 1
-# define WRITE 2
+/* Pipe's ends */
+# define READ_END 0
+# define WRITE_END 1
 
-typedef struct s_cmd
-{
-	int		pipe[2];
-	int		nbrCommands;
-	char	*envPath;
-	char	**cmdPath;
-}	t_cmd;
+/* Process id */
+# define CHILD_PROCESS 0
 
-void	defineCommand(t_cmd *data, char **argv, char **envp);
-void	writeEnd(t_cmd *data, char **argv, char **envp);
-void	readEnd(t_cmd *data, char **argv, char **envp);
+void	run_cmd(char **argv, char **envp);
+void	check_cmd(char **argv, char **envp);
+
+char	*define_cmdpath(char *cmd, char *envPath);
+char	**define_cmdargs(char *cmd, char *path);
+char	*define_path(char **envp);
 
 #endif
