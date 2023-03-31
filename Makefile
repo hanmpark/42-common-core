@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/25 13:32:25 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/31 08:10:52 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/31 11:50:17 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,10 +32,9 @@ SRCS_MAIN = ${addprefix ${MAIN_PATH}, defineCommand.c \
 
 BONUS_PATH = ${SRC_PATH}bonus/
 SRCS_BONUS = ${addprefix ${BONUS_PATH}, pipex_bonus.c \
-										defineCommand_bonus.c \
-										execCommand_bonus.c \
-										here_doc_bonus.c \
-										utils_bonus.c}
+										define_bonus.c \
+										exec_bonus.c \
+										stdin_bonus.c}
 
 OBJS_MAIN = ${SRCS_MAIN:.c=.o}
 OBJS_BONUS = ${SRCS_BONUS:.c=.o}
@@ -84,7 +83,7 @@ bonus:
 rebonus: fclean bonus
 
 debug:
-	@${MAKE} DEBUG=1
+	@${MAKE} BONUS=1 DEBUG=1
 
 clean:
 	@echo "\n\t${BOLD}${CUR}${ORANGE}CLEANING...${DEF}\n"
