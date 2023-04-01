@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:25:57 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/31 15:24:22 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/01 13:12:31 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*define_path(char **envp)
 		i++;
 	}
 	ft_error(ERR_PATH);
-	return (0);
+	return (NULL);
 }
 
 /* Look for the right path for the command and returns the path as a string */
@@ -53,7 +53,7 @@ char	*define_cmdpath(char *cmd, char *env_path)
 		i++;
 	}
 	ft_freestr_array(cmd_paths);
-	return (0);
+	return (NULL);
 }
 
 /* Defines the cmd_args */
@@ -63,30 +63,12 @@ char	**define_cmdargs(char *cmd, char *path)
 	char	*cmd_path;
 
 	cmd_args = ft_split(cmd, ' ');
+	if (access(cmd_args[0], F_OK) == 0)
+		return (cmd_args);
 	cmd_path = define_cmdpath(cmd_args[0], path);
+	if (cmd_path == NULL)
+		return (cmd_args);
 	free(cmd_args[0]);
 	cmd_args[0] = cmd_path;
 	return (cmd_args);
-}
-
-/* Checks if the commands exist and stock its path cmd_path */
-void	check_cmd(char **argv, char **envp)
-{
-	char	**cmd_args;
-	char	*cmd_path;
-	char	*env_path;
-	int		i;
-
-	env_path = define_path(envp);
-	i = 0;
-	while (i < 2)
-	{
-		cmd_args = ft_split(argv[2 + i], ' ');
-		cmd_path = define_cmdpath(cmd_args[0], env_path);
-		ft_freestr_array(cmd_args);
-		if (cmd_path == NULL)
-			ft_error(ERR_CMDPATH);
-		free(cmd_path);
-		i++;
-	}
 }

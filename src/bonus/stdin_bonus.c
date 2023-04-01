@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 10:36:46 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/31 15:19:34 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/01 10:37:58 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,14 @@ static void	read_line(char *limiter, int *pfd)
 	char	*gnl;
 
 	close(pfd[READ_END]);
+	limiter = ft_strjoin(limiter, "\n");
 	gnl = get_next_line(0);
 	while (gnl != NULL)
 	{
-		if (!ft_strncmp(gnl, limiter, ft_strlen(gnl) - 1))
+		if (!ft_strncmp(gnl, limiter, ft_strlen(gnl)))
 		{
 			free(gnl);
+			free(limiter);
 			close(pfd[WRITE_END]);
 			exit(EXIT_SUCCESS);
 		}

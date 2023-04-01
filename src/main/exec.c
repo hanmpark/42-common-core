@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:18:06 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/31 17:57:34 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/01 13:16:01 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,15 @@ static void	exec_cmd(int fileout, char *cmd, char **envp, int *pfd)
 	char	**cmd_args;
 
 	close(pfd[READ_END]);
-	cmd_args = define_cmdargs(cmd, define_path(envp));
 	dup2(pfd[WRITE_END], STDOUT_FILENO);
 	close(pfd[WRITE_END]);
 	close(fileout);
-	execve(cmd_args[0], cmd_args, envp);
+	cmd_args = define_cmdargs(cmd, define_path(envp));
+	if (execve(cmd_args[0], cmd_args, envp) == -1)
+	{
+		ft_freestr_array(cmd_args);
+		ft_error(ERR_EXEC);
+	}
 }
 
 /* Creates a new child process to execute the sent command in it */
@@ -33,10 +37,14 @@ static void	write_end(int fileout, char *cmd, char **envp)
 	int	pfd[2];
 
 	if (pipe(pfd) == -1)
+	{
+		close(fileout);
 		ft_error(ERR_PIPE);
+	}
 	pid = fork();
 	if (pid == -1)
 	{
+		close(fileout);
 		close(pfd[READ_END]);
 		close(pfd[WRITE_END]);
 		ft_error(ERR_FORK);
@@ -65,7 +73,11 @@ static void	read_end(int fileout, char *cmd, char **envp)
 		dup2(fileout, STDOUT_FILENO);
 		close(fileout);
 		cmd_args = define_cmdargs(cmd, define_path(envp));
-		execve(cmd_args[0], cmd_args, envp);
+		if (execve(cmd_args[0], cmd_args, envp) == -1)
+		{
+			ft_freestr_array(cmd_args);
+			ft_error(ERR_EXEC);
+		}
 	}
 	waitpid(pid, NULL, 0);
 }

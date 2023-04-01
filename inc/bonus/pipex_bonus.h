@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 11:20:46 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/31 15:27:56 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/01 16:07:50 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,14 @@ typedef struct s_cmd
 	int		cmd_index;
 	int		last_cmd;
 	int		fileout;
-	char	*env_path;
 }	t_cmd;
 
 void	treat_stdin(t_cmd *data, int argc, char **argv);
-void	check_cmd(t_cmd *data, char **argv, char **envp);
 void	run_cmd(t_cmd *data, char **argv, char **envp);
 
 char	*define_cmdpath(char *cmd, char *envPath);
 char	**define_cmdargs(char *cmd, char *path);
+char	*define_path(int fileout, char **envp);
 int		open_file(char *fileName, int mode);
 
 #endif

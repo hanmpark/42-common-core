@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/25 13:32:25 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/31 13:53:37 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/04/01 16:01:17 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,7 @@ NAME = pipex
 
 all: ${NAME}
 
-${NAME}:	${OBJS}
+${NAME}: ${OBJS}
 	@echo "\n\n"
 	@${MAKE} -C ${LIBFT_PATH}
 	@${CC} ${CFLAGS} ${LIBFT_PATH}libft.a ${OBJS} -o ${NAME}

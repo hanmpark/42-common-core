@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:17:18 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/31 16:21:46 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/01 15:53:14 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,15 @@ static void	exec_cmd(t_cmd *data, char *cmd, char **envp, int *pfd)
 	char	**cmd_args;
 
 	close(pfd[READ_END]);
-	cmd_args = define_cmdargs(cmd, data->env_path);
 	dup2(pfd[WRITE_END], STDOUT_FILENO);
 	close(pfd[WRITE_END]);
 	close(data->fileout);
-	execve(cmd_args[0], cmd_args, envp);
+	cmd_args = define_cmdargs(cmd, define_path(data->fileout, envp));
+	if (execve(cmd_args[0], cmd_args, envp) == -1)
+	{
+		ft_freestr_array(cmd_args);
+		ft_error(ERR_EXEC);
+	}
 }
 
 /* Creates a new child process to execute the sent command in it */
@@ -40,9 +44,9 @@ static void	create_process(t_cmd *data, char *cmd, char **envp)
 	pid = fork();
 	if (pid == -1)
 	{
+		close(data->fileout);
 		close(pfd[READ_END]);
 		close(pfd[WRITE_END]);
-		close(data->fileout);
 		ft_error(ERR_FORK);
 	}
 	if (pid == CHILD_PROCESS)
@@ -68,8 +72,12 @@ static void	last_cmd(t_cmd *data, char *cmd, char **envp)
 	{
 		dup2(data->fileout, STDOUT_FILENO);
 		close(data->fileout);
-		cmd_args = define_cmdargs(cmd, data->env_path);
-		execve(cmd_args[0], cmd_args, envp);
+		cmd_args = define_cmdargs(cmd, define_path(data->fileout, envp));
+		if (execve(cmd_args[0], cmd_args, envp) == -1)
+		{
+			ft_freestr_array(cmd_args);
+			ft_error(ERR_EXEC);
+		}
 	}
 	waitpid(pid, NULL, 0);
 }

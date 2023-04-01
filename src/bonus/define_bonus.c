@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 16:51:11 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/31 15:39:45 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/01 15:36:42 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "bonus/errors_bonus.h"
 
 /* Returns the PATH variable in envp as a string */
-static char	*define_path(int fileout, char **envp)
+char	*define_path(int fileout, char **envp)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ static char	*define_path(int fileout, char **envp)
 	}
 	close(fileout);
 	ft_error(ERR_PATH);
-	return (0);
+	return (NULL);
 }
 
 /* Looks for the command's path and returns it (if found) as a string */
@@ -54,31 +54,7 @@ char	*define_cmdpath(char *cmd, char *env_path)
 		i++;
 	}
 	ft_freestr_array(cmd_paths);
-	return (0);
-}
-
-/* Checks if the commands exist and stock its path data->cmd_path */
-void	check_cmd(t_cmd *data, char **argv, char **envp)
-{
-	char	**cmd_args;
-	char	*cmd_path;
-	int		i;
-
-	data->env_path = define_path(data->fileout, envp);
-	i = data->cmd_index;
-	while (i < data->last_cmd + 1)
-	{
-		cmd_args = ft_split(argv[i], ' ');
-		cmd_path = define_cmdpath(cmd_args[0], data->env_path);
-		ft_freestr_array(cmd_args);
-		if (cmd_path == NULL)
-		{
-			close(data->fileout);
-			ft_error(ERR_CMDPATH);
-		}
-		free(cmd_path);
-		i++;
-	}
+	return (NULL);
 }
 
 /* Defines the cmd_args */
@@ -88,7 +64,11 @@ char	**define_cmdargs(char *cmd, char *path)
 	char	*cmd_path;
 
 	cmd_args = ft_split(cmd, ' ');
+	if (access(cmd_args[0], F_OK) == 0)
+		return (cmd_args);
 	cmd_path = define_cmdpath(cmd_args[0], path);
+	if (cmd_path == NULL)
+		return (cmd_args);
 	free(cmd_args[0]);
 	cmd_args[0] = cmd_path;
 	return (cmd_args);

@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 11:33:58 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/31 15:24:03 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/01 10:57:56 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ static void	check_infile(char *infile)
 static void	pipex(char **argv, char **envp)
 {
 	check_infile(argv[1]);
-	check_cmd(argv, envp);
 	run_cmd(argv, envp);
 }
 
