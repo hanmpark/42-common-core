@@ -6,12 +6,12 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 16:51:11 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/04/01 15:36:42 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/01 22:44:10 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bonus/pipex_bonus.h"
-#include "bonus/errors_bonus.h"
+#include "pipex_bonus.h"
+#include "errors_bonus.h"
 
 /* Returns the PATH variable in envp as a string */
 char	*define_path(int fileout, char **envp)

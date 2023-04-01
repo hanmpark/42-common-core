@@ -6,12 +6,12 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:17:18 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/04/01 15:53:14 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/01 22:44:14 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bonus/pipex_bonus.h"
-#include "bonus/errors_bonus.h"
+#include "pipex_bonus.h"
+#include "errors_bonus.h"
 
 /* Execute the sent command in the child process */
 static void	exec_cmd(t_cmd *data, char *cmd, char **envp, int *pfd)

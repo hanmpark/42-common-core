@@ -6,12 +6,12 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 10:36:46 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/04/01 10:37:58 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/01 22:44:24 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bonus/pipex_bonus.h"
-#include "bonus/errors_bonus.h"
+#include "pipex_bonus.h"
+#include "errors_bonus.h"
 
 /* Reads in the 'here_doc' */
 static void	read_line(char *limiter, int *pfd)

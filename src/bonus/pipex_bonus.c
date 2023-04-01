@@ -6,12 +6,12 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 11:19:28 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/04/01 16:07:19 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/01 22:44:20 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bonus/pipex_bonus.h"
-#include "bonus/errors_bonus.h"
+#include "pipex_bonus.h"
+#include "errors_bonus.h"
 
 /* Pipex main function */
 static void	pipex(t_cmd *data, int argc, char **argv, char **envp)

@@ -6,12 +6,12 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:18:06 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/04/01 13:16:01 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/01 22:44:34 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main/pipex.h"
-#include "main/errors.h"
+#include "pipex.h"
+#include "errors.h"
 
 /* Execute the sent command in the child process */
 static void	exec_cmd(int fileout, char *cmd, char **envp, int *pfd)

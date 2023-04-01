@@ -6,12 +6,12 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 11:33:58 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/04/01 10:57:56 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/01 22:44:40 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main/pipex.h"
-#include "main/errors.h"
+#include "pipex.h"
+#include "errors.h"
 
 /* Checks if the file exists */
 static void	check_infile(char *infile)

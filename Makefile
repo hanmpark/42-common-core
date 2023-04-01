@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/25 13:32:25 by hanmpark          #+#    #+#              #
-#    Updated: 2023/04/01 16:01:17 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/04/02 01:02:30 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,10 +39,10 @@ SRCS_BONUS = ${addprefix ${BONUS_PATH}, pipex_bonus.c \
 OBJS_MAIN = ${SRCS_MAIN:.c=.o}
 OBJS_BONUS = ${SRCS_BONUS:.c=.o}
 
-ifdef BONUS
-OBJS = ${OBJS_BONUS}
+ifdef COMPILE_BONUS
+	OBJS = ${OBJS_BONUS}
 else
-OBJS = ${OBJS_MAIN}
+	OBJS = ${OBJS_MAIN}
 endif
 
 # --------------------------------- COMPILER --------------------------------- #
@@ -50,19 +50,32 @@ endif
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 ifdef DEBUG
-CFLAGS += -fsanitize=address -g3
+	CFLAGS += -fsanitize=address -g
 endif
-HEADER_PATH = ./inc/
 
+HEADER_PATH = ./inc/main/
 SRCS_COUNT = 0
-SRCS_TOT = ${shell find ./src/ -type f -name '*.c' | wc -l}
+SRCS_TOT = ${shell find ./src/main/ -type f -name '*.c' | wc -l}
 SRCS_PRCT = ${shell expr 100 \* ${SRCS_COUNT} / ${SRCS_TOT}}
 
-%.o:%.c ${HEADER_PATH}
+${MAIN_PATH}%.o: ${MAIN_PATH}%.c ${HEADER_PATH}
 	@${eval SRCS_COUNT = ${shell expr ${SRCS_COUNT} + 1}}
 	@${CC} ${CFLAGS} -I ${HEADER_PATH} -c $< -o ${<:.c=.o}
-	@echo " ${BOLD}${CUR}${BEIGE}-> Compiling ${DEF}${BOLD}${LYELLOW}[LIBFT]${DEF}"
+	@echo " ${BOLD}${CUR}${BEIGE}-> Compiling ${DEF}${BOLD}${LYELLOW}[PIPEX]${DEF}"
 	@printf " ${BEIGE}  [%d/%d files (%d%%)]${DEF}" ${SRCS_COUNT} ${SRCS_TOT} ${SRCS_PRCT}
+	@echo "${UP}${UP}"
+
+HEADER_PATH_BONUS = ./inc/bonus/
+SRCS_TOT_BONUS = ${shell find ./src/bonus/ -type f -name '*.c' | wc -l}
+SRCS_PRCT_BONUS = ${shell expr 100 \* ${SRCS_COUNT} / ${SRCS_TOT_BONUS}}
+BAR_BONUS = ${shell expr 23 \* ${SRCS_COUNT} / ${SRCS_TOT_BONUS}}
+
+${BONUS_PATH}%.o: ${BONUS_PATH}%.c ${HEADER_PATH_BONUS}
+	@${eval SRCS_COUNT = ${shell expr ${SRCS_COUNT} + 1}}
+	@${CC} ${CFLAGS} -I ${HEADER_PATH_BONUS} -c $< -o ${<:.c=.o}
+	@echo " ${BOLD}${CUR}${BEIGE}-> Compiling ${DEF}${BOLD}${LYELLOW}[PIPEX (BONUS)]${DEF}"
+	@printf " ${BEIGE}   [%-23.${BAR_BONUS}s] [%d/%d files (%d%%)]${DEF}" "########################" ${SRCS_COUNT} ${SRCS_TOT_BONUS} ${SRCS_PRCT_BONUS}
+	@# @printf " ${BEIGE}  [%d/%d files (%d%%)]${DEF}" ${SRCS_COUNT} ${SRCS_TOT_BONUS} ${SRCS_PRCT_BONUS}
 	@echo "${UP}${UP}"
 
 # ---------------------------------- RULES ----------------------------------- #
@@ -78,12 +91,10 @@ ${NAME}: ${OBJS}
 	@echo "\n\n\n   ${BOLD}${CUR}${LYELLOW}PIPEX COMPILED ✨${DEF}\n"
 
 bonus:
-	@${MAKE} BONUS=1
-
-rebonus: fclean bonus
+	@${MAKE} COMPILE_BONUS=1 all
 
 debug:
-	@${MAKE} BONUS=1 DEBUG=1
+	@${MAKE} DEBUG=1
 
 clean:
 	@echo "\n\t${BOLD}${CUR}${ORANGE}CLEANING...${DEF}\n"
@@ -93,10 +104,11 @@ clean:
 
 fclean: clean
 	@${eval SRCS_COUNT = 0}
-	@rm -f ${LIBFT_PATH}libft.a
-	@rm -f ${NAME}
+	@rm -f ${LIBFT_PATH}libft.a ${NAME}
 	@echo "${LBLUE}${BOLD}${CUR}- Deleted libft.a ${NAME}${DEF}\n\n"
 
 re: fclean all
+
+rebonus: fclean bonus
 
 .PHONY: all clean fclean re debug bonus rebonus
