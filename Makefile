@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/25 13:32:25 by hanmpark          #+#    #+#              #
-#    Updated: 2023/04/02 13:11:34 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/04/02 15:43:52 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,13 +102,14 @@ debug:
 clean:
 	@rm -f ${OBJS_MAIN} ${OBJS_BONUS}
 	@${MAKE} -C ${LIBFT_PATH} clean
-	@echo "${LBLUE}${BOLD}${CUR}- Deleted object files${DEF}"
+	@echo "\n${ORANGE}${BOLD}\tCLEANING${DEF}"
+	@echo "${LBLUE}${BOLD}${CUR} - Deleted object files${DEF}"
 
 fclean: clean
 	@${eval SRCS_COUNT = 0}
 	@rm -f ${LIBFT_PATH}libft.a ${NAME}
-	@echo "${LBLUE}${BOLD}${CUR}- Deleted libft.a${DEF}"
-	@echo "${LBLUE}${BOLD}${CUR}- Deleted ${NAME}${DEF}"
+	@echo "${LBLUE}${BOLD}${CUR} - Deleted libft.a${DEF}"
+	@echo "${LBLUE}${BOLD}${CUR} - Deleted ${NAME}${DEF}"
 
 re: fclean all
 
