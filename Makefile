@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/25 13:32:25 by hanmpark          #+#    #+#              #
-#    Updated: 2023/04/02 15:43:52 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/04/02 15:49:39 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,7 +102,7 @@ debug:
 clean:
 	@rm -f ${OBJS_MAIN} ${OBJS_BONUS}
 	@${MAKE} -C ${LIBFT_PATH} clean
-	@echo "\n${ORANGE}${BOLD}\tCLEANING${DEF}"
+	@echo "${ORANGE}${BOLD}\tCLEANING${DEF}"
 	@echo "${LBLUE}${BOLD}${CUR} - Deleted object files${DEF}"
 
 fclean: clean
