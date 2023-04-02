@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 16:51:11 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/04/01 22:44:10 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/02 19:34:09 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	*define_cmdpath(char *cmd, char *env_path)
 		dir_path = ft_strjoin(cmd_paths[i], "/");
 		right_path = ft_strjoin(dir_path, cmd);
 		free(dir_path);
-		if (access(right_path, F_OK) == 0)
+		if (access(right_path, F_OK | X_OK) == 0)
 		{
 			ft_freestr_array(cmd_paths);
 			return (right_path);
@@ -64,7 +64,7 @@ char	**define_cmdargs(char *cmd, char *path)
 	char	*cmd_path;
 
 	cmd_args = ft_split(cmd, ' ');
-	if (access(cmd_args[0], F_OK) == 0)
+	if (access(cmd_args[0], F_OK | X_OK) == 0)
 		return (cmd_args);
 	cmd_path = define_cmdpath(cmd_args[0], path);
 	if (cmd_path == NULL)
