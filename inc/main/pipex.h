@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 13:37:05 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/04/01 16:08:42 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/03 07:30:32 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ void	run_cmd(char **argv, char **envp);
 char	*define_cmdpath(char *cmd, char *envPath);
 char	**define_cmdargs(char *cmd, char *path);
 char	*define_path(char **envp);
+void	define_stdin(char **argv, int fileout);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:25:57 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/04/02 19:27:24 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/03 07:30:26 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,25 @@ char	**define_cmdargs(char *cmd, char *path)
 	char	*cmd_path;
 
 	cmd_args = ft_split(cmd, ' ');
-	if (access(cmd_args[0], F_OK | X_OK) == 0)
-		return (cmd_args);
 	cmd_path = define_cmdpath(cmd_args[0], path);
 	if (cmd_path == NULL)
 		return (cmd_args);
 	free(cmd_args[0]);
 	cmd_args[0] = cmd_path;
 	return (cmd_args);
+}
+
+/* Defines the stdin */
+void	define_stdin(char **argv, int fileout)
+{
+	int	filein;
+
+	filein = open(argv[1], O_RDONLY);
+	if (filein == -1)
+	{
+		close(fileout);
+		ft_error(ERR_OPEN);
+	}
+	dup2(filein, STDIN_FILENO);
+	close(filein);
 }

@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 11:19:28 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/04/01 22:44:20 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/03 08:31:24 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ int	main(int argc, char **argv, char **envp)
 		ft_error(ERR_ARGS);
 	}
 	pipex(&data, argc, argv, envp);
+	system("leaks pipex");
 	return (0);
 }
