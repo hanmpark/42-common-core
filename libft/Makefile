@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 16:40:47 by hanmpark          #+#    #+#              #
-#    Updated: 2023/04/02 12:50:40 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/04/03 11:29:14 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,7 +99,7 @@ HEADER_PATH = ./inc/
 SRCS_COUNT = 0
 SRCS_TOT = ${shell find ./src/ -type f -name '*.c' | wc -l}
 SRCS_PRCT = ${shell expr 100 \* ${SRCS_COUNT} / ${SRCS_TOT}}
-BAR =  ${shell expr 23 \* ${SRCS_COUNT} / ${SRCS_TOT}}
+BAR = ${shell expr 23 \* ${SRCS_COUNT} / ${SRCS_TOT}}
 
 %.o:%.c ${HEADER_PATH}
 	@${eval SRCS_COUNT = ${shell expr ${SRCS_COUNT} + 1}}
@@ -111,17 +111,17 @@ BAR =  ${shell expr 23 \* ${SRCS_COUNT} / ${SRCS_TOT}}
 # ---------------------------------- RULES ----------------------------------- #
 NAME = libft.a
 
-all:	${NAME}
+all: ${NAME}
 
-${NAME}:	${OBJS}
+${NAME}: ${OBJS}
 	@ar rcs ${NAME} ${OBJS}
 
 clean:
 	@rm -f ${OBJS}
 
-fclean:	clean
+fclean: clean
 	@rm -f ${NAME}
 
-re:	fclean all
+re: fclean all
 
 .PHONY: all clean fclean re bonus

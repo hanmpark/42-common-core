@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/25 13:32:25 by hanmpark          #+#    #+#              #
-#    Updated: 2023/04/02 15:49:39 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/04/03 10:24:21 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRCS_BONUS = ${addprefix ${BONUS_PATH}, pipex_bonus.c \
 										exec_bonus.c \
 										stdin_bonus.c}
 
+# --------------------------------- OBJECTS ---------------------------------- #
 OBJS_MAIN = ${SRCS_MAIN:.c=.o}
 OBJS_BONUS = ${SRCS_BONUS:.c=.o}
 
@@ -47,7 +48,6 @@ else
 endif
 
 # --------------------------------- COMPILER --------------------------------- #
-
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 ifdef DEBUG
@@ -106,7 +106,6 @@ clean:
 	@echo "${LBLUE}${BOLD}${CUR} - Deleted object files${DEF}"
 
 fclean: clean
-	@${eval SRCS_COUNT = 0}
 	@rm -f ${LIBFT_PATH}libft.a ${NAME}
 	@echo "${LBLUE}${BOLD}${CUR} - Deleted libft.a${DEF}"
 	@echo "${LBLUE}${BOLD}${CUR} - Deleted ${NAME}${DEF}"
