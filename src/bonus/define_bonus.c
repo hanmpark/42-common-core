@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 16:51:11 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/04/03 08:26:29 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/03 14:13:22 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,9 @@ int	open_file(char *fileName, int mode)
 	if (mode == READ)
 		fd = open(fileName, O_RDONLY);
 	else if (mode == WRITE)
-		fd = open(fileName, O_CREAT | O_WRONLY | O_TRUNC, 0777);
+		fd = open(fileName, O_CREAT | O_WRONLY | O_TRUNC, 0644);
 	else if (mode == APPEND)
-		fd = open(fileName, O_CREAT | O_WRONLY | O_APPEND, 0777);
+		fd = open(fileName, O_CREAT | O_WRONLY | O_APPEND, 0644);
 	if (fd == -1)
 		ft_error(ERR_OPEN);
 	return (fd);

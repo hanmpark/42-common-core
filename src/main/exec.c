@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:18:06 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/04/03 08:23:25 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/03 14:44:21 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	run_cmd(char **argv, char **envp)
 {
 	int	fileout;
 
-	fileout = open(argv[4], O_CREAT | O_WRONLY | O_TRUNC, 0777);
+	fileout = open(argv[4], O_CREAT | O_WRONLY | O_TRUNC, 0644);
 	if (fileout == -1)
 		ft_error(ERR_OPEN);
 	define_stdin(argv, fileout);
