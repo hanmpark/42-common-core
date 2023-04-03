@@ -6,12 +6,12 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 09:29:38 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/21 13:35:55 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/03 10:51:14 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bonus/push_swap_bonus.h"
-#include "bonus/parsing_bonus.h"
+#include "push_swap_bonus.h"
+#include "parsing_bonus.h"
 
 static void	set_list(t_list **pile, char **int_str)
 {

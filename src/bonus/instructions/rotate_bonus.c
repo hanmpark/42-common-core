@@ -6,12 +6,12 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:49:21 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/19 13:02:46 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/03 10:51:01 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bonus/push_swap_bonus.h"
-#include "bonus/instructions_bonus.h"
+#include "push_swap_bonus.h"
+#include "instructions_bonus.h"
 
 /* Put the top list of the pile to the bottom */
 void	rot(t_list **pile)

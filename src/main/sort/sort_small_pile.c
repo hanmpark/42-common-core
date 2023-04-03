@@ -6,13 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 12:45:24 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/19 13:59:12 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/03 10:23:07 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main/push_swap.h"
-#include "main/locate.h"
-#include "main/instructions.h"
+#include "push_swap.h"
+#include "locate.h"
+#include "instructions.h"
 
 static void	leave_three_lists(t_list **pile_a, t_list **pile_b, int size)
 {

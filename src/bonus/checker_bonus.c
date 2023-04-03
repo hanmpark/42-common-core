@@ -6,13 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 08:23:25 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/21 18:41:39 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/03 10:51:25 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bonus/push_swap_bonus.h"
-#include "bonus/instructions_bonus.h"
-#include "bonus/parsing_bonus.h"
+#include "push_swap_bonus.h"
+#include "instructions_bonus.h"
+#include "parsing_bonus.h"
 
 static int	check_instruction(const char *arg, t_data *data)
 {

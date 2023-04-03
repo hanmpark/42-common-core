@@ -6,12 +6,12 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:34:20 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/19 13:03:29 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/03 10:51:05 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bonus/push_swap_bonus.h"
-#include "bonus/instructions_bonus.h"
+#include "push_swap_bonus.h"
+#include "instructions_bonus.h"
 
 /* Swaps the first two lists of a pile */
 void	swap(t_list **pile)

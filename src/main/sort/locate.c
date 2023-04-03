@@ -6,12 +6,12 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:56:05 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/19 13:57:19 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/03 10:22:45 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main/push_swap.h"
-#include "main/locate.h"
+#include "push_swap.h"
+#include "locate.h"
 
 /* Tells wether the index is in the bottom part / the upper part of the pile */
 int	half_locate(t_list **pile, int index)

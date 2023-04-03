@@ -6,13 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 17:12:52 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/19 13:57:04 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/03 10:22:53 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main/push_swap.h"
-#include "main/instructions.h"
-#include "main/locate.h"
+#include "push_swap.h"
+#include "instructions.h"
+#include "locate.h"
 
 /* Rotating or reverse_rotating until 'index' is at the top of the pile */
 void	move_index_top(t_list **pile, int index, int print)

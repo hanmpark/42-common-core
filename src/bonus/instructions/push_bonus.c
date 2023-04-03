@@ -6,12 +6,12 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:41:49 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/03/19 13:03:37 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/04/03 10:50:53 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bonus/push_swap_bonus.h"
-#include "bonus/instructions_bonus.h"
+#include "push_swap_bonus.h"
+#include "instructions_bonus.h"
 
 /* Push a list to the top of the other pile */
 void	push(t_list **from_pile, t_list **to_pile)
