@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 14:42:42 by hanmpark          #+#    #+#              #
-#    Updated: 2023/04/03 10:30:41 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/04/05 09:29:25 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,7 +83,7 @@ ${MAIN_PATH}%.o: ${MAIN_PATH}%.c ${HEADER_PATH}
 	@${eval SRCS_COUNT = ${shell expr ${SRCS_COUNT} + 1}}
 	@${CC} ${CFLAGS} -I ${HEADER_PATH} -c $< -o ${<:.c=.o}
 	@echo ""
-	@echo " ${BOLD}${CUR}${BEIGE}-> Compiling ${DEF}${BOLD}${LYELLOW}[PIPEX]${DEF}"
+	@echo " ${BOLD}${CUR}${BEIGE}-> Compiling ${DEF}${BOLD}${LYELLOW}[PUSH_SWAP]${DEF}"
 	@printf " ${BEIGE}   [${LGREEN}%-23.${BAR}s${BEIGE}] [%d/%d (%d%%)]${DEF}" "***********************" ${SRCS_COUNT} ${SRCS_TOT} ${SRCS_PRCT}
 	@echo "${UP}${UP}${UP}"
 
@@ -96,7 +96,7 @@ ${BONUS_PATH}%.o: ${BONUS_PATH}%.c ${HEADER_PATH_BONUS}
 	@${eval SRCS_COUNT = ${shell expr ${SRCS_COUNT} + 1}}
 	@${CC} ${CFLAGS} -I ${HEADER_PATH_BONUS} -c $< -o ${<:.c=.o}
 	@echo ""
-	@echo " ${BOLD}${CUR}${BEIGE}-> Compiling ${DEF}${BOLD}${LYELLOW}[PIPEX (BONUS)]${DEF}"
+	@echo " ${BOLD}${CUR}${BEIGE}-> Compiling ${DEF}${BOLD}${LYELLOW}[CHECKER]${DEF}"
 	@printf " ${BEIGE}   [${LGREEN}%-23.${BAR_BONUS}s${BEIGE}] [%d/%d (%d%%)]${DEF}" "***********************" ${SRCS_COUNT} ${SRCS_TOT_BONUS} ${SRCS_PRCT_BONUS}
 	@echo "${UP}${UP}${UP}"
 
