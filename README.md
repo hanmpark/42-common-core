@@ -32,7 +32,7 @@ The "Libft" library, once done, can then be utilized by students in their future
 | ft_atoi | converts a string representation of an integer into its corresponding integer value. |
 | ft_itoa | converts an integer into a string. |
 | ft_strmapi | applies a function to each character of a string, creating a new string with the modified characters. |
-| ft_striteri | applies a function to each character of a string, with the index of the character passed as an argument to the function |
+| ft_striteri | applies a function to each character of a string, with the index of the character passed as an argument to the function. |
 
 ### Memory manipulation
 | FUNCTIONS | DESCRIPTION |
