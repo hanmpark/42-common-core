@@ -1,6 +1,8 @@
 <h1 align="center">push_swap</h1>
 
-***push_swap*** is a simple project in which you have to sort data. You are given two empty piles: _a_ and _b_.
+![push_swap](https://github.com/hanmpark/push_swap/blob/master/push_swap.jpeg)
+
+*push_swap* is a simple project in which you have to sort data. You are given two empty piles: _a_ and _b_.
 You have top put the integers in _a_ after the parsing. Therefore with the _Push swap instructions_ you have to sort the _a_ pile using the _b_ pile.
 
 The difficulty of this project comes from the number of instruction that you'll use. You have to sort the data using as few instruction as possible. For that, you will have to look up at some already existing sorting algorithms and understand the notion of **complexity**.
@@ -36,7 +38,7 @@ Else, it should exit the program with *"Error\n"* in the error output.
 
 ### Second step: int arrays or chained lists / Push_swap instructions
 
-I personally went for chained lists as I was really scared of it when I was doing the [libft](https://github.com/Nonino42/libft).
+I personally went for chained lists as I was really scared of it when I was doing the [libft](https://github.com/hanmpark/libft).
 
 I had no difficulty coding the Push_swap instructions.
 
@@ -45,6 +47,15 @@ I had no difficulty coding the Push_swap instructions.
 I went for the **insertion sort** with some optimization.
 
 You will also need another algorithm for smaller data.
+
+***
+## Compiling
+After running `make all`, you will have to execute the program like so:
+```zsh
+./push_swap <numbers>
+```
+
+For the bonus part, run `make bonus` and it will create `./checker` that behaves similarly as the `./checker_OS`. The checker will output `KO` if the push_swap program does not sort the pile properly.
 
 ## Grading scale
 
