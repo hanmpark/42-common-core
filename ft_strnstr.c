@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 17:45:47 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/26 18:08:12 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/06/01 09:00:03 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;
 
-	if (!(*needle))
+	if (!*needle)
 		return ((char *)haystack);
 	i = 0;
-	while (i < len && (char)haystack[i])
+	while (i < len && haystack[i])
 	{
 		if (!(ft_strncmp((char *)haystack + i, (char *)needle,
 					ft_strlen(needle))))

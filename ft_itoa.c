@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 10:03:35 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/26 18:03:30 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/06/01 07:50:44 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 static int	count_len(int n)
 {
-	int		len;
-	long	nbr;
+	int			len;
+	long int	nbr;
 
 	len = 0;
-	nbr = 1;
-	if (n < 0)
+	nbr = (long int)n;
+	if (nbr < 0)
 	{
-		n *= -1;
+		nbr *= -1;
 		len++;
 	}
-	if (n == 0)
+	if (!nbr)
 		len++;
-	while (n / nbr && n != 0)
+	while (nbr)
 	{
-		nbr *= 10;
+		nbr /= 10;
 		len++;
 	}
 	return (len);
@@ -36,27 +36,26 @@ static int	count_len(int n)
 
 char	*ft_itoa(int n)
 {
-	char	*a;
-	int		i;
-	long	nbr;
+	int			nbr_len;
+	char		*str;
+	long int	nbr;
 
-	i = count_len(n);
-	nbr = n;
-	a = malloc((i + 1) * sizeof(char));
-	if (!a)
-		return (0);
+	nbr_len = count_len(n);
+	str = ft_calloc(nbr_len + 1, sizeof(char));
+	if (!str)
+		return (NULL);
+	nbr = (long int)n;
 	if (nbr < 0)
 	{
-		a[0] = '-';
+		str[0] = '-';
 		nbr *= -1;
 	}
-	a[i] = 0;
-	while (i-- > 0)
+	while (nbr_len--)
 	{
-		if (i == 0 && nbr % 10 == 0 && n < 0)
+		if (str[nbr_len] == '-')
 			break ;
-		a[i] = nbr % 10 + '0';
+		str[nbr_len] = nbr % 10 + '0';
 		nbr /= 10;
 	}
-	return (a);
+	return (str);
 }

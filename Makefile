@@ -6,57 +6,92 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 16:40:47 by hanmpark          #+#    #+#              #
-#    Updated: 2022/11/26 18:12:10 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/06/01 08:06:46 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-H_FILE = libft.h
+# ---------------------------------- COLORS ---------------------------------- #
+DEF = \033[0m
+BOLD = \033[1m
+CUR = \033[3m
+UL = \033[4m
+UP = \033[A
 
-SOURCES 	=	ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
-				ft_isdigit.c ft_isprint.c ft_memcpy.c ft_memset.c \
-				ft_strlen.c ft_memmove.c ft_strlcpy.c ft_strlcat.c \
-				ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c \
-				ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c \
-				ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c \
-				ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
-				ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
+ORANGE = \033[38;5;216m
+LBLUE = \033[38;5;153m
+LYELLOW = \033[38;5;228m
+LPURPLE = \033[38;5;189m
+LGREEN = \033[38;5;155m
 
-OBJS		= ${SOURCES:.c=.o}
+# ---------------------------- SOURCES / OBJECTS ----------------------------- #
+SRCS =	ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
+		ft_isprint.c ft_memcpy.c ft_memset.c ft_strlen.c ft_memmove.c \
+		ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c \
+		ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c \
+		ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c \
+		ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
+		ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
-BONUS 		=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
-				ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
-				ft_lstclear.c ft_lstiter.c ft_lstmap.c 
+OBJS_MAN = ${SRCS:.c=.o}
 
-BONUS_OBJS	= ${BONUS:.c=.o}
+BONUS_SRCS =	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+				ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
+				ft_lstmap.c
 
-CC 			= gcc
-CFLAGS		= -Wall -Wextra -Werror
+BONUS_OBJS = ${BONUS_SRCS:.c=.o}
 
-ifdef BONUS_OK
-OBJ			= ${OBJS} ${BONUS_OBJS}
+ifdef BONUS
+OBJS = ${OBJS_MAN} ${BONUS_OBJS}
 else
-OBJ			= ${OBJS}
+OBJS = ${OBJS_MAN}
 endif
 
-%.o:%.c		${H_FILE}
-				${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+# --------------------------------- COMPILER --------------------------------- #
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
 
-NAME		= libft.a
+ifdef DEBUG
+	CFLAGS += -fsanitize=address -g3
+endif
 
-all:		${NAME}
+HEADER = ./libft.h
+SRCS_COUNT = 0
+SRCS_TOT = ${shell find . -type f -name '*.c' | wc -l}
+SRCS_PRCT = ${shell expr 100 \* ${SRCS_COUNT} / ${SRCS_TOT}}
+BAR = ${shell expr 23 \* ${SRCS_COUNT} / ${SRCS_TOT}}
 
-${NAME}:	${OBJ}
-				ar rcs ${NAME} ${OBJ}
+%.o:%.c ${HEADER}
+	@${eval SRCS_COUNT = ${shell expr ${SRCS_COUNT} + 1}}
+	@${CC} ${CFLAGS} -I ${HEADER} -c $< -o ${<:.c=.o}
+	@echo "\n ${BOLD}${CUR}${LPURPLE}-> Compiling ${DEF}${BOLD}${LYELLOW}[LIBFT]${DEF}"
+	@printf " ${LPURPLE}   [${LGREEN}%-23.${BAR}s${LPURPLE}] [%d/%d (%d%%)]${DEF}" "***********************" ${SRCS_COUNT} ${SRCS_TOT} ${SRCS_PRCT}
+	@echo "${UP}${UP}${UP}"
 
-clean:	
-				rm -f ${OBJS} ${BONUS_OBJS}
+# ---------------------------------- RULES ----------------------------------- #
+NAME = libft.a
 
-fclean:		clean
-				rm -f ${NAME}
+all: ${NAME}
 
-re:			fclean all
+${NAME}: ${OBJS}
+	@ar rcs ${NAME} ${OBJS}
+	@echo "\n\n\n\n   ${BOLD}${CUR}${LYELLOW}PHILO COMPILED ✨${DEF}\n"
+
+debug:
+	@${MAKE} DEBUG=1
 
 bonus:
-				${MAKE} BONUS_OK=1
+	@${MAKE} BONUS=1
 
-.PHONY: all clean fclean re bonus
+clean:
+	@rm -f ${OBJS_MAN} ${BONUS_OBJS}
+	@echo "${ORANGE}${BOLD}\tCLEANING${DEF}"
+	@echo "${LBLUE}${BOLD}${CUR} - Deleted object files${DEF}"
+
+fclean: clean
+	@rm -f ${NAME}
+	@echo "${LBLUE}${BOLD}${CUR} - Deleted ${NAME}${DEF}"
+
+re: fclean
+	@${MAKE} all
+
+.PHONY: all debug clean fclean re bonus

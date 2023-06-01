@@ -6,21 +6,22 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 13:22:47 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/26 18:03:17 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/06/01 07:24:37 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*tb;
+	void	*var;
 
-	if (count > 4294967295)
+	if (count > UINT_MAX)
 		return (NULL);
-	tb = malloc(count * size);
-	if (!tb)
+	var = malloc(count * size);
+	if (!var)
 		return (NULL);
-	ft_bzero(tb, count * size);
-	return (tb);
+	ft_bzero(var, count * size);
+	return (var);
 }
