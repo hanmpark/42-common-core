@@ -1,6 +1,5 @@
 # libft
 
-## Definition
 > A library is a collection of prewritten code that provides ready-to-use functions and features. It helps programmers by offering commonly used functionalities, such as input/output operations, string manipulation, chained list manipulation, etc. By using libraries, programmers can save time and effort by reusing existing code instead of writing everything from scratch.
 
 ![Library](https://github.com/hanmpark/libft/blob/master/Library.jpeg)
