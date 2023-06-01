@@ -6,12 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:30:45 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/26 18:06:10 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/06/01 10:37:49 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Takes two parameters: pointers to the two strings to be concatenated.
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*dest;

@@ -6,12 +6,15 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 15:31:11 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/26 18:08:35 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/06/01 10:46:29 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/* Creates a new string that contains a portion of the original string
+* starting at a specified index and with a specified length.
+*/
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*dest;

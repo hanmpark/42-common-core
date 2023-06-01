@@ -6,12 +6,15 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:01:57 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/26 18:06:18 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/06/01 10:38:15 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/* Appends a null-terminated string from the source to the destination,
+* while ensuring that the destination buffer does not overflow.
+*/
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	dsize;

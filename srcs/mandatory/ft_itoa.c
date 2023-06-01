@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 10:03:35 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/06/01 07:50:44 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/06/01 10:25:27 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static int	count_len(int n)
 	return (len);
 }
 
+// Converts an integer into a string.
 char	*ft_itoa(int n)
 {
 	int			nbr_len;

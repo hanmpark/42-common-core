@@ -6,12 +6,15 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 17:45:47 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/06/01 09:00:03 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/06/01 10:45:41 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/* Searches for a substring within a given string,
+* but with a specified maximum length to search.
+*/
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;

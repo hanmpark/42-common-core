@@ -6,10 +6,11 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 08:49:46 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/06/01 07:26:25 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/06/01 10:24:38 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// Checks if a given character is a digit (0-9).
 int	ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');

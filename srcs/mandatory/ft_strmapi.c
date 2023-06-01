@@ -6,12 +6,15 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 07:41:09 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/26 18:08:01 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/06/01 10:42:26 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/* Applies a function to each character of a string,
+* creating a new string with the modified characters.
+*/
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	unsigned int	i;

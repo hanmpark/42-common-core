@@ -6,12 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 15:26:17 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/26 18:08:06 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/06/01 10:45:20 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Compares two strings up to a specified number of characters.
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned int	i;

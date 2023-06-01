@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 07:37:17 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/26 18:05:54 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/06/01 10:32:36 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ static char	*cpy_to_tab(char const *str, size_t size)
 	return (tab);
 }
 
+// Splits a string into an array of substrings based on a specified delimiter.
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;

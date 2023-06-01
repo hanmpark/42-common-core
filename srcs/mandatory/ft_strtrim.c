@@ -6,12 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 18:23:19 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/26 18:08:30 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/06/01 10:46:09 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Removes specified characters from the beginning and end of a string.
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*dest;

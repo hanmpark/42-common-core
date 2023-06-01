@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 20:09:01 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/19 20:31:31 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/06/01 10:26:21 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Deletes a single node from a linked list.
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (lst && del)

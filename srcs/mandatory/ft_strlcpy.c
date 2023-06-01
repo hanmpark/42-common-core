@@ -6,12 +6,15 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 11:25:40 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/26 18:06:28 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/06/01 10:38:37 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/* Copies a null-terminated string from the source to the destination,
+* while ensuring that the destination buffer does not overflow.
+*/
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;

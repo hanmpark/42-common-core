@@ -6,12 +6,15 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 13:00:07 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/06/01 07:21:19 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/06/01 10:19:52 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/* Converts a string representation of an integer into its corresponding
+* integer value.
+*/
 int	ft_atoi(const char *str)
 {
 	int	negative;

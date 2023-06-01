@@ -6,12 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 13:06:04 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/06/01 08:19:04 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/06/01 10:27:30 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Creates a new linked list node.
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*lst;

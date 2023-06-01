@@ -6,12 +6,13 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 15:07:05 by hanmpark          #+#    #+#             */
-/*   Updated: 2022/11/12 15:12:15 by hanmpark         ###   ########.fr       */
+/*   Updated: 2023/06/01 10:33:11 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Duplicates a null-terminated string.
 char	*ft_strdup(const char *source)
 {
 	int		i;
