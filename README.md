@@ -3,7 +3,7 @@
 ## Definition
 > A library is a collection of prewritten code that provides ready-to-use functions and features. It helps programmers by offering commonly used functionalities, such as input/output operations, string manipulation, chained list manipulation, etc. By using libraries, programmers can save time and effort by reusing existing code instead of writing everything from scratch.
 
-![Library](https://github.com/Nonino42/libft/blob/master/Library.jpeg)
+![Library](https://github.com/hanmpark/libft/blob/master/Library.jpeg)
 
 ## Project
 The purpose of the project is to create a library of essential functions that can be used in subsequent projects throughout the course. The name "Libft" stands for "Library Functions," and the project requires students to implement their own versions of various standard C library functions.
