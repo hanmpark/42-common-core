@@ -6,26 +6,26 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:23:44 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/14 00:58:26 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 23:56:57 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GAME_BONUS_H
 # define GAME_BONUS_H
 
-# include "../../libft/inc/libft.h"
-# include "../../libft/inc/ft_printf.h"
-# include "../../minilibx-mac/mlx.h"
+# include "libft.h"
+# include "ft_printf.h"
+# include "mlx.h"
 
 # define ERR_MLX "Error\nMLX problem\n"
 
-# define GREEN "\033[32m"
-# define RED "\033[31m"
-# define DEF "\033[0m"
+# define GREEN 	"\033[32m"
+# define RED 	"\033[31m"
+# define DEF 	"\033[0m"
 
-# define GAME_ON 0
-# define GAME_OVER 1
-# define GAME_SUCCESS 2
+# define GAME_ON 		0
+# define GAME_OVER 		1
+# define GAME_SUCCESS 	2
 
 typedef struct s_pos
 {
@@ -33,7 +33,7 @@ typedef struct s_pos
 	int	y;
 }	t_pos;
 
-typedef struct s_img
+typedef struct s_sprites
 {
 	t_list	*left;
 	t_list	*right;
@@ -54,7 +54,7 @@ typedef struct s_img
 	void	*border[3];
 	int		height;
 	int		width;
-}	t_img;
+}	t_sprites;
 
 typedef struct s_content
 {
@@ -89,21 +89,21 @@ typedef struct s_enemy
 
 typedef struct s_data
 {
-	char	**map;
-	t_cnt	map_content;
-	t_pos	size;
-	t_pos	player;
-	t_pos	move_pl_px;
-	int		exit;
-	int		count_moves;
-	void	*mlx;
-	void	*win;
-	t_img	img;
-	t_hook	hook;
-	t_enemy	*enemy;
-	int		game_state;
-	int		move_enemy;
-	int		frames;
+	char		**map;
+	t_cnt		map_content;
+	t_pos		size;
+	t_pos		player;
+	t_pos		move_pl_px;
+	int			exit;
+	int			count_moves;
+	void		*mlx;
+	void		*win;
+	t_sprites	img;
+	t_hook		hook;
+	t_enemy		*enemy;
+	int			game_state;
+	int			move_enemy;
+	int			frames;
 }	t_data;
 
 /* GAME INITIALIZING FUNCTIONS */
@@ -112,10 +112,13 @@ void	data_init(t_data *game);
 void	assign_textures(t_data *game);
 
 /* RENDERING FUNCTIONS */
-int		render(t_data *game);
-void	print_img(t_data *game, void *img, int x, int y);
-void	print_img_mob(t_data *g, int enemy_number);
-int		update(t_data *game);
+int				render(t_data *game);
+void			print_img(t_data *game, void *img, int x, int y);
+void			print_img_mob(t_data *g, int enemy_number);
+int				update(t_data *game);
+void			put_img_to_img(t_img dst, t_img src, int x, int y);
+unsigned int	get_pixel(t_img img, int x, int y);
+void			put_pixel(t_img img, int x, int y, unsigned int color);
 
 /* CHECKING GAME STATE FUNCTIONS */
 int		check_path(t_data *game, int x, int y);

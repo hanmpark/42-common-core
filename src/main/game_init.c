@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 17:28:52 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/04/03 16:12:30 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 20:47:10 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ void	game_init(t_data *game)
 	game->count_moves = 0;
 	new_window(game, 64 * game->size.x, 64 * game->size.y);
 	mlx_hook(game->win, 17, 0, &game_close, game);
-	mlx_hook(game->win, KEYPRESS, 0, &key_pressed, game);
+	mlx_hook(game->win, KEYPRESS, 1L << 0, &key_pressed, game);
 	mlx_loop(game->mlx);
 }

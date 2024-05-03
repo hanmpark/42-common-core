@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 19:56:22 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/04/03 16:07:37 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 21:30:43 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 void	print_img(t_data *game, void *img, int x, int y)
 {
+	int	img_widht;
+	int	img_height;
+	int	*img_data;
+
+	img_data = mlx_get_data_addr(img, &img_width,)
 	mlx_put_image_to_window(game->mlx, game->win, img, \
 		64 * x + game->move_pl_px.x, 64 * y + game->move_pl_px.y);
 }

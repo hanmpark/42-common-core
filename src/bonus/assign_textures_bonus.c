@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 09:14:22 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/04/03 16:06:28 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 23:56:49 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static t_list	*load_sprites(char *path, char times, t_data *game)
 
 static void	assign_sprites(t_data *game)
 {
-	t_img	*img;
+	t_sprites	*img;
 
 	img = &game->img;
 	img->down = load_sprites("./img/player/dir/down/down0.xpm", '4', game);

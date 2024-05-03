@@ -6,31 +6,41 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 11:05:46 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/09/14 00:58:32 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 21:24:16 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GAME_H
 # define GAME_H
 
-# include "../../libft/inc/libft.h"
-# include "../../libft/inc/ft_printf.h"
-# include "../../minilibx-mac/mlx.h"
+# include "libft.h"
+# include "ft_printf.h"
+# include "mlx.h"
 
 # define ERR_MLX "Error\nMLX problem\n"
 
-# define KEYPRESS 2
-# define KEYRELEASE 3
-# define KEY_ESC 53
-# define KEY_L 0
-# define KEY_D 1
-# define KEY_R 2
-# define KEY_U 13
-# define KEY_SPACE 49
+# ifdef __APPLE__
+#  define KEY_ESC		53
+#  define KEY_L			0
+#  define KEY_D			1
+#  define KEY_R			2
+#  define KEY_U			13
+#  define KEY_SPACE		49
+# elif defined __unix__
+#  define KEY_ESC		65307
+#  define KEY_L			97
+#  define KEY_D			115
+#  define KEY_R			100
+#  define KEY_U			119
+#  define KEY_SPACE		32
+# endif
 
-# define GREEN "\033[32m"
-# define RED "\033[31m"
-# define DEF "\033[0m"
+# define KEYPRESS	2
+# define KEYRELEASE	3
+
+# define GREEN	"\033[32m"
+# define RED	"\033[31m"
+# define DEF	"\033[0m"
 
 # define GAME_ON 0
 # define GAME_OVER 1
@@ -42,7 +52,7 @@ typedef struct s_pos
 	int	y;
 }	t_pos;
 
-typedef struct s_img
+typedef struct s_sprites
 {
 	void	*player;
 	void	*collectible;
@@ -51,7 +61,7 @@ typedef struct s_img
 	void	*wall;
 	int		height;
 	int		width;
-}	t_img;
+}	t_sprites;
 
 typedef struct s_cnt
 {
@@ -69,7 +79,7 @@ typedef struct s_data
 	t_cnt	map_content;
 	t_pos	size;
 	t_pos	player;
-	t_img	img;
+	t_sprites	img;
 	int		exit;
 	int		count_moves;
 }	t_data;

@@ -6,17 +6,17 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 08:46:00 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/04/05 09:23:32 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 19:06:41 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSING_BONUS_H
 # define PARSING_BONUS_H
 
-# include "../../libft/inc/get_next_line.h"
+# include "get_next_line.h"
 
-# define MAP_OKAY 1
-# define MAP_ERROR 0
+# define MAP_OKAY	1
+# define MAP_ERROR	0
 
 # define ERR_MALLOC "Error\nMalloc failed\n"
 # define ERR_FORMAT "Error\nFormat error\n"

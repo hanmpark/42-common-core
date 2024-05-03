@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 17:28:52 by hanmpark          #+#    #+#             */
-/*   Updated: 2023/04/03 16:06:50 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/03 21:01:16 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ void	game_init(t_data *game)
 	assign_textures(game);
 	data_init(game);
 	new_window(game, 832, 704);
-	mlx_hook(game->win, 17, 0, &game_close, game);
-	mlx_hook(game->win, KEYPRESS, 0, &key_pressed, game);
-	mlx_hook(game->win, KEYRELEASE, 0, &key_released, game);
+	mlx_hook(game->win, 17, 1L << 0, &game_close, game);
+	mlx_hook(game->win, KEYPRESS, 1L << 0, &key_pressed, game);
+	mlx_hook(game->win, KEYRELEASE, 1L << 1, &key_released, game);
 	mlx_loop_hook(game->mlx, &update, game);
 	mlx_loop(game->mlx);
 }
