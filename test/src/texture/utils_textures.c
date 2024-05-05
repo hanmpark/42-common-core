@@ -1,0 +1,82 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_textures.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/05 15:48:29 by hanmpark          #+#    #+#             */
+/*   Updated: 2024/05/05 23:05:47 by hanmpark         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "game.h"
+
+t_sprite	*newsprite(t_game *game, char *path)
+{
+	t_sprite	*sprite;
+
+	sprite = malloc(sizeof(t_sprite));
+	if (!sprite)
+		return (NULL);
+	sprite->img.ptr = mlx_xpm_file_to_image(game->mlx, path, \
+		&sprite->img.width, &sprite->img.height);
+	sprite->next = NULL;
+	return (sprite);
+}
+
+t_sprite	*lastsprite(t_sprite *sprite)
+{
+	if (!sprite)
+		return (NULL);
+	while (sprite->next)
+		sprite = sprite->next;
+	return (sprite);
+}
+
+void	addsprite(t_sprite **sprite, t_sprite *new)
+{
+	t_sprite	*last;
+
+	if (!sprite || !new)
+		return ;
+	if (!*sprite)
+	{
+		*sprite = new;
+		return ;
+	}
+	last = lastsprite(*sprite);
+	last->next = new;
+}
+
+t_sprite	*load_sprites(char *path, char c, t_game *game)
+{
+	t_sprite	*sprite;
+	char		*pathdup;
+	char		number;
+	int			index;
+
+	pathdup = ft_strdup(path);
+	sprite = newsprite(game, pathdup);
+	number = '1';
+	index = 0;
+	while (pathdup && pathdup[index] != '0')
+		index++;
+	while (number < c)
+	{
+		pathdup[index] = number;
+		addsprite(&sprite, newsprite(game, pathdup));
+		number++;
+	}
+	free(pathdup);
+	return (sprite);
+}
+
+t_img	get_img(void *mlx_ptr, char *path, int *width, int *height)
+{
+	t_img	img;
+
+	img.ptr = mlx_xpm_file_to_image(mlx_ptr, path, width, height);
+	img.addr = mlx_get_data_addr(img.ptr, &img.bpp, &img.line_len, &img.endian);
+	return (img);
+}
