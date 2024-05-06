@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 01:51:00 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/05/05 23:38:54 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/06 09:33:19 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ bool	map_init(char const *file, t_game *game)
 	game->map = ft_calloc(game->size.y + 1, sizeof(char *));
 	if (!game->map)
 		return (send_error(NULL, NULL, ERR_MALLOC));
-	return (set_map(file, game) && check_map(game->map, game));
+	return (set_map(file, game) && check_map(game->map, game) \
+		&& mob_init(game));
 }

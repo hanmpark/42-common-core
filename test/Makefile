@@ -22,8 +22,13 @@ DEPS		:= ${addprefix ${HEADER_DIR}/,	game.h \
 SRC_DIR	:= ./src
 SRC		:=	${addprefix ${SRC_DIR}/,	main.c \
 										error.c} \
+			${addprefix ${SRC_DIR}/animation/,	update.c \
+												move_enemy.c \
+												move_player.c \
+												animation.c} \
 			${addprefix ${SRC_DIR}/game/,	game_init.c \
-											hooks.c} \
+											hooks.c \
+											game_check.c} \
 			${addprefix ${SRC_DIR}/parsing/,	check_map.c \
 												flood_fill.c \
 												map_init.c \
@@ -32,7 +37,8 @@ SRC		:=	${addprefix ${SRC_DIR}/,	main.c \
 												clear_textures.c \
 												utils_textures.c} \
 			${addprefix ${SRC_DIR}/render/,	render.c \
-											image_buffer.c}
+											image_buffer.c \
+											render_map.c}
 
 # --------------------------------- OBJECTS ---------------------------------- #
 OBJS	:= ${SRC:.c=.o}

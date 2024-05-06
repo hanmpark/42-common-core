@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 01:32:35 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/05/05 23:08:16 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/06 13:19:15 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,19 @@
 # define GAME_H
 
 # include <stdbool.h>
+# include <sys/time.h>
 
 # include "libft.h"
 # include "ft_printf.h"
 # include "mlx.h"
 
+# define GREEN	"\033[0;32m"
+# define RED	"\033[0;31m"
+# define DEF	"\033[0m"
+
 # define ERR_MLX "Error: mlx failed to initialize\n"
+
+# define FPS 60
 
 typedef enum e_state
 {
@@ -129,24 +136,42 @@ typedef struct s_game
 	int			frames;
 	int			move_enemy;
 	t_state		state;
+	long long	current_time;
+	long long	last_time;
 }	t_game;
 
 bool	send_error(char **map, void *data, char *str);
 bool	game_init(t_game *game);
 
-void	put_image_to_buffer(t_game *game, t_img *buffer, t_img img, int x, int y);
+void	put_image_to_buffer(t_img *buffer, t_img img, int x, int y);
+
+int		check_path(t_game *game, int x, int y);
+void	check_game(t_game *game, t_pos pl, t_mob *mob);
+void	move_dir(int x, int y, t_game *game);
 
 // Textures
 t_sprite	*newsprite(t_game *game, char *path);
 t_sprite	*lastsprite(t_sprite *sprite);
 void		addsprite(t_sprite **sprite, t_sprite *new);
 t_sprite	*load_sprites(char *path, char c, t_game *game);
-t_img		get_img(void *mlx_ptr, char *path, int *width, int *height);
+t_img		get_img(void *mlx_ptr, char *path);
 
 void		assign_textures(t_game *game);
 void		clear_textures(t_game *g);
 
 int			render(t_game *game);
+void		render_map(t_game *game, t_img *buffer, t_pos pl);
+
+// Animation
+long long	get_time(void);
+int			update(t_game *game);
+
+void		anim_enemy(t_game *game);
+void		anim_player(t_game *game);
+void		anim_collectible(t_game *game);
+
+void		move_enemy(t_game *game);
+void		move_player(t_game *game);
 
 // Hooks
 int			key_pressed(int key, t_game *game);

@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 02:06:00 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/05/05 23:44:38 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/06 14:00:40 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ static bool	check_case(char c, int x, int y, t_game *game)
 	else if (c == 'C')
 		game->content.collectible++;
 	else if (c == 'E')
-		set_pos_and_increment(&game->content.exit_pos, x, y, &game->content.exit);
+		set_pos_and_increment(&game->content.exit_pos, x, y, \
+			&game->content.exit);
 	else if (c == 'M')
 		game->content.count_mob++;
 	else if (c != '1' && c != '0')

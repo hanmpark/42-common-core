@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 02:51:09 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/05/05 23:45:32 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/06 11:15:38 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ static void	data_init(t_game *game)
 	game->move_enemy = STILL_ENEMY;
 	game->state = GAME_ON;
 	game->textures.current_exit = game->textures.exit[0];
+	game->last_time = get_time();
 }
 
 bool	game_init(t_game *game)
@@ -48,9 +49,10 @@ bool	game_init(t_game *game)
 	assign_textures(game);
 	data_init(game);
 	new_window(game, 832, 704);
-	mlx_hook(game->win, KEYPRESS, KEY_MASK, &game_close, game);
-	mlx_hook(game->win, KEYRELEASE, KEY_MASK, &key_released, game);
-	// mlx_loop_hook(game->mlx, &update, game);
+	mlx_hook(game->win, 17, 0, &game_close, game);
+	mlx_hook(game->win, KEYPRESS, KEYPRESS_MASK, &key_pressed, game);
+	mlx_hook(game->win, KEYRELEASE, KEYRELEASE_MASK, &key_released, game);
+	mlx_loop_hook(game->mlx, &update, game);
 	mlx_loop(game->mlx);
 	return (true);
 }

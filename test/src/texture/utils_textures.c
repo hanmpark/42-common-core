@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 15:48:29 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/05/05 23:05:47 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/06 08:44:02 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ t_sprite	*newsprite(t_game *game, char *path)
 	sprite = malloc(sizeof(t_sprite));
 	if (!sprite)
 		return (NULL);
-	sprite->img.ptr = mlx_xpm_file_to_image(game->mlx, path, \
-		&sprite->img.width, &sprite->img.height);
+	sprite->img = get_img(game->mlx, path);
 	sprite->next = NULL;
 	return (sprite);
 }
@@ -72,11 +71,11 @@ t_sprite	*load_sprites(char *path, char c, t_game *game)
 	return (sprite);
 }
 
-t_img	get_img(void *mlx_ptr, char *path, int *width, int *height)
+t_img	get_img(void *mlx_ptr, char *path)
 {
 	t_img	img;
 
-	img.ptr = mlx_xpm_file_to_image(mlx_ptr, path, width, height);
+	img.ptr = mlx_xpm_file_to_image(mlx_ptr, path, &img.width, &img.height);
 	img.addr = mlx_get_data_addr(img.ptr, &img.bpp, &img.line_len, &img.endian);
 	return (img);
 }
