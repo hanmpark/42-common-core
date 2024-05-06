@@ -6,13 +6,20 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 01:51:00 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/05/06 09:33:19 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/06 23:41:07 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 #include "parsing.h"
 
+/**
+ * @brief Sets the game map from a file.
+ *
+ * @param file The file to read the map from.
+ * @param game Pointer to the game structure.
+ * @return Returns true on success, false on error.
+ */
 static bool	set_map(char const *file, t_game *game)
 {
 	char	*tmp;
@@ -36,6 +43,13 @@ static bool	set_map(char const *file, t_game *game)
 	return (true);
 }
 
+/**
+ * @brief Initializes the game map.
+ *
+ * @param file The file to read the map from.
+ * @param game Pointer to the game structure.
+ * @return Returns true on success, false on error.
+ */
 bool	map_init(char const *file, t_game *game)
 {
 	char	*line;

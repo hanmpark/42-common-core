@@ -6,19 +6,32 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 11:44:38 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/05/06 12:13:08 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/06 23:39:44 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
-int	check_path(t_game *game, int x, int y)
+/**
+ * @brief Checks if a path is valid.
+ *
+ * @param game Pointer to the game structure.
+ * @param x X-coordinate of the path.
+ * @param y Y-coordinate of the path.
+ * @return Returns true if the path is valid, false otherwise.
+ */
+bool	is_valid_path(t_game *game, int x, int y)
 {
-	if (game->map[y][x] == '1')
-		return (0);
-	return (1);
+	return (game->map[y][x] != '1');
 }
 
+/**
+ * @brief Checks the game state.
+ *
+ * @param game Pointer to the game structure.
+ * @param pl Player position.
+ * @param mob Pointer to the mob structure.
+ */
 void	check_game(t_game *game, t_pos pl, t_mob *mob)
 {
 	int	len;
@@ -39,6 +52,13 @@ void	check_game(t_game *game, t_pos pl, t_mob *mob)
 	}
 }
 
+/**
+ * @brief Checks a map case.
+ *
+ * @param x X-coordinate of the case.
+ * @param y Y-coordinate of the case.
+ * @param game Pointer to the game structure.
+ */
 static void	check_case(int x, int y, t_game *game)
 {
 	static int	collectible = 0;
@@ -63,6 +83,13 @@ static void	check_case(int x, int y, t_game *game)
 	}
 }
 
+/**
+ * @brief Moves the player in a direction.
+ *
+ * @param x X-coordinate of the direction.
+ * @param y Y-coordinate of the direction.
+ * @param game Pointer to the game structure.
+ */
 void	move_dir(int x, int y, t_game *game)
 {
 	game->count_moves++;

@@ -6,18 +6,21 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 02:39:24 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/05/05 23:10:27 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/06 23:40:36 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 #include "parsing.h"
 
-bool	is_valid_path(t_game *game, int x, int y)
-{
-	return (game->map[y][x] != '1');
-}
-
+/**
+ * @brief Sets enemy data.
+ *
+ * @param x X-coordinate of the enemy.
+ * @param y Y-coordinate of the enemy.
+ * @param game Pointer to the game structure.
+ * @return Returns the set enemy data.
+ */
 static t_mob	enemy_data_set(int x, int y, t_game *game)
 {
 	t_mob	mobs;
@@ -34,6 +37,12 @@ static t_mob	enemy_data_set(int x, int y, t_game *game)
 	return (mobs);
 }
 
+/**
+ * @brief Initializes the mobs.
+ *
+ * @param game Pointer to the game structure.
+ * @return Returns true on success, false on error.
+ */
 bool	mob_init(t_game *game)
 {
 	int	index;

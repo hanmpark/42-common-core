@@ -6,13 +6,20 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 02:06:00 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/05/06 14:00:40 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/06 23:37:10 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 #include "parsing.h"
 
+/**
+ * @brief Checks the edges of the map.
+ *
+ * @param map The game map.
+ * @param game Pointer to the game structure.
+ * @return Returns true if the edges are valid, false otherwise.
+ */
 static bool	check_edges(char **map, t_game *game)
 {
 	int	i;
@@ -28,6 +35,14 @@ static bool	check_edges(char **map, t_game *game)
 	return (true);
 }
 
+/**
+ * @brief Sets a position and increments a counter.
+ *
+ * @param pos Pointer to the position to set.
+ * @param x X-coordinate of the position.
+ * @param y Y-coordinate of the position.
+ * @param inc Pointer to the counter to increment.
+ */
 static void	set_pos_and_increment(t_pos *pos, int x, int y, int *inc)
 {
 	pos->x = x;
@@ -35,6 +50,15 @@ static void	set_pos_and_increment(t_pos *pos, int x, int y, int *inc)
 	(*inc)++;
 }
 
+/**
+ * @brief Checks a map case.
+ *
+ * @param c Character representing the case.
+ * @param x X-coordinate of the case.
+ * @param y Y-coordinate of the case.
+ * @param game Pointer to the game structure.
+ * @return Returns true if the case is valid, false otherwise.
+ */
 static bool	check_case(char c, int x, int y, t_game *game)
 {
 	if (c == 'P' && !game->content.is_player)
@@ -53,6 +77,13 @@ static bool	check_case(char c, int x, int y, t_game *game)
 	return (true);
 }
 
+/**
+ * @brief Checks the content of the map.
+ *
+ * @param map The game map.
+ * @param game Pointer to the game structure.
+ * @return Returns true if the content is valid, false otherwise.
+ */
 static bool	check_content(char **map, t_game *game)
 {
 	int	y;
@@ -74,6 +105,13 @@ static bool	check_content(char **map, t_game *game)
 	return (true);
 }
 
+/**
+ * @brief Checks the map.
+ *
+ * @param map The game map.
+ * @param game Pointer to the game structure.
+ * @return Returns true if the map is valid, false otherwise.
+ */
 bool	check_map(char **map, t_game *game)
 {
 	char	*tmp;

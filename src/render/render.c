@@ -6,13 +6,20 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 19:40:36 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/05/06 23:19:24 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/06 23:33:44 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 #include "render.h"
 
+/**
+ * @brief Renders the move count.
+ *
+ * @param game Pointer to the game structure.
+ * @param buffer Pointer to the image buffer.
+ * @param number The number of moves.
+ */
 static void	render_moves_count(t_game *game, t_img *buffer, int number)
 {
 	int	i;
@@ -28,6 +35,13 @@ static void	render_moves_count(t_game *game, t_img *buffer, int number)
 	}
 }
 
+/**
+ * @brief Renders a mob.
+ *
+ * @param g Pointer to the game structure.
+ * @param buffer Pointer to the image buffer.
+ * @param enemy_number The number of enemies.
+ */
 static void	render_mob(t_game *g, t_img *buffer, int enemy_number)
 {
 	int		number;
@@ -45,6 +59,12 @@ static void	render_mob(t_game *g, t_img *buffer, int enemy_number)
 	}
 }
 
+/**
+ * @brief Creates a new image buffer.
+ *
+ * @param game Pointer to the game structure.
+ * @return Returns the created image buffer.
+ */
 static t_img	create_buffer(t_game *game)
 {
 	t_img	buffer;
@@ -57,6 +77,12 @@ static t_img	create_buffer(t_game *game)
 	return (buffer);
 }
 
+/**
+ * @brief Renders the game.
+ *
+ * @param game Pointer to the game structure.
+ * @return Always returns 0.
+ */
 int	render(t_game *game)
 {
 	t_pos	pl;

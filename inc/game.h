@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 01:32:35 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/05/06 23:20:33 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/06 23:40:28 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ typedef struct s_game
 bool	send_error(char **map, void *data, char *str);
 bool	game_init(t_game *game);
 
-int		check_path(t_game *game, int x, int y);
+bool	is_valid_path(t_game *game, int x, int y);
 void	check_game(t_game *game, t_pos pl, t_mob *mob);
 void	move_dir(int x, int y, t_game *game);
 

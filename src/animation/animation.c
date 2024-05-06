@@ -6,12 +6,17 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 11:27:28 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/05/06 20:36:13 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/06 23:47:51 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
+/**
+ * @brief Animates the player based on the FPS.
+ *
+ * @param game Pointer to the game structure.
+ */
 void	anim_player(t_game *game)
 {
 	if ((game->hook.anim.left || game->hook.anim.right || \
@@ -22,6 +27,11 @@ void	anim_player(t_game *game)
 		game->textures.current = game->textures.current_back;
 }
 
+/**
+ * @brief Animates the enemy based on the FPS.
+ *
+ * @param game Pointer to the game structure.
+ */
 void	anim_enemy(t_game *game)
 {
 	if (!(game->frames % 4))
@@ -32,6 +42,11 @@ void	anim_enemy(t_game *game)
 		game->move_enemy = 1;
 }
 
+/**
+ * @brief Animates the collectible items based on the FPS.
+ *
+ * @param game Pointer to the game structure.
+ */
 void	anim_collectible(t_game *game)
 {
 	if (!(game->frames % 5))

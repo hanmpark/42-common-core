@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 02:51:09 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/05/06 23:18:48 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/06 23:43:32 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,24 @@
 #include "render.h"
 #include "textures.h"
 
+/**
+ * @brief Creates a new window and renders the game.
+ *
+ * @param game Pointer to the game structure.
+ * @param x Width of the window.
+ * @param y Height of the window.
+ */
 static void	new_window(t_game *game, int x, int y)
 {
 	game->win = mlx_new_window(game->mlx, x, y, "so_long");
 	render(game);
 }
 
+/**
+ * @brief Initializes the game data.
+ *
+ * @param game Pointer to the game structure.
+ */
 static void	data_init(t_game *game)
 {
 	game->move_pl_px.x = 0;
@@ -43,6 +55,12 @@ static void	data_init(t_game *game)
 	game->last_time = get_time();
 }
 
+/**
+ * @brief Initializes the game.
+ *
+ * @param game Pointer to the game structure.
+ * @return Returns true on success, false on error.
+ */
 bool	game_init(t_game *game)
 {
 	game->mlx = mlx_init();

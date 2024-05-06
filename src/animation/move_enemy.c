@@ -6,12 +6,19 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 11:40:07 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/05/06 11:41:32 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/06 23:48:54 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
+/**
+ * @brief Sets the enemy letter on the game map based on the direction.
+ *
+ * @param dir The direction of the enemy.
+ * @param en Pointer to the enemy structure.
+ * @param game Pointer to the game structure.
+ */
 static void	set_enemy_letter(int dir, t_mob *en, t_game *game)
 {
 	if (game->map[en->pos.y][en->pos.x] == 'T' || \
@@ -37,6 +44,14 @@ static void	set_enemy_letter(int dir, t_mob *en, t_game *game)
 	}
 }
 
+/**
+ * @brief Moves the enemy by a certain number of pixels.
+ *
+ * @param en Pointer to the enemy structure.
+ * @param game Pointer to the game structure.
+ * @param pixel The number of pixels to move the enemy.
+ * @param dir The direction to move the enemy.
+ */
 static void	move_enemy_px(t_mob *en, t_game *game, int pixel, int dir)
 {
 	en->move_px += pixel;
@@ -48,19 +63,24 @@ static void	move_enemy_px(t_mob *en, t_game *game, int pixel, int dir)
 		{
 			set_enemy_letter(LEFT, en, game);
 			en->pos.x -= 1;
-			if (!check_path(game, en->pos.x - 1, en->pos.y))
+			if (!is_valid_path(game, en->pos.x - 1, en->pos.y))
 				en->dir = RIGHT;
 		}
 		else if (dir == RIGHT)
 		{
 			set_enemy_letter(RIGHT, en, game);
 			en->pos.x += 1;
-			if (!check_path(game, en->pos.x + 1, en->pos.y))
+			if (!is_valid_path(game, en->pos.x + 1, en->pos.y))
 				en->dir = LEFT;
 		}
 	}
 }
 
+/**
+ * @brief Moves the enemies based on their current directions.
+ *
+ * @param game Pointer to the game structure.
+ */
 void	move_enemy(t_game *game)
 {
 	t_mob	*en;

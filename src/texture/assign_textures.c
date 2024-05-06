@@ -6,13 +6,18 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 02:55:13 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/05/06 23:19:07 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/06 23:33:00 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 #include "textures.h"
 
+/**
+ * @brief Assigns sprite textures.
+ *
+ * @param game Pointer to the game structure.
+ */
 static void	assign_sprites_textures(t_game *game)
 {
 	t_texture	*txt;
@@ -31,6 +36,11 @@ static void	assign_sprites_textures(t_game *game)
 	txt->collectible_back = game->textures.collectible;
 }
 
+/**
+ * @brief Assigns environment textures.
+ *
+ * @param game Pointer to the game structure.
+ */
 static void	assign_environment_textures(t_game *game)
 {
 	t_texture	*txt;
@@ -47,6 +57,11 @@ static void	assign_environment_textures(t_game *game)
 	txt->border[2] = get_img(game->mlx, "./img/border/border_lvl.xpm");
 }
 
+/**
+ * @brief Assigns number textures.
+ *
+ * @param game Pointer to the game structure.
+ */
 static void	assign_numbers_textures(t_game *game)
 {
 	t_texture	*txt;
@@ -64,6 +79,11 @@ static void	assign_numbers_textures(t_game *game)
 	txt->number[9] = get_img(game->mlx, "./img/numbers/9.xpm");
 }
 
+/**
+ * @brief Assigns all textures.
+ *
+ * @param game Pointer to the game structure.
+ */
 void	assign_textures(t_game *game)
 {
 	assign_sprites_textures(game);
