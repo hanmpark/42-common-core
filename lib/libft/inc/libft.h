@@ -6,7 +6,7 @@
 /*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:29:04 by hanmpark          #+#    #+#             */
-/*   Updated: 2024/05/03 23:55:12 by hanmpark         ###   ########.fr       */
+/*   Updated: 2024/05/06 23:25:49 by hanmpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}	t_list;
 
 /* IS SOMETHING */
 int		ft_isalpha(int c);
@@ -69,16 +63,8 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
-/* CHAINED LISTS MANIPULATION */
-t_list	*ft_lstnew(void *content);
-void	ft_lstadd_front(t_list **lst, t_list *new);
-int		ft_lstsize(t_list *lst);
-t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-
 /* FILE/MAP MANIPULATION */
 int		ft_filelen(const char *file);
 char	**ft_mapdup(char **map);
-void	ft_error(char **map, void *data, char *str);
 
 #endif
