@@ -13,7 +13,7 @@
 
 - [📚 Table of Contents](#-table-of-contents)
 - [📣 Introduction](#-introduction)
-- [📦 Installation](#-installation)
+- [📦 Deploying](#-deploying)
 - [📝 Usage](#-usage)
 - [🎮 Features](#-features)
 - [📎 References](#-references)
