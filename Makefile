@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
+#    By: hanmpark <hanmpark@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 14:42:42 by hanmpark          #+#    #+#              #
-#    Updated: 2023/04/05 09:29:25 by hanmpark         ###   ########.fr        #
+#    Updated: 2025/01/15 14:32:03 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,7 +110,7 @@ all: ${NAME}
 ${NAME}: ${OBJS_MAIN}
 	@echo "\n\n\n"
 	@${MAKE} -C ${LIBFT_PATH}
-	@${CC} ${CFLAGS} ${LIBFT_PATH}libft.a ${OBJS_MAIN} -o ${NAME}
+	@${CC} ${CFLAGS} -I ${HEADER_PATH} ${OBJS_MAIN} ${LIBFT_PATH}libft.a -o ${NAME}
 	@echo "\n\n\n   ${BOLD}${CUR}${LYELLOW}PUSH_SWAP COMPILED ✨${DEF}\n"
 
 bonus: ${CHECKER_NAME}
