@@ -35,13 +35,13 @@ Badges are from [ayogun/42-project-badges](https://github.com/ayogun/42-project-
 | **ft_printf**    | ![ft_printf](https://github.com/hanmpark/42-project-badges/blob/main/badges/ft_printfm.png)    | 125/100 |
 | **push_swap**    | ![push_swap](https://github.com/hanmpark/42-project-badges/blob/main/badges/push_swapm.png)    | 125/100 |
 | **pipex**        | ![pipex](https://github.com/hanmpark/42-project-badges/blob/main/badges/pipexm.png)            | 125/100 |
-| **so_long**      | ![so_long](https://github.com/hanmpark/42-project-badges/blob/main/badges/so_longn.png)        | 125/100 |
-| **philosophers** | ![philosophers](https://github.com/hanmpark/42-project-badges/blob/main/badges/philosophersn.png) | 125/100 |
-| **minishell**    | ![minishell](https://github.com/hanmpark/42-project-badges/blob/main/badges/minishelln.png)    | 125/100 |
+| **so_long**      | ![so_long](https://github.com/hanmpark/42-project-badges/blob/main/badges/so_longm.png)        | 125/100 |
+| **philosophers** | ![philosophers](https://github.com/hanmpark/42-project-badges/blob/main/badges/philosophersm.png) | 125/100 |
+| **minishell**    | ![minishell](https://github.com/hanmpark/42-project-badges/blob/main/badges/minishellm.png)    | 125/100 |
 | **miniRT**       | ![miniRT](https://github.com/hanmpark/42-project-badges/blob/main/badges/minirtn.png)          | 120/100 |
 | **cpp_modules**  | ![cpp_modules](https://github.com/hanmpark/42-project-badges/blob/main/badges/cppn.png)| 100/100 |
-| **ft_irc**       | ![ft_irc](https://github.com/hanmpark/42-project-badges/blob/main/badges/ft_ircn.png)          | 125/100 |
-| **ft_transcendence** | ![ft_transcendence](https://github.com/hanmpark/42-project-badges/blob/main/badges/ft_transcendencen.png) | 125/100 |
+| **ft_irc**       | ![ft_irc](https://github.com/hanmpark/42-project-badges/blob/main/badges/ft_ircm.png)          | 125/100 |
+| **ft_transcendence** | ![ft_transcendence](https://github.com/hanmpark/42-project-badges/blob/main/badges/ft_transcendencem.png) | 125/100 |
 
 ---
 
