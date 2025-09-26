@@ -1,0 +1,17 @@
+"""
+Constants
+"""
+WS_URL = 'wss://{}:{}/ws/match'
+
+PADDLE_WIDTH = 10
+PADDLE_HEIGHT = 120
+PADDLE_SPEED = 5
+PADDLE_MOVE_RATE = 0.015 # Should be the same as the backend
+
+COURT_WIDTH = 1200
+COURT_HEIGHT = 750
+
+BALL_RADIUS = 25 / 2
+
+LEFT_SIDE_PADDLE_X = 10
+RIGHT_SIDE_PADDLE_X = COURT_WIDTH - LEFT_SIDE_PADDLE_X

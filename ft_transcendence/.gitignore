@@ -1,0 +1,13 @@
+.env
+.idea/
+venv/
+data/
+db.sqlite3
+__pycache__/
+.DS_Store
+.vscode/
+certs/*.crt
+certs/*.key
+data_certs/
+data_exports/
+data_postgres/

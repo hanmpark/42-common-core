@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pongbot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pongbot
+  template:
+    metadata:
+      labels:
+        app: pongbot
+    spec:
+      runtimeClassName: kata
+      containers:
+        - name: pongbot
+          image: registry.propel.sh/transcendence/pongbot:latest
+          envFrom:
+            - configMapRef:
+                name: app-config
+          resources:
+            limits:
+              cpu: "1"
+              memory: "1Gi"
+            requests:
+              cpu: "0.5"
+              memory: "512Mi"
+          volumeMounts:
+            - name: certs-volume
+              mountPath: /certs
+      volumes:
+        - name: certs-volume
+          secret:
+            secretName: certs
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pongbot
+spec:
+  selector:
+    app: pongbot
+  ports:
+    - port: 5443

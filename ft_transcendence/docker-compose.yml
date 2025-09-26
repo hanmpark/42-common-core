@@ -1,0 +1,88 @@
+services:
+  postgres:
+    image: postgres
+    restart: always
+    env_file: .env
+    volumes:
+      - data_postgres:/var/lib/postgresql/data
+    networks:
+      - transcendence
+    ports:
+      - "5432:5432"
+
+  certs:
+    build: ./certs
+    restart: on-failure
+    env_file: .env
+    volumes:
+      - ./data_certs:/certs
+    networks:
+      - transcendence
+
+  frontend:
+    build: ./frontend
+    restart: always
+    env_file: .env
+    depends_on:
+      - certs
+    ports:
+      - "8888:443"
+      - "8000:80"
+    networks:
+      - transcendence
+    volumes:
+      - ./data_certs:/certs
+
+  backend:
+    build: ./backend
+    restart: always
+    env_file: .env
+    depends_on:
+      - postgres
+      - certs
+    networks:
+      - transcendence
+    volumes:
+      - ./data_exports:/exports
+      - ./data_certs:/certs
+
+  harvester:
+    build: ./harvester
+    restart: always
+    env_file: .env
+    depends_on:
+      - postgres
+    volumes:
+      - ./data_exports:/exports
+    networks:
+      - transcendence
+
+  statcruncher:
+    build: ./statcruncher
+    restart: always
+    env_file: .env
+    depends_on:
+      - postgres
+      - certs
+    networks:
+      - transcendence
+    volumes:
+      - ./data_certs:/certs
+
+  pongbot:
+    build: ./pongbot
+    restart: always
+    env_file: .env
+    depends_on:
+      - certs
+    networks:
+      - transcendence
+    volumes:
+      - ./data_certs:/certs
+
+networks:
+  transcendence:
+    driver: bridge
+
+volumes:
+  data_postgres:
