@@ -1,0 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/29 10:54:27 by hanmpark          #+#    #+#             */
+/*   Updated: 2024/05/03 02:32:01 by hanmpark         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef DOG_HPP
+# define DOG_HPP
+
+# include "Animal.hpp"
+
+class Dog : public Animal {
+public:
+	Dog();
+	Dog(Dog const &copy);
+	virtual ~Dog();
+	Dog	&operator=(Dog const &rhs);
+
+	void	makeSound() const;
+};
+
+#endif
