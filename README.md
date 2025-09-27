@@ -6,18 +6,18 @@ Each project lives in its own folder, with its full Git history preserved via `g
 
 ## 📂 Projects
 
-- [`libft/`](./libft) — C utility library (strings, lists, memory)
-- [`get_next_line/`](./get_next_line) — Read a file descriptor line-by-line
-- [`ft_printf/`](./ft_printf) — Reimplementation of `printf`
-- [`push_swap/`](./push_swap) — Stack-based sorting with constrained ops
-- [`pipex/`](./pipex) — UNIX pipelines & process management
-- [`so_long/`](./so_long) — 2D game using MiniLibX
-- [`philosophers/`](./philosophers) — Dining philosophers (threads/mutexes)
-- [`minishell/`](./minishell) — A small shell (parsing, env, pipes, redirects)
-- [`miniRT/`](./miniRT) — Minimal raytracer (vectors, cameras, lights)
-- [`cpp_modules/`](./cpp_modules) — C++00–09: OOP basics, canon form, exceptions, templates
-- [`ft_irc/`](./ft_irc) — RFC-style IRC server (C++98, sockets, epoll/poll)
-- [`ft_transcendence/`](./ft_transcendence) — Final web project (Javascript, React, Django, etc.)
+- [`libft/`](./libft) — C utility library (strings, lists, memory) *(solo)*
+- [`get_next_line/`](./get_next_line) — Read a file descriptor line-by-line *(solo)*
+- [`ft_printf/`](./ft_printf) — Reimplementation of `printf` *(solo)*
+- [`push_swap/`](./push_swap) — Stack-based sorting with constrained ops *(solo)*
+- [`pipex/`](./pipex) — UNIX pipelines & process management *(solo)*
+- [`so_long/`](./so_long) — 2D game using MiniLibX *(solo)*
+- [`philosophers/`](./philosophers) — Dining philosophers (threads/mutexes) *(solo)*
+- [`minishell/`](./minishell) — A small shell (parsing, env, pipes, redirects) *(group project, with @Kariyu42)*
+- [`miniRT/`](./miniRT) — Minimal raytracer (vectors, cameras, lights) *(group project, with @YounesBouhlel)*
+- [`cpp_modules/`](./cpp_modules) — C++00–09: OOP basics, canon form, exceptions, templates *(solo)*
+- [`ft_irc/`](./ft_irc) — RFC-style IRC server (C++98, sockets, epoll/poll) *(group project, with @Kariyu42)*
+- [`ft_transcendence/`](./ft_transcendence) — Final web project (Javascript, React, Django, etc.) *(group project, with @Kariyu42, @okbrandon, @evnsh)*
 
 ---
 
@@ -90,3 +90,15 @@ The Common Core spans C/C++, UNIX, algorithms, graphics (MiniLibX), and web.
 ## ⚠️ Disclaimer
 This repository is shared for educational and portfolio purposes only.
 Unless otherwise stated, the code is not licensed for reuse.
+
+---
+
+## 📑 Repository Meta
+
+This monorepo also contains some project-management files:
+
+- [`.github/CODEOWNERS`](./.github/CODEOWNERS) — defines ownership of each project folder (including group projects).
+- [`CONTRIBUTING.md`](./CONTRIBUTING.md) — explains contribution guidelines (this repo is portfolio-only, no external PRs).
+- [`.github/SECURITY.md`](./.github/SECURITY.md) — clarifies that these projects are for educational purposes and not maintained for production.
+
+These files are mainly here to keep the repository structured and professional.
