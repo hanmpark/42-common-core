@@ -1,17 +1,29 @@
-# libft
+<div align="center">
+    <img src="https://github.com/hanmpark/42-project-badges/blob/main/badges/libftm.png"/>
+</div>
 
-> A library is a collection of prewritten code that provides ready-to-use functions and features. It helps programmers by offering commonly used functionalities, such as input/output operations, string manipulation, chained list manipulation, etc. By using libraries, programmers can save time and effort by reusing existing code instead of writing everything from scratch.
+<h1 align="center">Libft</h1>
 
-![Library](https://github.com/hanmpark/libft/blob/master/Library.jpeg)
+<p align="center">
+    <b><i>This project involves coding a C library that will include numerous general purpose functions for your programs.</i></b>
+</p></br>
 
-## Project
-The purpose of the project is to create a library of essential functions that can be used in subsequent projects throughout the course. The name "Libft" stands for "Library Functions," and the project requires students to implement their own versions of various standard C library functions.
+<div align="center">
+    <img alt="Repository created at" src="https://img.shields.io/github/created-at/hanmpark/libft"/>
+    <img alt="Repository code size" src="https://img.shields.io/github/languages/code-size/hanmpark/libft"/>
+    <img alt="Mostly used language" src="https://img.shields.io/github/languages/top/hanmpark/libft"/>
+</div>
 
-The "Libft" library, once done, can then be utilized by students in their future projects, reducing the reliance on built-in library functions and enabling them to further develop their programming skills. It encourages students to think critically about the functionality of the standard library functions and helps them gain a deeper understanding of how these functions are implemented.
+## 📖 Description
 
-***
-## Functions
-### Char manipulation
+> Libft is the first project of the 42 Common Core.
+> The goal is to create a personal C library that reimplements essential functions of the standard C library, as well as additional utility functions (string manipulation, memory handling, linked lists, etc.).
+>
+> This library will serve as a foundation for future projects, helping to reduce reliance on built-in functions and strengthening understanding of how they work internally.
+
+## 🛠️ Features
+
+### 🔤 Character and String Manipulation
 | FUNCTIONS | DESCRIPTION |
 | :-: | --- |
 | ft_strlen | calculates the length of a null-terminated string. |
@@ -33,7 +45,7 @@ The "Libft" library, once done, can then be utilized by students in their future
 | ft_strmapi | applies a function to each character of a string, creating a new string with the modified characters. |
 | ft_striteri | applies a function to each character of a string, with the index of the character passed as an argument to the function. |
 
-### Memory manipulation
+### 💾 Memory Manipulation
 | FUNCTIONS | DESCRIPTION |
 | :-: | --- |
 | ft_bzero | sets a specified block of memory to zero by writing null bytes. |
@@ -44,7 +56,7 @@ The "Libft" library, once done, can then be utilized by students in their future
 | ft_memcmp | compares two memory blocks up to a specified number of bytes. |
 | ft_calloc | allocates a block of memory for an array and initializes all the bytes to zero. |
 
-### Output to a filedescriptor
+### 🖊️ File Descriptor Output
 | FUNCTIONS | DESCRIPTION |
 | :-: | --- |
 | ft_putchar_fd | writes a character to a specified file descriptor. |
@@ -52,7 +64,7 @@ The "Libft" library, once done, can then be utilized by students in their future
 | ft_putendl_fd | writes a string followed by a newline character to a specified file descriptor. |
 | ft_putnbr_fd | writes an integer value to a specified file descriptor. |
 
-### Is something
+### 🔎 Character Checks
 | FUNCTIONS | DESCRIPTION |
 | :-: | --- |
 | ft_isalpha | checks whether a given character is an alphabetic character. It determines if the character is either an uppercase letter (A-Z) or a lowercase letter (a-z). |
@@ -61,7 +73,7 @@ The "Libft" library, once done, can then be utilized by students in their future
 | ft_isascii | checks whether a given character is a valid ASCII character. |
 | ft_isprint | checks if a given character is a printable character. |
 
-### Chained list manipulation
+### 🔗 Linked List Functions
 | FUNCTIONS | DESCRIPTION |
 | :-: | --- |
 | ft_lstnew | creates a new linked list node. |
@@ -73,3 +85,27 @@ The "Libft" library, once done, can then be utilized by students in their future
 | ft_lstclear | deletes and frees all the nodes in a linked list. |
 | ft_lstiter | applies a function to each element of a linked list. |
 | ft_lstmap | applies a function to each element of a linked list and creates a new list with the modified elements. |
+
+---
+
+## 📦 Installation
+Clone the repository and compile the library.
+```bash
+git clone https://github.com/hanmpark/libft.git
+cd libft
+make
+```
+This will create `libft.a`, which you can link to your projects.
+
+---
+
+## 🚀 Usage
+To use `libft` in your project:
+```bash
+gcc main.c -L. -lft -I. -o my_program
+```
+
+---
+
+## 👤 Authors
+- [hanmpark](https://github.com/hanmpark)
