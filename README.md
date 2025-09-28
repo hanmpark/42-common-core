@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://github.com/hanmpark/42-project-badges/blob/main/covers/cover-libft-bonus.png"/>
+    <img src="https://github.com/hanmpark/42-project-badges/blob/main/badges/libftm.png"/>
 </div>
 
 <p align="center">
