@@ -1,16 +1,18 @@
-# Global owner (default)
-* @hanmpark
+# Global owner
+*       @hanmpark
 
-# Individual projects
-libft/            @hanmpark
-get_next_line/    @hanmpark
-ft_printf/        @hanmpark
-push_swap/        @hanmpark
-pipex/            @hanmpark
-so_long/          @hanmpark
-philosophers/     @hanmpark
-minishell/        @hanmpark @Kariyu42
-miniRT/           @hanmpark @YounesBouhlel
-cpp_modules/      @hanmpark
-ft_irc/           @hanmpark
-ft_transcendence/ @hanmpark @Kariyu42 @okbrandon @evnsh
+# Group projects
+/minishell/        @hanmpark @Kariyu42
+/ft_irc/           @hanmpark @Kariyu42
+/ft_transcendence/ @hanmpark @Kariyu42 @okbrandon @evnsh
+/miniRT/           @hanmpark @YounesBouhlel
+
+# Solo projects
+/libft/            @hanmpark
+/get_next_line/    @hanmpark
+/ft_printf/        @hanmpark
+/push_swap/        @hanmpark
+/pipex/            @hanmpark
+/so_long/          @hanmpark
+/philosophers/     @hanmpark
+/cpp_modules/      @hanmpark
