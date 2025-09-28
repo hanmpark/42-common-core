@@ -2,6 +2,8 @@
     <img src="https://github.com/hanmpark/42-project-badges/blob/main/badges/libftm.png"/>
 </div>
 
+<h1 align="center">Libft</h1>
+
 <p align="center">
     <b><i>This project involves coding a C library that will include numerous general purpose functions for your programs.</i></b>
 </p></br>
