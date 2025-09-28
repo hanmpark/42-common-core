@@ -13,11 +13,11 @@ Each project lives in its own folder, with its full Git history preserved via `g
 - [`pipex/`](./pipex) — UNIX pipelines & process management *(solo)*
 - [`so_long/`](./so_long) — 2D game using MiniLibX *(solo)*
 - [`philosophers/`](./philosophers) — Dining philosophers (threads/mutexes) *(solo)*
-- [`minishell/`](./minishell) — A small shell (parsing, env, pipes, redirects) *(group project, with @Kariyu42)*
-- [`miniRT/`](./miniRT) — Minimal raytracer (vectors, cameras, lights) *(group project, with @YounesBouhlel)*
+- [`minishell/`](./minishell) — A small shell (parsing, env, pipes, redirects) *(group project, with [@Kariyu42](https://github.com/Kariyu42))*
+- [`miniRT/`](./miniRT) — Minimal raytracer (vectors, cameras, lights) *(group project, with [@YounesBouhlel](https://github.com/YounesBouhlel))*
 - [`cpp_modules/`](./cpp_modules) — C++00–09: OOP basics, canon form, exceptions, templates *(solo)*
-- [`ft_irc/`](./ft_irc) — RFC-style IRC server (C++98, sockets, epoll/poll) *(group project, with @Kariyu42)*
-- [`ft_transcendence/`](./ft_transcendence) — Final web project (Javascript, React, Django, etc.) *(group project, with @Kariyu42, @okbrandon, @evnsh)*
+- [`ft_irc/`](./ft_irc) — RFC-style IRC server (C++98, sockets, epoll/poll) *(group project, with [@Kariyu42](https://github.com/Kariyu42))*
+- [`ft_transcendence/`](./ft_transcendence) — Final web project (Javascript, React, Django, etc.) *(group project, with [@Kariyu42](https://github.com/Kariyu42), [@okbrandon](https://github.com/okbrandon), [@evnsh](https://github.com/evnsh))*
 
 ---
 
