@@ -1,6 +1,29 @@
-# 42 Common Core Projects
-This repository gathers all of my [42](https://42nice.fr/en/homepage/) Common Core projects in a single place.
-Each project lives in its own folder, with its full Git history preserved via `git subtree`.
+<div align="center">
+    <img src="https://github.com/hanmpark/42-project-badges/blob/main/badges/common_coren.png"/>
+</div>
+
+<h1 align="center">42 Common Core Projects</h1>
+
+<p align="center">
+    <b><i>All my 42 Common Core projects gathered in a single monorepo with preserved commit history.</i></b>
+</p></br>
+
+<div align="center">
+    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/hanmpark/42-common-core"/>
+    <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/hanmpark/42-common-core"/>
+    <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/hanmpark/42-common-core"/>
+</div>
+
+## 📖 Description
+> This repository centralizes all my 42 Common Core projects, each preserved as a subtree with its original Git history.
+>
+> The projects cover:
+> - "**C fundamentals (`libft`, `get_next_line`, `ft_printf`)**"
+> - "**Algorithms & optimization (`push_swap`, `philosophers`)**"
+> - "**UNIX & processes (`pipex`, `minishell`, `ft_irc`)**"
+> - "**Graphics (`so_long`, `miniRT`)**"
+> - "**C++ OOP (`cpp_modules`)**"
+> - "**Full-stack web (`ft_transcendence`)**"
 
 ---
 
@@ -21,7 +44,7 @@ Each project lives in its own folder, with its full Git history preserved via `g
 
 ---
 
-# 🧮 42 Project Scores
+# 🧮 Project Scores
 
 This file tracks my results for each 42 Common Core project.
 Badges are from [ayogun/42-project-badges](https://github.com/ayogun/42-project-badges).
@@ -45,20 +68,25 @@ Badges are from [ayogun/42-project-badges](https://github.com/ayogun/42-project-
 
 ---
 
-## 🛠️ How this repo works
+## 🛠️ Repository Management
 
-- Each project was imported as a **subtree**, preserving its commit history.
-- To update all projects from their original repositories:
-  ```bash
-  make update
-  ```
-- to update a single project:
-  ```bash
-  make one NAME=<remote>
-  # e.g.
-  make one NAME=minishell
-  ```
-> Tip: run `make remotes` to see configured remotes, and `make ensure-remotes` once on a fresh clone.
+- Projects imported as **subtrees**, preserving commit history.
+- Update all projects:
+```bash
+make update
+```
+- Update a single project:
+```bash
+make one NAME=<project>
+```
+- List remotes:
+```bash
+make remotes
+```
+- Ensure remotes are set (on fresh clone):
+```bash
+make ensure-remotes
+```
 
 ---
 
@@ -93,12 +121,9 @@ Unless otherwise stated, the code is not licensed for reuse.
 
 ---
 
-## 📑 Repository Meta
-
-This monorepo also contains some project-management files:
-
-- [`.github/CODEOWNERS`](./.github/CODEOWNERS) — defines ownership of each project folder (including group projects).
-- [`CONTRIBUTING.md`](./CONTRIBUTING.md) — explains contribution guidelines (this repo is portfolio-only, no external PRs).
-- [`.github/SECURITY.md`](./.github/SECURITY.md) — clarifies that these projects are for educational purposes and not maintained for production.
-
-These files are mainly here to keep the repository structured and professional.
+## 👤 Authors
+- [hanmpark](https://github.com/hanmpark)
+- [Kariyu42](https://github.com/Kariyu42) - minishell, ft_irc, ft_transcendence
+- [YounesBouhlel](https://github.com/YounesBouhlel) - miniRT
+- [okbrandon](https://github.com/okbrandon) - ft_transcendence
+- [evnsh](https://github.com/evnsh) - ft_transcendence
