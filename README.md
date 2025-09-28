@@ -8,11 +8,11 @@
 
 <div align="center">
     <img alt="Repository created at" src="https://img.shields.io/github/created-at/hanmpark/libft
-    ">
+    "/>
     <img alt="Repository code size" src="https://img.shields.io/github/languages/code-size/hanmpark/libft
-    ">
+    "/>
     <img alt="Mostly used language" src="https://img.shields.io/github/languages/top/hanmpark/libft
-    ">
+    "/>
 </div>
 
 ## 📖 Description
